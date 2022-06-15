@@ -39,6 +39,26 @@ const BlogIndex = ({ data, location }) => {
                 itemType="http://schema.org/Article"
               >
                 <header>
+                  {/* tags */}
+                  {post.frontmatter.tags && (
+                    <div
+                      className="post-tags"
+                      style={{
+                        display: "flex",
+                        gap: ".5rem",
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      {post.frontmatter.tags.map(tag => (
+                        <Link to={`/tags/${tag}`}>
+                          <button key={tag}>
+                            {tag}
+                          </button>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
@@ -72,10 +92,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 1000
-    )  {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
       nodes {
         excerpt
         fields {
@@ -85,6 +102,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          tags
         }
       }
     }

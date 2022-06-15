@@ -317,6 +317,7 @@ a:focus {
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+  background-color: blue;
 }
 
 /* Media queries */

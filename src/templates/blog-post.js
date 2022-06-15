@@ -23,12 +23,28 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
+        {post.frontmatter.tags && (
+          <div
+            className="post-tags"
+            style={{
+              display: "flex",
+              gap: ".5rem",
+              marginBottom: "1rem",
+            }}
+          >
+            {post.frontmatter.tags.map(tag => (
+              <Link to={`/tags/${tag}`}>
+                <button key={tag}>{tag}</button>
+              </Link>
+            ))}
+          </div>
+        )}
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
 
-         <MDXRenderer>{post.body}</MDXRenderer>
+        <MDXRenderer>{post.body}</MDXRenderer>
 
         <hr />
         <footer>
@@ -86,6 +102,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
