@@ -8,8 +8,14 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@fontsource/roboto": "^4.5.7",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.4",
+    "charter-webfont": "^4.1.0",
     "gatsby": "^4.16.0",
     "gatsby-plugin-feed": "^4.16.0",
     "gatsby-plugin-gatsby-cloud": "^4.16.0",
