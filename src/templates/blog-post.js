@@ -40,7 +40,7 @@ const shortcodes = {
         lineHeight: "28px",
         letterSpacing: "0",
         mt: "3.14em",
-        mb: -2,
+        // mb: -2,
         "@media (max-width: 900px)": {
           fontSize: "20px !important",
         },
@@ -55,7 +55,7 @@ const shortcodes = {
         fontSize: "20px !important",
         letterSpacing: "0",
         mt: "2.37em",
-        mb: -2,
+        // mb: -2,
         fontWeight: "700",
         "@media (max-width: 900px)": {
           fontSize: "18px !important",
@@ -141,7 +141,7 @@ const BlogPostTemplate = ({ data, location }) => {
             }}
           >
             {post.frontmatter.tags.map(tag => (
-              <Link to={`/tags/${tag}`}>
+              <Link to={`/tag/${tag}`}>
                 <button key={tag}>{tag}</button>
               </Link>
             ))}

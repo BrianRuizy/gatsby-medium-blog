@@ -2,22 +2,10 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "Gatsby develop",
-        "type": "pwa-node",
+        "name": "Gatsby dev",
+        "type": "node-terminal",
         "request": "launch",
-        "program": "${workspaceRoot}/node_modules/.bin/gatsby",
-        "args": ["develop"],
-        "runtimeArgs": ["--nolazy"],
-        "console": "integratedTerminal"
+        "command": "nvm use 18; gatsby develop"
       },
-      {
-        "name": "Gatsby build",
-        "type": "pwa-node",
-        "request": "launch",
-        "program": "${workspaceRoot}/node_modules/.bin/gatsby",
-        "args": ["build"],
-        "runtimeArgs": ["--nolazy"],
-        "console": "integratedTerminal"
-      }
     ]
   }

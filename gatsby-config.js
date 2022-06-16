@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `MDX Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Brian Ruiz`,
+      summary: `who lives and works in Houston, TX building useful things.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
