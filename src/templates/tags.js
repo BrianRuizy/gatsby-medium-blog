@@ -58,8 +58,7 @@ const Tags = ({ pageContext, data }) => {
         }}
       >
         <Typography variant="body1">{tagHeader}</Typography>
-        <MuiLink href='/' component={Link} to="/tags" sx={{fontFamily: 'Roboto'}}>All Tags</MuiLink>
-
+        <MuiLink href='/' underline="hover" component={Link} to="/tags" sx={{fontFamily: 'Roboto'}}>All Tags</MuiLink>
       </Box>
 
       <Grid container sx={{ gap: 4, mt: '32px'}}>
@@ -109,15 +108,16 @@ const Tags = ({ pageContext, data }) => {
                          variant="h2"
                          gutterBottom
                          sx={{
-                           fontWeight: "700",
-                           letterSpacing: "-0.016em",
-                           lineHeight: "28px",
-                           fontSize: "24px",
-                           "@media (max-width: 600px)": {
-                             marginBottom: "0.35em",
-                             lineHeight: "24px",
-                           },
-                         }}
+                          fontWeight: "700",
+                          letterSpacing: "-0.016em",
+                          lineHeight: "28px",
+                          fontSize: "24px !important",
+                          "@media (max-width: 600px)": {
+                            marginBottom: "0.35em",
+                            lineHeight: "24px",
+                            fontSize: "18px !important",
+                          },
+                        }}
                        >
                          {title}
                        </Typography>
