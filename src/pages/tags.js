@@ -1,13 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link, graphql } from "gatsby"
 
 // Utilities
 import kebabCase from "lodash/kebabCase"
 
 // Components
-// import { Helmet } from "react-helmet"
-import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+import IconButton from "@mui/material/IconButton"
+import LocalOfferIcon from "@mui/icons-material/LocalOffer"
 
 const TagsPage = ({
   data: {
@@ -17,9 +20,23 @@ const TagsPage = ({
     },
   },
 }) => (
-  <Layout location={title} title={title}>
-    <h1>Tags</h1>
-    <ul style={{paddingLeft: '1rem'}}>
+  <Layout
+    location={"All Tags"}
+    title={
+      <>
+        <IconButton
+          size="small"
+          sx={{ background: "#f1f1f1", color: "text.primary", mr: 1 }}
+        >
+          <LocalOfferIcon fontSize="small" />
+        </IconButton>
+        {"All Tags"}
+      </>
+    }
+  >
+    <SEO title={'All Tags'} />
+
+    <ul style={{ paddingLeft: "1rem" }}>
       {group.map(tag => (
         <li key={tag.fieldValue}>
           <Link to={`/tag/${kebabCase(tag.fieldValue)}/`}>

@@ -2,9 +2,13 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Bio from "../components/bio"
+import kebabCase from "lodash/kebabCase"
+
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+
+import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
 
 import Box from "@mui/material/Box"
 import Chip from "@mui/material/Chip"
@@ -13,16 +17,28 @@ import Grid from "@mui/material/Grid"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
+function LinkTab(props) {
+  return (
+    <Tab
+      disableRipple
+      component={Link}
+      onChange={<Link to="/myPath"></Link>}
+      sx={{
+        "&.Mui-selected": { color: "text.primary" },
+      }}
+      {...props}
+    />
+  )
+}
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
-  // let featuredImgFluid = posts.frontmatter.featuredImage.childImageSharp.fluid
 
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -35,7 +51,28 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <Bio />
+      <Box
+        sx={{
+          width: "100%",
+          borderBottom: 1,
+          borderColor: "divider",
+          mb: "32px",
+        }}
+      >
+        <Tabs
+          value={0}
+          aria-label="nav tabs example"
+          sx={{
+            "& .MuiTabs-indicator": {
+              backgroundColor: "text.primary",
+              height: "1px",
+            },
+          }}
+        >
+          <LinkTab label="Home" to="/" />
+          <LinkTab label="About" to="/about" active />
+        </Tabs>
+      </Box>
 
       <Grid container sx={{ gap: 4 }}>
         {posts.map(post => {
@@ -43,7 +80,7 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <>
-              <article style={{width: "100%"}}>
+              <article style={{ width: "100%" }}>
                 <Grid
                   item
                   xs={12}
@@ -81,7 +118,7 @@ const BlogIndex = ({ data, location }) => {
                         }}
                       >
                         <Typography
-                          variant="h1"
+                          variant="h2"
                           gutterBottom
                           sx={{
                             fontWeight: "700",
@@ -94,7 +131,7 @@ const BlogIndex = ({ data, location }) => {
                             },
                           }}
                         >
-                          {post.frontmatter.title}
+                          {title}
                         </Typography>
                         <Typography
                           variant="body1"
@@ -109,22 +146,26 @@ const BlogIndex = ({ data, location }) => {
                           {post.frontmatter.description || post.excerpt}
                         </Typography>
                       </Box>
-                      
-                      <Box sx={{display: 'flex', gap: 2, alignItems: "center"}}>
+                      <Box
+                        sx={{ display: "flex", gap: 2, alignItems: "center" }}
+                      >
                         {post.frontmatter.tags && (
-                          <Stack direction="row" spacing={1} alignItems="center">
+                          <Stack
+                            direction="row"
+                            spacing={1}
+                            alignItems="center"
+                          >
                             {post.frontmatter.tags.map(tag => (
                               <Chip
-                                component={Link}
                                 label={tag}
                                 size="small"
-                                href={`/tag/${tag}`}
                                 clickable
+                                component={Link}
+                                to={`/tag/${kebabCase(tag)}`}
                               />
                             ))}
                           </Stack>
                         )}
-
                         <Typography
                           sx={{ color: "text.secondary" }}
                           variant="body2"
@@ -132,13 +173,13 @@ const BlogIndex = ({ data, location }) => {
                           {" min read"}
                         </Typography>
                       </Box>
-                      
                     </Box>
                   </Box>
-                  <Link
-                    href={post.fields.slug}>
+                  <Link href={post.fields.slug}>
                     <StaticImage
-                      src={"https://images.unsplash.com/photo-1636690581110-a512fed05fd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"}
+                      src={
+                        "https://images.unsplash.com/photo-1636690581110-a512fed05fd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+                      }
                       alt="cover-image"
                       layout="fixed"
                       width={120}
@@ -151,8 +192,6 @@ const BlogIndex = ({ data, location }) => {
               <Divider
                 sx={{
                   width: "100%",
-                  borderBottomWidth: "inherit",
-                  "&:last-child": { display: "none" },
                 }}
               />
             </>

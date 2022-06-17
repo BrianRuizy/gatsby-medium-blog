@@ -88,11 +88,6 @@ footer {
   padding: var(--spacing-6) var(--spacing-0);
 }
 
-hr {
-  background: var(--color-accent);
-  height: 1px;
-  border: 0;
-}
 
 /* Heading */
 
@@ -251,14 +246,14 @@ a:focus {
   margin-bottom: var(--spacing-20);
 }
 
-.global-header {
+/* .global-header {
   margin-bottom: var(--spacing-12);
-}
-
+} */
+/* 
 .main-heading {
   font-size: var(--fontSize-7);
   margin: 0;
-}
+} */
 
 .post-list-item {
   margin-bottom: var(--spacing-8);

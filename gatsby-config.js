@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `MDX Blog`,
+    title: `Brian Ruiz`,
     author: {
       name: `Brian Ruiz`,
       summary: `who lives and works in Houston, TX building useful things.`,
