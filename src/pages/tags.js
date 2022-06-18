@@ -7,7 +7,7 @@ import kebabCase from "lodash/kebabCase"
 
 // Components
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 import IconButton from "@mui/material/IconButton"
 import LocalOfferIcon from "@mui/icons-material/LocalOffer"
@@ -34,7 +34,7 @@ const TagsPage = ({
       </>
     }
   >
-    <SEO title={'All Tags'} />
+    <Seo title={'All Tags'} />
 
     <ul style={{ paddingLeft: "1rem" }}>
       {group.map(tag => (
