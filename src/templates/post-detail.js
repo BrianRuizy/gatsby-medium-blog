@@ -2,7 +2,7 @@ import * as React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // Utilities 
 import kebabCase from "lodash/kebabCase"
@@ -20,7 +20,7 @@ import Typography from "@mui/material/Typography"
 const PostDetailTemplate = ({ data, location }) => {
   const post = data.mdx
   const { previous, next } = data
-  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  const image = getImage(post.frontmatter.featuredImage)
 
   return (
     <Layout location={location} title={"back"}>
@@ -77,7 +77,7 @@ const PostDetailTemplate = ({ data, location }) => {
               {post.frontmatter.description}
             </Typography>
           </Box>
-          <Img fluid={featuredImgFluid} />
+          <GatsbyImage image={image} alt={post.frontmatter.featuredImage.name} />
         </header>
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{post.body}</MDXRenderer>
@@ -141,10 +141,11 @@ export const pageQuery = graphql`
         tags
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              quality: 100
+            )
           }
+          name
         }
       }
     }

@@ -80,6 +80,7 @@ const BlogIndex = ({ data, location }) => {
               <Divider
                 sx={{
                   width: "100%",
+                  "&:last-child": { display: "none" },
                 }}
               />
             </>
@@ -105,6 +106,7 @@ export const pageQuery = graphql`
         fields {
           slug
         }
+        timeToRead
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
@@ -112,10 +114,13 @@ export const pageQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(
+                quality: 100
+                aspectRatio: 1
+
+              )
             }
+            name
           }
         }
       }

@@ -1,7 +1,8 @@
 // export post item given data
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 
 // Utilities 
 import kebabCase from "lodash/kebabCase"
@@ -15,9 +16,10 @@ import Typography from "@mui/material/Typography"
 
 
 const PostItem = ({ data }) => {
+  const image = getImage(data.frontmatter.featuredImage)
 
   return (
-    <article>
+    <article style={{width: "100%"}}>
       <Grid
         item
         xs={12}
@@ -99,22 +101,25 @@ const PostItem = ({ data }) => {
                 </Stack>
               )}
               <Typography sx={{ color: "text.secondary" }} variant="body2">
-                {" min read"}
+                {`${data.timeToRead} min read`}
               </Typography>
             </Box>
           </Box>
         </Box>
         <Link href={data.fields.slug}>
-          <StaticImage
-            src={
-              "https://images.unsplash.com/photo-1636690581110-a512fed05fd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+          <Box
+           sx={{
+            width: "140px",
+            height: "140px",
+            "@media (max-width: 900px)": {
+              width: "80px !important",
+              height: "80px !important",
             }
-            alt="cover-image"
-            layout="fixed"
-            width={120}
-            height={120}
-            quality={100}
-          />
+          }}
+          >
+          <GatsbyImage image={image} alt={data.frontmatter.featuredImage.name} />
+            
+          </Box>
         </Link>
       </Grid>
     </article>

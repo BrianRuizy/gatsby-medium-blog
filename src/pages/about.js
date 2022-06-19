@@ -25,7 +25,7 @@ function LinkTab(props) {
   )
 }
 
-const BlogIndex = ({ data, location }) => {
+const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
 
@@ -73,7 +73,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default About
 
 export const pageQuery = graphql`
   query {
@@ -88,6 +88,7 @@ export const pageQuery = graphql`
         fields {
           slug
         }
+        timeToRead
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
