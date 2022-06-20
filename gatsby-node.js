@@ -17,7 +17,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       {
         allMdx(
           sort: { fields: [frontmatter___date], order: ASC }
-          limit: 1000
+          limit: 200
         ) {
           nodes {
             id
@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
-        tagsGroup: allMdx(limit: 1000) {
+        tagsGroup: allMdx(limit: 200) {
           group(field: frontmatter___tags) {
             fieldValue
           }

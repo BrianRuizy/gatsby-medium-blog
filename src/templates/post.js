@@ -3,8 +3,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-
-// Utilities 
+// Utilities
 import kebabCase from "lodash/kebabCase"
 
 // MUI components
@@ -14,12 +13,11 @@ import Grid from "@mui/material/Grid"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
-
 const PostItem = ({ data }) => {
   const image = getImage(data.frontmatter.featuredImage)
 
   return (
-    <article style={{width: "100%"}}>
+    <article style={{ width: "100%" }}>
       <Grid
         item
         xs={12}
@@ -108,17 +106,19 @@ const PostItem = ({ data }) => {
         </Box>
         <Link href={data.fields.slug}>
           <Box
-           sx={{
-            width: "140px",
-            height: "140px",
-            "@media (max-width: 900px)": {
-              width: "80px !important",
-              height: "80px !important",
-            }
-          }}
+            sx={{
+              width: "140px",
+              height: "140px",
+              "@media (max-width: 900px)": {
+                width: "80px !important",
+                height: "80px !important",
+              },
+            }}
           >
-          <GatsbyImage image={image} alt={data.frontmatter.featuredImage.name} />
-            
+            <GatsbyImage
+              image={image}
+              alt={data.frontmatter.featuredImage.name}
+            />
           </Box>
         </Link>
       </Grid>

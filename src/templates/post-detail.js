@@ -77,7 +77,18 @@ const PostDetailTemplate = ({ data, location }) => {
               {post.frontmatter.description}
             </Typography>
           </Box>
-          <GatsbyImage image={image} alt={post.frontmatter.featuredImage.name} />
+          <Box
+          sx={{ 
+            maxHeight: '40rem',
+            "& > div":{
+              maxHeight: '40rem'
+
+            }
+          }}
+          >
+            <GatsbyImage image={image} alt={post.frontmatter.featuredImage.name} />
+
+          </Box>
         </header>
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{post.body}</MDXRenderer>

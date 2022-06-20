@@ -112,7 +112,7 @@ export default Tags
 export const pageQuery = graphql`
   query ($tag: String) {
     allMdx(
-      limit: 1000
+      limit: 200
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {

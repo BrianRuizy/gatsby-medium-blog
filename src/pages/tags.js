@@ -9,6 +9,7 @@ import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import MuiLink from "@mui/material/Link"
 import IconButton from "@mui/material/IconButton"
 import LocalOfferIcon from "@mui/icons-material/LocalOffer"
 
@@ -39,9 +40,14 @@ const TagsPage = ({
     <ul style={{ paddingLeft: "1rem" }}>
       {group.map(tag => (
         <li key={tag.fieldValue}>
-          <Link to={`/tag/${kebabCase(tag.fieldValue)}/`}>
-            {tag.fieldValue} ({tag.totalCount})
-          </Link>
+          <MuiLink
+            underline="hover"
+            component={Link}
+            to={`/tag/${kebabCase(tag.fieldValue)}/`}
+            sx={{ fontFamily: "Roboto" }}
+          >
+            ({tag.totalCount}) {tag.fieldValue} 
+          </MuiLink>
         </li>
       ))}
     </ul>
@@ -75,7 +81,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(limit: 1000) {
+    allMdx(limit: 200) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

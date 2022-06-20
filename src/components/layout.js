@@ -47,7 +47,16 @@ const Layout = ({ location, title, children }) => {
           </IconButton>
         </Box>
 
-        <main>{children}</main>
+        <main>
+          <Box sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+          }}>
+            {children}
+
+          </Box>
+        </main>
       
       </div>
     </ThemeProvider>

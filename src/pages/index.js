@@ -5,13 +5,14 @@ import { Link, graphql } from "gatsby"
 import Post from "../templates/post"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Tags from "../components/tagsPanel"
 
 // MUI components
-import Tabs from "@mui/material/Tabs"
-import Tab from "@mui/material/Tab"
 import Box from "@mui/material/Box"
 import Divider from "@mui/material/Divider"
 import Grid from "@mui/material/Grid"
+import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
 
 
 function LinkTab(props) {
@@ -19,7 +20,6 @@ function LinkTab(props) {
     <Tab
       disableRipple
       component={Link}
-      onChange={<Link to="/myPath"></Link>}
       sx={{
         "&.Mui-selected": { color: "text.primary" },
       }}
@@ -48,12 +48,12 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
+      <Tags />
       <Box
         sx={{
           width: "100%",
           borderBottom: 1,
           borderColor: "divider",
-          mb: "32px",
         }}
       >
         <Tabs
@@ -66,8 +66,11 @@ const BlogIndex = ({ data, location }) => {
             },
           }}
         >
-          <LinkTab label="Home" to="/" />
-          <LinkTab label="About" to="/about" active />
+          <LinkTab label="All" to="/" />
+          <LinkTab label="work" to="/case-study" />
+          <LinkTab label="Blog" to="/blog" />
+          <LinkTab label="Photography" to="/photography" />
+          <LinkTab label="About" to="/about" />
         </Tabs>
       </Box>
 
@@ -100,7 +103,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 200) {
       nodes {
         excerpt
         fields {
@@ -117,7 +120,6 @@ export const pageQuery = graphql`
               gatsbyImageData(
                 quality: 100
                 aspectRatio: 1
-
               )
             }
             name
