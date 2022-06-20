@@ -58,7 +58,7 @@ const BlogIndex = ({ data, location }) => {
         }}
       >
         <Tabs
-          value={2}
+          value={3}
           aria-label="nav tabs example"
           sx={{
             "& .MuiTabs-indicator": {
@@ -67,10 +67,10 @@ const BlogIndex = ({ data, location }) => {
             },
           }}
         >
-          <LinkTab label="work" to="/" />
+          <LinkTab label="All" to="/" />
           <LinkTab label="Blog" to="/blog" />
+          <LinkTab label="Case Study" to="/case-study" />
           <LinkTab label="Photography" to="/photography" />
-          <LinkTab label="About" to="/about" />
         </Tabs>
       </Box>
 

@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
+// Utilities
+import kebabCase from "lodash/kebabCase"
+
 // local imports
 import Post from "../templates/post"
 import Layout from "../components/layout"
@@ -34,7 +37,7 @@ const BlogIndex = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="Work posts" />
+        <Seo title="Case Study posts" />
         <p>
           No blog posts found. Add markdown posts to "content/posts" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -46,7 +49,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="work posts" />
+      <Seo title="Case Study posts" />
 
       <Tags />
 
@@ -58,7 +61,7 @@ const BlogIndex = ({ data, location }) => {
         }}
       >
         <Tabs
-          value={1}
+          value={2}
           aria-label="nav tabs example"
           sx={{
             "& .MuiTabs-indicator": {
@@ -68,10 +71,9 @@ const BlogIndex = ({ data, location }) => {
           }}
         >
           <LinkTab label="All" to="/" />
-          <LinkTab label="work" to="/" />
           <LinkTab label="Blog" to="/blog" />
+          <LinkTab label="Case Study" to="/case-study" />
           <LinkTab label="Photography" to="/photography" />
-          <LinkTab label="About" to="/about" />
         </Tabs>
       </Box>
 
@@ -107,7 +109,7 @@ export const pageQuery = graphql`
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 200
-      filter: { frontmatter: { category: { in: "work" } } }
+      filter: { frontmatter: { category: { in: "Case Study" } } }
     ) {
       nodes {
         excerpt

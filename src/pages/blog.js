@@ -34,7 +34,7 @@ const BlogIndex = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
+        <Seo title="Blog posts" />
         <p>
           No blog posts found. Add markdown posts to "content/posts" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -66,10 +66,10 @@ const BlogIndex = ({ data, location }) => {
             },
           }}
         >
-          <LinkTab label="work" to="/" />
+          <LinkTab label="All" to="/" />
           <LinkTab label="Blog" to="/blog" />
+          <LinkTab label="Case Study" to="/case-study" />
           <LinkTab label="Photography" to="/photography" />
-          <LinkTab label="About" to="/about" />
         </Tabs>
       </Box>
 
@@ -105,7 +105,7 @@ export const pageQuery = graphql`
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 200
-      filter: { frontmatter: { tags: { in: "Blog" } } }
+      filter: { frontmatter: { category: { in: "Blog" } } }
     ) {
       nodes {
         excerpt

@@ -65,7 +65,7 @@ const Tags = ({ pageContext, data }) => {
         </MuiLink>
       </Box>
 
-      <Grid container sx={{ gap: 4, mt: "32px" }}>
+      <Grid container sx={{ gap: 4 }}>
         {edges.map(({ node }) => {
           // posts list by tag
           return (
@@ -122,6 +122,7 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          timeToRead
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
@@ -130,9 +131,7 @@ export const pageQuery = graphql`
             featuredImage {
               childImageSharp {
                 gatsbyImageData(
-                  quality: 100
-                  aspectRatio: 1
-  
+                  aspectRatio: 1  
                 )
               }
               name

@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
+// Utilities
+import kebabCase from "lodash/kebabCase"
+
 // local imports
 import Post from "../templates/post"
 import Layout from "../components/layout"
@@ -13,7 +16,6 @@ import Divider from "@mui/material/Divider"
 import Grid from "@mui/material/Grid"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
-
 
 function LinkTab(props) {
   return (
@@ -67,10 +69,14 @@ const BlogIndex = ({ data, location }) => {
           }}
         >
           <LinkTab label="All" to="/" />
-          <LinkTab label="work" to="/case-study" />
-          <LinkTab label="Blog" to="/blog" />
-          <LinkTab label="Photography" to="/photography" />
-          <LinkTab label="About" to="/about" />
+          {data.allMdx.group.map(category => {
+            return (
+              <LinkTab
+                label={category.fieldValue}
+                to={`/${kebabCase(category.fieldValue)}/`}
+              />
+            )
+          })}
         </Tabs>
       </Box>
 
@@ -104,6 +110,9 @@ export const pageQuery = graphql`
       }
     }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 200) {
+      group(field: frontmatter___category) {
+        fieldValue
+      }
       nodes {
         excerpt
         fields {
@@ -117,10 +126,7 @@ export const pageQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              gatsbyImageData(
-                quality: 100
-                aspectRatio: 1
-              )
+              gatsbyImageData(aspectRatio: 1)
             }
             name
           }

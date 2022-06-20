@@ -27,7 +27,7 @@ const Layout = ({ location, title, children }) => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            mb: "40px",
+            mb: "2rem",
           }}
         >
           <Typography

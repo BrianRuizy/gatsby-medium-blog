@@ -27,11 +27,9 @@ const tagsPanel = () => (
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: "10px",
           "@media (max-width: 900px)": {
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "0px",
           },
         }}
       >
@@ -53,9 +51,11 @@ const tagsPanel = () => (
             "& .MuiTabs-flexContainer": {
               gap: ".5rem",
             },
-            "& .MuiTabs-scrollButtons.Mui-disabled": {
-              opacity: ".3",
-            },
+            "@media (max-width: 900px)": {
+              "& .MuiTabs-scrollButtons.Mui-disabled": {
+                opacity: .3
+              },
+            }
           }}
         >
           {data.allMdx.group.map(tag => {
