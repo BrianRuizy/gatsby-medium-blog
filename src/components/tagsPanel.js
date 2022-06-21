@@ -33,7 +33,7 @@ const tagsPanel = () => (
           },
         }}
       >
-        <Typography variant="overline" sx={{ whiteSpace: "nowrap" }}>
+        <Typography variant="overline" sx={{ whiteSpace: "nowrap",  "@media (max-width: 900px)": {display: "none"} }}>
           All Tags
         </Typography>
         <Tabs

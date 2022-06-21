@@ -58,7 +58,7 @@ const BlogIndex = ({ data, location }) => {
           value={2}
           aria-label="nav tabs example"
         >
-          <LinkTab label="Case Studies" to="/" />
+          <LinkTab label="Case Study" to="/" />
           <LinkTab label="Blog" to="/blog" />
           <LinkTab label="Photography" to="/photography" />
         </Tabs>

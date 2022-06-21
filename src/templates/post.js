@@ -75,9 +75,8 @@ const PostItem = ({ data }) => {
                   fontSize: "22px !important",
                   textTransform: "capitalize",
                   "@media (max-width: 600px)": {
-                    marginBottom: "0.35em",
                     lineHeight: "24px",
-                    fontSize: "16px !important",
+                    fontSize: "18px !important",
                   },
                 }}
               >
@@ -90,6 +89,7 @@ const PostItem = ({ data }) => {
                 sx={{
                   display: "initial",
                   fontFamily: 'Charter',
+                  marginBottom: "1rem",
                   "@media (max-width: 600px)": {
                     display: "none !important",
                   },
@@ -100,17 +100,14 @@ const PostItem = ({ data }) => {
             </Box>
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
               {data.frontmatter.tags && (
-                <Stack direction="row" spacing={1} alignItems="center">
-                  {data.frontmatter.tags.map(tag => (
-                    <Chip
-                      label={tag}
-                      size="small"
-                      clickable
-                      component={Link}
-                      to={`/tag/${kebabCase(tag)}`}
-                    />
-                  ))}
-                </Stack>
+                // only show first tag
+                <Chip
+                label={data.frontmatter.tags[0]}
+                size="small"
+                clickable
+                component={Link}
+                to={`/tag/${kebabCase(data.frontmatter.tags[0])}`}
+                />
               )}
               <Typography sx={{ color: "text.secondary" }} variant="body2">
                 {`${data.timeToRead} min read`}

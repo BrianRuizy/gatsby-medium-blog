@@ -7,7 +7,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 // Utilities 
 import kebabCase from "lodash/kebabCase"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import shortcodes from "../components/mdx"
 import Seo from "../components/seo"
@@ -96,7 +95,6 @@ const PostDetailTemplate = ({ data, location }) => {
         </MDXProvider>
         <Divider>More from Brian</Divider>
         <footer>
-          <Bio />
         </footer>
       </article>
       <nav className="post-detail-nav">

@@ -22,9 +22,7 @@ function LinkTab(props) {
     <Tab
       disableRipple
       component={Link}
-      // sx={{
-      //   "&.Mui-selected": { color: "text.primary" },
-      // }}
+      sx={{ "&.Mui-selected": { color: "text.primary" } }}
       {...props}
     />
   )
@@ -61,16 +59,15 @@ const BlogIndex = ({ data, location }) => {
         <Tabs
           value={0}
           aria-label="nav tabs example"
-          // sx={{
-          //   "& .MuiTabs-indicator": {
-          //     backgroundColor: "text.primary",
-          //     height: "1px",
-          //   },
-          // }}
+          sx={{
+            "& .MuiTabs-indicator": {
+              backgroundColor: "text.primary",
+              height: "1px",
+            },
+          }}
         >
-          <LinkTab label="Case Studies" to="/" />
+          <LinkTab label="Case Study" to="/" />
           <LinkTab label="Blog" to="/blog" />
-          <LinkTab label="Photography" to="/photography" />
         </Tabs>
       </Box>
 

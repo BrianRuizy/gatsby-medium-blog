@@ -45,6 +45,8 @@ const Layout = ({ location, title, children }) => {
             my: 4,
             "@media (max-width: 900px)": {
               paddingX: 3,
+              my: 2,
+
             },
           }}
         >
