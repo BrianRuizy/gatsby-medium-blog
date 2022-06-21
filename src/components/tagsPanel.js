@@ -41,7 +41,6 @@ const tagsPanel = () => (
           aria-label="tags"
           variant="scrollable"
           scrollButtons
-          allowScrollButtonsMobile
           sx={{
             width: "100%",
             alignItems: "center",
@@ -60,7 +59,7 @@ const tagsPanel = () => (
         >
           {data.allMdx.group.map(tag => {
             // sort tags by total count
-            data.allMdx.group.sort((a, b) => b.totalCount - a.totalCount)
+            // data.allMdx.group.sort((a, b) => b.totalCount - a.totalCount)
 
             return (
               <Chip

@@ -59,9 +59,8 @@ const PostItem = ({ data }) => {
                 gutterBottom
                 sx={{
                   fontWeight: "700",
-                  letterSpacing: "-0.016em",
                   lineHeight: "28px",
-                  fontSize: "24px !important",
+                  fontSize: "22px !important",
                   "@media (max-width: 600px)": {
                     marginBottom: "0.35em",
                     lineHeight: "24px",
@@ -76,6 +75,7 @@ const PostItem = ({ data }) => {
                 gutterBottom
                 sx={{
                   display: "initial",
+                  fontFamily: 'Charter',
                   "@media (max-width: 600px)": {
                     display: "none",
                   },
@@ -107,8 +107,8 @@ const PostItem = ({ data }) => {
         <Link href={data.fields.slug}>
           <Box
             sx={{
-              width: "140px",
-              height: "140px",
+              width: "120px",
+              height: "120px",
               "@media (max-width: 900px)": {
                 width: "80px !important",
                 height: "80px !important",

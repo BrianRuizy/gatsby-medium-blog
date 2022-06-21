@@ -126,7 +126,10 @@ export const pageQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              gatsbyImageData(aspectRatio: 1)
+              gatsbyImageData(
+                aspectRatio: 1
+                quality: 100
+              )
             }
             name
           }
