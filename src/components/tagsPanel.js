@@ -58,9 +58,7 @@ const tagsPanel = () => (
           }}
         >
           {data.allMdx.group.map(tag => {
-            // sort tags by total count
-            // data.allMdx.group.sort((a, b) => b.totalCount - a.totalCount)
-
+            // tags list sorted by name
             return (
               <Chip
                 key={tag.fieldValue}

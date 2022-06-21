@@ -17,7 +17,6 @@
     "@parcel/config-default": "^2.6.0",
     "charter-webfont": "^4.1.0",
     "gatsby": "^4.16.0",
-    "gatsby-image": "^3.11.0",
     "gatsby-plugin-feed": "^4.16.0",
     "gatsby-plugin-gatsby-cloud": "^4.16.0",
     "gatsby-plugin-google-analytics": "^4.16.0",

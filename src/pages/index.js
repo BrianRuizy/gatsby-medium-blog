@@ -22,9 +22,9 @@ function LinkTab(props) {
     <Tab
       disableRipple
       component={Link}
-      sx={{
-        "&.Mui-selected": { color: "text.primary" },
-      }}
+      // sx={{
+      //   "&.Mui-selected": { color: "text.primary" },
+      // }}
       {...props}
     />
   )
@@ -37,7 +37,7 @@ const BlogIndex = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
+        <Seo title="Home" />
         <p>
           No blog posts found. Add markdown posts to "content/posts" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -49,7 +49,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+      <Seo title="Home" />
       <Tags />
       <Box
         sx={{
@@ -61,22 +61,16 @@ const BlogIndex = ({ data, location }) => {
         <Tabs
           value={0}
           aria-label="nav tabs example"
-          sx={{
-            "& .MuiTabs-indicator": {
-              backgroundColor: "text.primary",
-              height: "1px",
-            },
-          }}
+          // sx={{
+          //   "& .MuiTabs-indicator": {
+          //     backgroundColor: "text.primary",
+          //     height: "1px",
+          //   },
+          // }}
         >
-          <LinkTab label="All" to="/" />
-          {data.allMdx.group.map(category => {
-            return (
-              <LinkTab
-                label={category.fieldValue}
-                to={`/${kebabCase(category.fieldValue)}/`}
-              />
-            )
-          })}
+          <LinkTab label="Case Studies" to="/" />
+          <LinkTab label="Blog" to="/blog" />
+          <LinkTab label="Photography" to="/photography" />
         </Tabs>
       </Box>
 
@@ -109,7 +103,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 200) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 200
+      filter: { frontmatter: { category: { in: "Case Study" } } }
+    ) {
       group(field: frontmatter___category) {
         fieldValue
       }
@@ -126,10 +124,7 @@ export const pageQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              gatsbyImageData(
-                aspectRatio: 1
-                quality: 100
-              )
+              gatsbyImageData(aspectRatio: 1, quality: 100)
             }
             name
           }

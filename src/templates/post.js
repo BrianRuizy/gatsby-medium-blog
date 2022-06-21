@@ -12,6 +12,16 @@ import Chip from "@mui/material/Chip"
 import Grid from "@mui/material/Grid"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
+import { VerticalAlignBottom } from "@mui/icons-material"
+
+const ClampTypography = {
+  overflow: 'hidden',
+  textOverflow: "ellipsis",
+  display: "-webkit-box",
+  WebkitLineClamp: "2",
+  lineClamp: "2", 
+  WebkitBoxOrient: "vertical",
+}
 
 const PostItem = ({ data }) => {
   const image = getImage(data.frontmatter.featuredImage)
@@ -31,7 +41,7 @@ const PostItem = ({ data }) => {
           alignItems: "center",
           gap: "4rem",
           "@media (max-width: 600px)": {
-            gap: "2rem",
+            gap: "1rem",
           },
         }}
       >
@@ -57,14 +67,17 @@ const PostItem = ({ data }) => {
               <Typography
                 variant="h2"
                 gutterBottom
+                className="clamp-typography"
+                style={ClampTypography}
                 sx={{
                   fontWeight: "700",
                   lineHeight: "28px",
                   fontSize: "22px !important",
+                  textTransform: "capitalize",
                   "@media (max-width: 600px)": {
                     marginBottom: "0.35em",
                     lineHeight: "24px",
-                    fontSize: "18px !important",
+                    fontSize: "16px !important",
                   },
                 }}
               >
@@ -73,15 +86,16 @@ const PostItem = ({ data }) => {
               <Typography
                 variant="body1"
                 gutterBottom
+                style={ClampTypography}
                 sx={{
                   display: "initial",
                   fontFamily: 'Charter',
                   "@media (max-width: 600px)": {
-                    display: "none",
+                    display: "none !important",
                   },
                 }}
               >
-                {data.frontmatter.description || data.excerpt}
+                {`${data.frontmatter.description} —${data.excerpt}`}
               </Typography>
             </Box>
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
@@ -107,11 +121,9 @@ const PostItem = ({ data }) => {
         <Link href={data.fields.slug}>
           <Box
             sx={{
-              width: "120px",
-              height: "120px",
+              width: "140px",
               "@media (max-width: 900px)": {
                 width: "80px !important",
-                height: "80px !important",
               },
             }}
           >

@@ -58,6 +58,7 @@ const PostDetailTemplate = ({ data, location }) => {
                 fontWeight: "900",
                 letterSpacing: "-0.016em",
                 lineHeight: "40px",
+                textTransform: "capitalize",
                 "@media (max-width: 900px)": {
                   fontSize: "28px",
                   lineHeight: "36px",

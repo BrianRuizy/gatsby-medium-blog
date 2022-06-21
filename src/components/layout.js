@@ -1,7 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import AboutDrawer from "./about"
+import LeftDrawer from "./DrawerLeft"
+import RightDrawer from "./DrawerRight"
 
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
@@ -35,62 +36,7 @@ const Layout = ({ location, title, children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex" }} data-is-root-path={isRootPath}>
-        <Drawer
-          sx={{
-            display: "none",
-            flexShrink: 0,
-            "@media (min-width: 1200px)": {
-              display: "flex",
-              width: "8.33%",
-            },
-            "@media (min-width: 1536px)": {
-              width: "12.5%",
-            },
-            "& .MuiDrawer-paper": {
-              justifyContent: "space-between",
-              alignItems: "end",
-              padding: theme.spacing(4, 2),
-              display: "none",
-              alignItems: "center",
-              "@media (min-width: 1200px)": {
-                display: "flex",
-                width: "8.33%",
-              },
-              "@media (min-width: 1536px)": {
-                width: "12.5%",
-                alignItems: "flex-end",
-              },
-            },
-          }}
-          variant="permanent"
-          anchor="left"
-        >
-          <Box>
-            <IconButton aria-label="delete" href="/">
-              <AbcIcon />
-            </IconButton>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: theme.spacing(1),
-            }}
-          >
-            <IconButton>
-              <HomeOutlinedIcon />
-            </IconButton>
-            <IconButton>
-              <AlternateEmailOutlinedIcon />
-            </IconButton>
-            {/* <ThemeButton /> */}
-          </Box>
-          <Box>
-            <IconButton>
-              <AbcIcon />
-            </IconButton>
-          </Box>
-        </Drawer>
+        <LeftDrawer />
         <Container
           maxWidth="string"
           disableGutters
@@ -107,7 +53,7 @@ const Layout = ({ location, title, children }) => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              mb: "4rem",
+              mb: "2rem",
             }}
           >
             <Typography
@@ -139,7 +85,7 @@ const Layout = ({ location, title, children }) => {
             </Box>
           </main>
         </Container>
-        <AboutDrawer />
+        <RightDrawer />
       </Box>
     </ThemeProvider>
   )
