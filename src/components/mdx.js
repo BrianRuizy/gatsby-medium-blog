@@ -29,7 +29,7 @@ const shortcodes = {
     <Typography
       variant="h2"
       sx={{
-        mt: "3.14em",
+        mt: "4rem",
         mb: "-8px",
         fontSize: "22px !important",
         fontWeight: "900",
@@ -46,11 +46,11 @@ const shortcodes = {
     <Typography
       variant="h3"
       sx={{
-        mt: "2.37em",
+        mt: "3rem",
         mb: "-8px",
         fontSize: "20px !important",
         letterSpacing: "0",
-        fontWeight: "700",
+        fontWeight: "900",
         "@media (max-width: 900px)": {
           fontSize: "18px !important",
         },
