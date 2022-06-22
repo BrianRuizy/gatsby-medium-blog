@@ -20,9 +20,9 @@ Python also allowed us to create —matplotlib— visualizations of our data whi
 
 ![](https://brianruizy.com/static/f1577426c45e122c22a3aefcd0f5a7d8/58e7d/tech.png)
 
-# Our Idea and App Proposal
+# Our Idea and Proposal
 
-After juggling several ideas we settled on the issue of road potholes. We discovered that potholes cost American drivers $6.4 billion per year, that is in repair and insurance costs. A single pothole may cause are up to $300 per year per vehicle (2016), while the average price to repair a pothole is on average $30 — $50 per pothole. Thus the effort to aid this issue can be indeed cost effective.
+After juggling several ideas we settled on the issue of road potholes. We discovered that potholes cost American drivers $6.4 billion per year, that is in repair and insurance costs. A single pothole may cause are up to $300 per year per vehicle (2016), while the average price to repair a pothole is on average $30 — $50 per pothole. Thus the effort to aid this issue can be cost-effective.
 
 Looking at our challenge from a high level we need the following components or stages, to be able to solve the problem. Also, we need to design a 2-layer confirmation of a road pothole. The first is the active dashboard camera, and the second uses the user’s phone telemetry data, such as GPS and accelerometer modules.
 
@@ -33,9 +33,25 @@ Looking at our challenge from a high level we need the following components or s
 
 ## 1. Analyzing mobile telemetry data
 
-Every modern smartphone is equipped with very accurate telemetry systems. For instance, the GPS and accelerometer, which we leveraged for location and to track any abrupt movement indicating a pothole on the road.
+Every modern smartphone is equipped with very accurate telemetry systems. For example, the GPS and accelerometer, which we leveraged for location and to track any abrupt movement indicating a pothole on the road.
 
 One of the difficulties with this approach was that logging every high acceleration movement may result in false positives of a road pothole. Below is also a time-series data visualization of the accelerometer data, generated with matplotlib.
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('/home/br/Downloads/testdata.csv')
+df['Time'] = pd.to_datetime(df.Time, format='%Y-%m-%d %H:%M:%S:%f')
+columns = [
+  'ACCELEROMETER X (m/s²)', 
+  'ACCELEROMETER Y (m/s²)',
+  'ACCELEROMETER Z (m/s²)', 
+  'Time'
+]
+df[columns].plot(x='Time')
+plt.show()
+```
+
 
 ## 2. Live computer vision
 
@@ -57,6 +73,21 @@ From the start, the idea was to keep the interface as intuitive as possible to m
 
 Finally, we needed to plot our GPS data so the city could take action. Our collected data included latitude, longitude, altitude, and location accuracy. Location accuracy is important to pinpoint multiple occurrences of the same pothole from different users for clustering the locations.
 
+```python
+import folium
+import pandas as pd
+# Initialize map on San Francisco
+SF_COORDINATES = (37.76, -122.45)
+map = folium.Map(location=SF_COORDINATES, zoom_start=12)
+# add a marker and cluster nodes
+for each in df.iterrows():
+  map.simple_marker(
+    location = [each[1]['Y'],each[1]['X']], 
+    clustered_marker = True
+  )
+display(map)
+```
+
 ![San Francisco](https://miro.medium.com/max/1400/0*PYSGLUaVid-vzeHr.png)
 
 # The Final Result
@@ -65,4 +96,4 @@ By the time the hackathon countdown ended, we were able to design and implement 
 
 After presenting our MVP (minimum viable product), the judges called a draw for first place. Having won the competition granted us credits to some of Microsoft Azure cloud services like storage and processing. And, the company which hosted the competition granted us seats at their co-working space, which we could use to continue the development of our application and idea.
 
-![](https://miro.medium.com/max/1400/0*v0plg9CmtcGd_IyZ.jpg)
+![The Bump.it team from UHD](https://miro.medium.com/max/1400/0*v0plg9CmtcGd_IyZ.jpg)

@@ -134,7 +134,6 @@ const PostDetailTemplate = ({ data, location }) => {
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
-        <Divider>More from Brian</Divider>
         <footer>
           {/* {post.frontmatter.tags && (
           <div

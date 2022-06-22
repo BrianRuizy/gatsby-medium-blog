@@ -29,11 +29,12 @@ const shortcodes = {
     <Typography
       variant="h2"
       sx={{
+        mt: "3.14em",
+        mb: "-8px",
         fontSize: "22px !important",
         fontWeight: "900",
         lineHeight: "28px",
         letterSpacing: "0",
-        mt: "3.14em",
         "@media (max-width: 900px)": {
           fontSize: "20px !important",
         },
@@ -45,9 +46,10 @@ const shortcodes = {
     <Typography
       variant="h3"
       sx={{
+        mt: "2.37em",
+        mb: "-8px",
         fontSize: "20px !important",
         letterSpacing: "0",
-        mt: "2.37em",
         fontWeight: "700",
         "@media (max-width: 900px)": {
           fontSize: "18px !important",
@@ -86,7 +88,7 @@ const shortcodes = {
     <ul
       {...props}
       style={{ 
-        paddingLeft: "1rem", 
+        paddingLeft: "2rem", 
         marginBottom: "4rem", 
         marginTop: "2rem" 
       }}
@@ -123,6 +125,11 @@ const shortcodes = {
           {props.alt}
         </Typography>
       </figcaption>
+    </Box>
+  ),
+  pre: props => (
+    <Box sx={{ my: "2rem"}}>
+      <pre {...props} ></pre>
     </Box>
   ),
 }
