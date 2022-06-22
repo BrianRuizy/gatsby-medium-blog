@@ -73,6 +73,7 @@ const PostItem = ({ data }) => {
                   fontSize: "22px !important",
                   textTransform: "capitalize",
                   "@media (max-width: 600px)": {
+                    marginBottom: "0",
                     lineHeight: "24px",
                     fontSize: "18px !important",
                   },
@@ -117,7 +118,7 @@ const PostItem = ({ data }) => {
           <Box
             sx={{
               width: "140px",
-              "@media (max-width: 900px)": {
+              "@media (max-width: 600px)": {
                 width: "80px !important",
               },
             }}

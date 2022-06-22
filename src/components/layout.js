@@ -11,7 +11,6 @@ import Typography from "@mui/material/Typography"
 import IconButton from "@mui/material/IconButton"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 
-
 import {
   createTheme,
   responsiveFontSizes,
@@ -38,7 +37,6 @@ const Layout = ({ location, title, children }) => {
             mb: 8,
             "@media (max-width: 900px)": {
               paddingX: 3,
-              mt: 2,
             },
           }}
         >
@@ -48,6 +46,7 @@ const Layout = ({ location, title, children }) => {
               justifyContent: "space-between",
               alignItems: "center",
               mb: "2rem",
+              "@media (max-width: 600px)": { mb: "1.5rem" },
             }}
           >
             <Typography
@@ -62,9 +61,11 @@ const Layout = ({ location, title, children }) => {
             >
               <Link to="/">{title}</Link>
             </Typography>
-            <IconButton sx={{ height: "fit-content" }}>
-              <MoreHorizIcon />
-            </IconButton>
+            {title && (
+              <IconButton sx={{ height: "fit-content" }}>
+                <MoreHorizIcon />
+              </IconButton>
+            )}
           </Box>
 
           <main>
@@ -73,6 +74,7 @@ const Layout = ({ location, title, children }) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: "2rem",
+                "@media (max-width: 600px)": { gap: "1.5rem" },
               }}
             >
               {children}

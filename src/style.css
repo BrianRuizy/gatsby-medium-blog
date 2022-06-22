@@ -154,7 +154,7 @@ h6 > a {
 }
 
 /* Prose */
-
+/* 
 p {
   line-height: var(--lineHeight-relaxed);
   --baseline-multiplier: 0.179;
@@ -173,7 +173,15 @@ ol {
   list-style-image: none;
 }
 
-ul li,
+*/
+
+@media (max-width: 900px) {
+  li {
+    font-size: 18px !important;
+    line-height: 30px !important;
+  }
+}
+/* ul li,
 ol li {
   padding-left: var(--spacing-0);
   margin-bottom: calc(var(--spacing-8) / 2);
@@ -190,9 +198,9 @@ li *:last-child {
 li > ul {
   margin-left: var(--spacing-8);
   margin-top: calc(var(--spacing-8) / 2);
-}
+} 
 
-blockquote {
+/* blockquote {
   color: var(--color-text-light);
   margin-left: calc(-1 * var(--spacing-6));
   margin-right: var(--spacing-8);
@@ -224,7 +232,7 @@ table thead tr th {
 }
 
 /* Link */
-
+/* 
 a {
   color: var(--color-primary);
 }
@@ -232,7 +240,7 @@ a {
 a:hover,
 a:focus {
   text-decoration: none;
-}
+} */
 
 /* Custom classes */
 /* 
@@ -241,10 +249,10 @@ a:focus {
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-5);
 } */
-
+/* 
 .global-wrapper[data-is-root-path="true"] .bio {
   margin-bottom: var(--spacing-20);
-}
+} */
 
 /* .global-header {
   margin-bottom: var(--spacing-12);
@@ -254,7 +262,7 @@ a:focus {
   font-size: var(--fontSize-7);
   margin: 0;
 } */
-
+/* 
 .post-list-item {
   margin-bottom: var(--spacing-8);
   margin-top: var(--spacing-8);
@@ -296,9 +304,9 @@ a:focus {
   margin-bottom: var(--spacing-0);
   min-width: 50px;
   border-radius: 100%;
-}
+} */
 
-.post-detail header h1 {
+/* .post-detail header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
 
@@ -309,8 +317,8 @@ a:focus {
 
 .post-detail-nav ul {
   margin: var(--spacing-0);
-}
-
+} */
+/* 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
   background-color: blue;
@@ -318,7 +326,7 @@ a:focus {
 
 /* Media queries */
 
-@media (max-width: 42rem) {
+/* @media (max-width: 42rem) {
   blockquote {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-left: var(--spacing-0);
@@ -327,4 +335,4 @@ a:focus {
   ol {
     list-style-position: inside;
   }
-}
+} */ 

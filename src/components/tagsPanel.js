@@ -27,7 +27,7 @@ const tagsPanel = () => (
         sx={{
           display: "flex",
           alignItems: "center",
-          "@media (max-width: 900px)": {
+          "@media (max-width: 600px)": {
             flexDirection: "column",
             alignItems: "flex-start",
           },
@@ -35,12 +35,9 @@ const tagsPanel = () => (
       >
         <Typography
           variant="overline"
-          sx={{
-            whiteSpace: "nowrap",
-            "@media (max-width: 900px)": { display: "none" },
-          }}
+          sx={{ whiteSpace: "nowrap" }}
         >
-          All Tags
+          All Topics
         </Typography>
         <Tabs
           value={0}
@@ -56,7 +53,7 @@ const tagsPanel = () => (
             "& .MuiTabs-flexContainer": {
               gap: ".5rem",
             },
-            "@media (max-width: 900px)": {
+            "@media (max-width:600px)": {
               "& .MuiTabs-scrollButtons.Mui-disabled": {
                 opacity: 0.3,
               },
