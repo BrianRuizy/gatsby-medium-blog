@@ -1,9 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-// Utilities
-import kebabCase from "lodash/kebabCase"
-
 // local imports
 import Post from "../templates/post"
 import Layout from "../components/layout"
@@ -28,7 +25,7 @@ function LinkTab(props) {
   )
 }
 
-const BlogIndex = ({ data, location }) => {
+const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
 
@@ -75,15 +72,20 @@ const BlogIndex = ({ data, location }) => {
         {posts.map(post => {
           // posts list sorted by date
           return (
-            <>
+            <Box
+              key={post.id}
+              sx={{
+                "&:last-child": { "& > hr": { display: "none" } },
+              }}
+            >
               <Post data={post} />
               <Divider
                 sx={{
                   width: "100%",
-                  "&:last-child": { display: "none" },
+                  pt: 4,
                 }}
               />
-            </>
+            </Box>
           )
         })}
       </Grid>
@@ -91,7 +93,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
@@ -109,6 +111,7 @@ export const pageQuery = graphql`
         fieldValue
       }
       nodes {
+        id
         excerpt
         fields {
           slug

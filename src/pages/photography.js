@@ -24,7 +24,7 @@ function LinkTab(props) {
   )
 }
 
-const BlogIndex = ({ data, location }) => {
+const PhotographyIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
 
@@ -69,7 +69,7 @@ const BlogIndex = ({ data, location }) => {
           // posts list sorted by date
           return (
             <>
-              <Post data={post} />
+              <Post data={post} key={post.title}/>
               <Divider
                 sx={{
                   width: "100%",
@@ -84,7 +84,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default PhotographyIndex
 
 export const pageQuery = graphql`
   query {

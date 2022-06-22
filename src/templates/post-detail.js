@@ -42,7 +42,7 @@ const PostDetailTemplate = ({ data, location }) => {
             }}
           >
             {post.frontmatter.tags.map(tag => (
-              <Link to={`/tag/${kebabCase(tag)}`}>
+              <Link to={`/tag/${kebabCase(tag)}`} key={tag}>
                 <button key={tag}>{tag}</button>
               </Link>
             ))}
@@ -82,7 +82,6 @@ const PostDetailTemplate = ({ data, location }) => {
             maxHeight: '40rem',
             "& > div":{
               maxHeight: '40rem'
-
             }
           }}
           >

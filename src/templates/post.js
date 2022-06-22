@@ -10,9 +10,7 @@ import kebabCase from "lodash/kebabCase"
 import Box from "@mui/material/Box"
 import Chip from "@mui/material/Chip"
 import Grid from "@mui/material/Grid"
-import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
-import { VerticalAlignBottom } from "@mui/icons-material"
 
 const ClampTypography = {
   overflow: 'hidden',
@@ -115,7 +113,7 @@ const PostItem = ({ data }) => {
             </Box>
           </Box>
         </Box>
-        <Link href={data.fields.slug}>
+        <Link to={data.fields.slug}>
           <Box
             sx={{
               width: "140px",

@@ -6,8 +6,8 @@ import kebabCase from "lodash/kebabCase"
 
 // MUI components
 import Box from "@mui/material/Box"
-import Chip from "@mui/material/Chip"
 import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
 import Typography from "@mui/material/Typography"
 
 const tagsPanel = () => (
@@ -33,7 +33,13 @@ const tagsPanel = () => (
           },
         }}
       >
-        <Typography variant="overline" sx={{ whiteSpace: "nowrap",  "@media (max-width: 900px)": {display: "none"} }}>
+        <Typography
+          variant="overline"
+          sx={{
+            whiteSpace: "nowrap",
+            "@media (max-width: 900px)": { display: "none" },
+          }}
+        >
           All Tags
         </Typography>
         <Tabs
@@ -52,20 +58,39 @@ const tagsPanel = () => (
             },
             "@media (max-width: 900px)": {
               "& .MuiTabs-scrollButtons.Mui-disabled": {
-                opacity: .3
+                opacity: 0.3,
               },
-            }
+            },
           }}
         >
           {data.allMdx.group.map(tag => {
             // tags list sorted by name
             return (
-              <Chip
+              <Tab
                 key={tag.fieldValue}
                 component={Link}
                 to={`/tag/${kebabCase(tag.fieldValue)}/`}
                 label={tag.fieldValue}
-                clickable
+                sx={{
+                  paddingX: "12px",
+                  paddingY: "0",
+                  textTransform: "capitalize",
+                  background: "rgba(0, 0, 0, 0.08)",
+                  height: "32px",
+                  color: " rgba(0, 0, 0, 0.87) !important",
+                  borderRadius: "16px",
+                  fontSize: "0.8125rem",
+                  fontWeight: "400",
+                  minHeight: "unset",
+                  minWidth: "unset",
+                  "-webkit-transition":
+                    "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+                  transition:
+                    "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+                  "&:hover": {
+                    background: "rgba(0, 0, 0, 0.12)",
+                  },
+                }}
               />
             )
           })}

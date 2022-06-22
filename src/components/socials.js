@@ -59,6 +59,7 @@ const socials = () => {
         const profile = profiles[key]
         return (
           <Box
+            key={profile.name}
             sx={{
               display: "flex",
               flexDirection: "row",

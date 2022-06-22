@@ -6,19 +6,11 @@ import RightDrawer from "./DrawerRight"
 
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
-import Drawer from "@mui/material/Drawer"
 
 import Typography from "@mui/material/Typography"
 import IconButton from "@mui/material/IconButton"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 
-import AbcIcon from "@mui/icons-material/Abc";
-import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
-import CssBaseline from "@mui/material/CssBaseline";
-
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 import {
   createTheme,
@@ -42,11 +34,11 @@ const Layout = ({ location, title, children }) => {
           disableGutters
           sx={{
             maxWidth: "692px",
-            my: 4,
+            mt: 4,
+            mb: 8,
             "@media (max-width: 900px)": {
               paddingX: 3,
-              my: 2,
-
+              mt: 2,
             },
           }}
         >

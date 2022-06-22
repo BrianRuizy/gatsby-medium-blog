@@ -69,14 +69,20 @@ const Tags = ({ pageContext, data }) => {
         {edges.map(({ node }) => {
           // posts list by tag
           return (
-            <>
+            <Box
+              key={node.id}
+              sx={{
+                "&:last-child": { "& > hr": { display: "none" } },
+              }}
+            >
               <Post data={node} />
               <Divider
                 sx={{
                   width: "100%",
+                  pt: 4,
                 }}
               />
-            </>
+            </Box>
           )
         })}
       </Grid>
@@ -119,6 +125,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          id
           fields {
             slug
           }

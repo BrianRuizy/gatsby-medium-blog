@@ -19,6 +19,7 @@ function LinkTab(props) {
     <Tab
       disableRipple
       component={Link}
+      to="/blog"
       sx={{ "&.Mui-selected": { color: "text.primary" } }}
       {...props}
     />
@@ -73,15 +74,20 @@ const BlogIndex = ({ data, location }) => {
         {posts.map(post => {
           // posts list sorted by date
           return (
-            <>
+            <Box
+              key={post.id}
+              sx={{
+                "&:last-child": { "& > hr": { display: "none" } },
+              }}
+            >
               <Post data={post} />
               <Divider
                 sx={{
                   width: "100%",
-                  "&:last-child": { display: "none" },
+                  pt: 4,
                 }}
               />
-            </>
+            </Box>
           )
         })}
       </Grid>
@@ -104,6 +110,7 @@ export const pageQuery = graphql`
       filter: { frontmatter: { category: { in: "Blog" } } }
     ) {
       nodes {
+        id
         excerpt
         fields {
           slug
