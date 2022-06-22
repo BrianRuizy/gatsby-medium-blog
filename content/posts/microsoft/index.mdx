@@ -76,15 +76,15 @@ Finally, we needed to plot our GPS data so the city could take action. Our colle
 ```python
 import folium
 import pandas as pd
-# Initialize map on San Francisco
+
 SF_COORDINATES = (37.76, -122.45)
 map = folium.Map(location=SF_COORDINATES, zoom_start=12)
-# add a marker and cluster nodes
 for each in df.iterrows():
   map.simple_marker(
     location = [each[1]['Y'],each[1]['X']], 
     clustered_marker = True
   )
+
 display(map)
 ```
 

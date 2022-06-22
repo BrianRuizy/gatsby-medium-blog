@@ -17,7 +17,7 @@ const shortcodes = {
         letterSpacing: "-0.003em",
         mt: "1.5rem",
         "@media (max-width: 900px)": {
-          fontSize: "18px",
+          fontSize: "17px",
           lineHeight: "28px",
           mt: "1rem",
         },
@@ -30,13 +30,13 @@ const shortcodes = {
       variant="h2"
       sx={{
         mt: "4rem",
-        mb: "-8px",
-        fontSize: "22px !important",
+        mb: "-12px",
+        fontSize: "24px !important",
         fontWeight: "900",
         lineHeight: "28px",
         letterSpacing: "0",
         "@media (max-width: 900px)": {
-          fontSize: "20px !important",
+          fontSize: "22px !important",
         },
       }}
       {...props}
@@ -47,7 +47,7 @@ const shortcodes = {
       variant="h3"
       sx={{
         mt: "3rem",
-        mb: "-8px",
+        mb: "-12px",
         fontSize: "20px !important",
         letterSpacing: "0",
         fontWeight: "900",
@@ -66,20 +66,17 @@ const shortcodes = {
         my: "2rem",
         color: "text.secondary",
         lineHeight: "32px",
-        borderLeft: "2px solid ",
+        borderLeft: "3px solid ",
         borderColor: "text.primary",
         fontStyle: "italic",
         "& > p": {
+          fontFamily: "Roboto, sans-serif",
           fontWeight: "400",
           letterSpacing: "-0.003em",
           lineHeight: "inherit",
           m: "unset",
         },
-        "@media (max-width: 900px)": {
-          "& > p": {
-            fontSize: "20px",
-          },
-        },
+       
       }}
       {...props}
     />
@@ -126,6 +123,21 @@ const shortcodes = {
         </Typography>
       </figcaption>
     </Box>
+  ),
+  figcaption: props => (
+    <figcaption style={{ textAlign: "center" }}>
+    <Typography
+      variant="caption"
+      {...props}
+      sx={{
+        lineHeight: "20px",
+        fontSize: "14px",
+        color: "text.secondary",
+        letterSpacing: 0,
+      }}
+    >
+    </Typography>
+  </figcaption>
   ),
   pre: props => (
     <Box sx={{ my: "2rem"}}>

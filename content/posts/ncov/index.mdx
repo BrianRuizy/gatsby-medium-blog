@@ -18,27 +18,29 @@ When I started this side project there were not too many dashboards or sites to 
 
 We have contributors from Spain, Poland, India, and various places in the U.S. who came together to create something useful and meaningful. Furthermore, the site has accumulated over 10k visits as shown by web analytics. And, the project is still being maintained and improved upon, thanks to the help of developers.
 
-![](https://miro.medium.com/max/700/0*4DeT3bxzq-akxL9q.jpg)
+![Mobile views of application](https://miro.medium.com/max/700/0*qhtGaJEKHEruAokI.png)
+
 
 # Data Collection
 A large portion of the data comes from one of the original data repositories tracking COVID-19 cases, Johns Hopkins University: CSSE2019-ncov data repository. Additional data was collected from Our World in Data: OWID’s GitHub data repository. Lastly, to fill in some requirements we retrieved data for daily cases from New York Times COVID GitHub data repository.
 
 For this project, it was crucial to have accurate, reliable, and trustworthy datasets. Which explains why the multiple aforementioned sources were diligently picked. Having not done so would only lead to misinformation and inaccurate representations of the global pandemic, which could have repercussions at scale.
 
+![Person reading COVID news](https://miro.medium.com/max/700/0*4DeT3bxzq-akxL9q.jpg)
+
+
 # Technology stack
 This project began with Python-based Jupyter notebooks, and the use of Plotly, “the leading front-end for ML & data science models in Python, R, and Julia.” Django. But I needed a way for this to be accessible to the public therefore I started using the Django web framework, Django is a high-level Web framework that encourages rapid development and clean, pragmatic design. To bootstrap the initial dashboard grid we used Appseed and Bootstrap 4 to fill in where we needed custom UI elements.
 
+![](https://miro.medium.com/max/700/0*Za--6loAv75j4wRG.png)
+
 Several times I reconsidered the deployment of this project, but ultimately decided to deploy it to Heroku. Heroku is a cloud-based platform that offers an easy way to deploy your Django-based web applications. Though other contenders included elastic beanstalk (AWS) and Google App Engine, Heroku included tools that seemed much more valuable at a free tier. Furthermore, Heroku provides seamless CI and made it super easy to test pull requests from other contributors.
 
-![](https://miro.medium.com/max/700/0*Za--6loAv75j4wRG.png)
 
 # Front-end design
 Overall the general approach of the application is to display a grid of different cards. The cards represent different forms of data organized in their respective way, and the user can interact with the data in several ways. For instance, we have a map card that uses COVID case data stacked on top of GPS coordinates. In another card, we have a plot that shows the overall trajectory of confirmed cases using time-series data with dates.
 
 And, it was important to design the grid in such a way that the cards of data were responsive and friendly to different devices and viewports. The following image exemplifies that.
-
-![](https://miro.medium.com/max/700/0*cdaile0oH47leQGN.png)
-
 
 # How it works
 The following is a snippet of how we’re using Python and Pandas to pull the data from different sources, and returning that data to the front-end with AJAX asynchronous requests. Using AJAX requests allows us to load the data asynchronously, which is a great way to improve the user experience by significantly reducing the initial page load time. Note that the code may be incomplete for concision.
@@ -135,7 +137,8 @@ var plot_layout = {
 # The Final Product
 In the end, we have a fully functional real-time data visualization that is responsive to different device viewports and fully interactive to both mouse and touch controls. All in the most effective content delivery system that exists, the internet.
 
-![](https://miro.medium.com/max/700/0*qhtGaJEKHEruAokI.png)
+![Responsive design](https://miro.medium.com/max/700/0*cdaile0oH47leQGN.png)
+
 
 # Conclusion
 So did I achieve my initial goal? Yes, exceedingly, I believe. There is a tremendous amount of appreciation for this project knowing that tens of thousands of users have even opened the website and interacted with it. And, the idea that some of those users left the site learning a little more about the COVID-19 pandemic is rewarding.
