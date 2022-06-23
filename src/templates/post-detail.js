@@ -12,7 +12,6 @@ import shortcodes from "../components/mdx"
 import Seo from "../components/seo"
 
 import Box from "@mui/material/Box"
-import Divider from "@mui/material/Divider"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
@@ -24,14 +23,154 @@ import TwitterIcon from "@mui/icons-material/Twitter"
 import FacebookIcon from "@mui/icons-material/Facebook"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import LinkIcon from "@mui/icons-material/Link"
+import { render } from "react-dom"
+
+const ClampTypography = {
+  overflow: 'hidden',
+  textOverflow: "ellipsis",
+  display: "-webkit-box",
+  WebkitLineClamp: "2",
+  lineClamp: "2", 
+  WebkitBoxOrient: "vertical",
+}
+
+function MoreReadings(props) {
+  const { previous, next } = props.data
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        width: "100%",
+        maxWidth: "330px",
+      }}
+    >
+      <Typography
+        variant="h3"
+        sx={{
+          fontSize: "16px !important",
+          letterSpacing: 0,
+          fontWeight: "500",
+          lineHeight: "20px",
+        }}
+      >
+        More from Brian
+      </Typography>
+      <Stack spacing={3}>
+        {[next].map(item => {
+          if (!item) return null
+          return (
+            <Box
+              key={item.fields.slug}
+              component={Link}
+              to={item.fields.slug}
+              rel={item}
+              sx={{
+                textDecoration: "none",
+                color: "unset",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
+              <Box>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "text.secondary" }}
+                  gutterBottom
+                >
+                 {`${item.frontmatter.date} • ${item.timeToRead}`} min read
+                </Typography>
+                <Typography
+                  variant="body1"
+                  style={ClampTypography}
+                  sx={{
+                    fontWeight: "700",
+                    lineHeight: "20px",
+                    textTransform: "capitalize",
+                    letterSpacing: "0",
+                  }}
+                >
+                  {" "}
+                  {item.frontmatter.title}
+                </Typography>
+              </Box>
+              <Box sx={{ width: "100%", maxWidth: "55px" }}>
+                <GatsbyImage
+                  image={getImage(item.frontmatter.featuredImage)}
+                  alt={item.frontmatter.featuredImage.name}
+                />
+              </Box>
+            </Box>
+          )
+        })}
+        {[previous].map(item => {
+          if (!item) return null
+          return (
+            <Box
+              key={item.fields.slug}
+              component={Link}
+              to={item.fields.slug}
+              rel={item}
+              sx={{
+                textDecoration: "none",
+                color: "unset",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
+              <Box>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "text.secondary" }}
+                  gutterBottom
+                >
+                 {`${item.frontmatter.date} • ${item.timeToRead}`} min read
+                </Typography>
+                <Typography
+                  variant="body1"
+                  style={ClampTypography}
+                  sx={{
+                    fontWeight: "700",
+                    lineHeight: "20px",
+                    textTransform: "capitalize",
+                    letterSpacing: "0",
+                  }}
+                >
+                  {" "}
+                  {item.frontmatter.title}
+                </Typography>
+              </Box>
+              <Box sx={{ width: "100%", maxWidth: "55px" }}>
+                <GatsbyImage
+                  image={getImage(item.frontmatter.featuredImage)}
+                  alt={item.frontmatter.featuredImage.name}
+                />
+              </Box>
+            </Box>
+          )
+        })}
+      </Stack>
+    </Box>
+  )
+}
+
 
 const PostDetailTemplate = ({ data, location }) => {
   const post = data.mdx
-  const { previous, next } = data
   const image = getImage(post.frontmatter.featuredImage)
 
   return (
-    <Layout location={location} title={""}>
+    <Layout
+      location={location}
+      title={""}
+      extraDrawerContent={<MoreReadings data={data} />}
+    >
       <Box
         sx={{
           display: "flex",
@@ -41,7 +180,7 @@ const PostDetailTemplate = ({ data, location }) => {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{display: "flex", gap: 2, alignItems: "center"}}>
+        <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
           <Avatar
             alt="Brian Ruiz"
             src="https://media-exp1.licdn.com/dms/image/C4E03AQEznEUEL5QCMA/profile-displayphoto-shrink_200_200/0/1584754543548?e=2147483647&v=beta&t=6pz6xtlRYMNdakEiOcMfaY3i5urZQZggz3vORlDCJ_A"
@@ -85,7 +224,7 @@ const PostDetailTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article itemScope itemType="http://schema.org/Article">
-        <header style={{marginBottom: "6rem"}}>
+        <header style={{ marginBottom: "6rem" }}>
           <Box pb={4} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
             <Box>
               <Typography
@@ -153,32 +292,6 @@ const PostDetailTemplate = ({ data, location }) => {
         )} */}
         </footer>
       </article>
-      <nav className="post-detail-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
     </Layout>
   )
 }
@@ -218,17 +331,34 @@ export const pageQuery = graphql`
       fields {
         slug
       }
+      timeToRead
       frontmatter {
         title
+        date(formatString: "MMM D, YYYY")
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(aspectRatio: 1)
+          }
+          name
+        }
       }
     }
     next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
       }
+      timeToRead
       frontmatter {
         title
+        date(formatString: "MMM D, YYYY")
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(aspectRatio: 1)
+          }
+          name
+        }
       }
+      
     }
   }
 `

@@ -1,10 +1,11 @@
 // defines mdx components styles to be used for post content
 import * as React from "react"
-import { Link } from "gatsby"
 
 import Box from "@mui/material/Box"
-import Typography from "@mui/material/Typography"
 import Divider from "@mui/material/Divider"
+import MuiLink from "@mui/material/Link"
+import Typography from "@mui/material/Typography"
+
 
 const shortcodes = {
   p: props => (
@@ -105,7 +106,7 @@ const shortcodes = {
     />
   ),
   hr: props => <Divider sx={{ mt: 6 }} />,
-  a: props => <Link {...props} />,
+  a: props => <MuiLink {...props} />,
   img: props => (
     <Box {...props} sx={{ mt: "2rem", textAlign: "center" }}>
       <img {...props} style={{ width: "100%" }} />

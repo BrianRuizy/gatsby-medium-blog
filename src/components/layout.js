@@ -1,8 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import LeftDrawer from "./DrawerLeft"
-import RightDrawer from "./DrawerRight"
+import DrawerLeft from "./DrawerLeft"
+import DrawerRight from "./DrawerRight"
 
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
@@ -20,14 +20,14 @@ import {
 let theme = createTheme()
 theme = responsiveFontSizes(theme)
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, extraDrawerContent, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex" }} data-is-root-path={isRootPath}>
-        <LeftDrawer />
+        <DrawerLeft />
         <Container
           maxWidth="string"
           disableGutters
@@ -81,7 +81,7 @@ const Layout = ({ location, title, children }) => {
             </Box>
           </main>
         </Container>
-        <RightDrawer />
+        <DrawerRight extraDrawerContent={extraDrawerContent} />
       </Box>
     </ThemeProvider>
   )

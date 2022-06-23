@@ -3,6 +3,7 @@ import * as React from "react"
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
+import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
 const profiles = {
@@ -40,7 +41,7 @@ const socials = () => {
         flexDirection: "column",
         gap: 2,
         width: "100%",
-        maxWidth: "300px",
+        maxWidth: "330px",
       }}
     >
       <Typography
@@ -52,59 +53,60 @@ const socials = () => {
           lineHeight: "20px",
         }}
       >
-        Socials
+        Social media
       </Typography>
-
-      {Object.keys(profiles).map(key => {
-        const profile = profiles[key]
-        return (
-          <Box
-            key={profile.name}
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
+      <Stack spacing={2}>
+        {Object.keys(profiles).map(key => {
+          const profile = profiles[key]
+          return (
             <Box
+              key={profile.name}
               sx={{
                 display: "flex",
                 flexDirection: "row",
-                gap: "1rem",
+                justifyContent: "space-between",
                 alignItems: "center",
               }}
             >
-              <Box>
-                <Avatar
-                  variant="square"
-                  alt="avatar"
-                  src={profile.icon}
-                  sx={{ width: 24, height: 24 }}
-                />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "1rem",
+                  alignItems: "center",
+                }}
+              >
+                <Box>
+                  <Avatar
+                    variant="square"
+                    alt="avatar"
+                    src={profile.icon}
+                    sx={{ width: 24, height: 24 }}
+                  />
+                </Box>
+                <Box>
+                  <Typography sx={{ fontWeight: 500 }}>{profile.name}</Typography>
+                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                    {profile.followers} followers
+                  </Typography>
+                </Box>
               </Box>
-              <Box>
-                <Typography sx={{ fontWeight: 500 }}>{profile.name}</Typography>
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  {profile.followers} followers
-                </Typography>
-              </Box>
+              <Button
+                variant="outlined"
+                size="small"
+                sx={{
+                  height: "fit-content",
+                  borderRadius: "99em",
+                  textTransform: "capitalize",
+                }}
+                href={profile.url}
+              >
+                Follow
+              </Button>
             </Box>
-            <Button
-              variant="outlined"
-              size="small"
-              sx={{
-                height: "fit-content",
-                borderRadius: "99em",
-                textTransform: "capitalize",
-              }}
-              href={profile.url}
-            >
-              Follow
-            </Button>
-          </Box>
-        )
-      })}
+          )
+        })}
+      </Stack>
     </Box>
   )
 }

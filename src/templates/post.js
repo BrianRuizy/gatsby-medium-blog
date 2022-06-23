@@ -65,13 +65,13 @@ const PostItem = ({ data }) => {
               <Typography
                 variant="h2"
                 gutterBottom
-                className="clamp-typography"
                 style={ClampTypography}
                 sx={{
                   fontWeight: "700",
                   lineHeight: "28px",
                   fontSize: "22px !important",
                   textTransform: "capitalize",
+                  letterSpacing: "0",
                   "@media (max-width: 600px)": {
                     marginBottom: "0",
                     lineHeight: "24px",
