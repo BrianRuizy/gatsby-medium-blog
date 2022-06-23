@@ -1,6 +1,8 @@
 // defines mdx components styles to be used for post content
 import * as React from "react"
 
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
+
 import Box from "@mui/material/Box"
 import Divider from "@mui/material/Divider"
 import MuiLink from "@mui/material/Link"
@@ -109,7 +111,7 @@ const shortcodes = {
   a: props => <MuiLink {...props} />,
   img: props => (
     <Box {...props} sx={{ mt: "2rem", textAlign: "center" }}>
-      <img {...props} style={{ width: "100%" }} />
+      <img {...props} style={{ width: "100%" }} alt={props.alt}/>
       <figcaption>
         <Typography
           variant="caption"
@@ -125,6 +127,7 @@ const shortcodes = {
       </figcaption>
     </Box>
   ),
+
   figcaption: props => (
     <figcaption style={{ textAlign: "center" }}>
     <Typography

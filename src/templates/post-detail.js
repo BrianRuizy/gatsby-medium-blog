@@ -23,7 +23,6 @@ import TwitterIcon from "@mui/icons-material/Twitter"
 import FacebookIcon from "@mui/icons-material/Facebook"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import LinkIcon from "@mui/icons-material/Link"
-import { render } from "react-dom"
 
 const ClampTypography = {
   overflow: 'hidden',
@@ -56,7 +55,7 @@ function MoreReadings(props) {
           lineHeight: "20px",
         }}
       >
-        More from Brian
+        More articles
       </Typography>
       <Stack spacing={3}>
         {[next].map(item => {
