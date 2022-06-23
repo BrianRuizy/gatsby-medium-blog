@@ -51,6 +51,7 @@ const Tags = ({ pageContext, data }) => {
           borderColor: "divider",
           py: "12px",
           justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
         <Typography variant="body1">{tagHeader}</Typography>
@@ -59,7 +60,7 @@ const Tags = ({ pageContext, data }) => {
           underline="hover"
           component={Link}
           to="/tags"
-          sx={{ fontFamily: "Roboto" }}
+          sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
         >
           All Tags
         </MuiLink>

@@ -9,9 +9,15 @@ import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import Avatar from "@mui/material/Avatar"
+import Box from "@mui/material/Box"
+import Chip from "@mui/material/Chip"
 import MuiLink from "@mui/material/Link"
 import IconButton from "@mui/material/IconButton"
+import Typography from "@mui/material/Typography"
+
 import LocalOfferIcon from "@mui/icons-material/LocalOffer"
+
 
 const TagsPage = ({
   data: {
@@ -22,7 +28,7 @@ const TagsPage = ({
   },
 }) => (
   <Layout
-    location={"All Tags"}
+    location={"All Topics"}
     title={
       <>
         <IconButton
@@ -31,26 +37,46 @@ const TagsPage = ({
         >
           <LocalOfferIcon fontSize="small" />
         </IconButton>
-        {"All Tags"}
+        {"All Topics"}
       </>
     }
   >
-    <Seo title={'All Tags'} />
-
-    <ul style={{ paddingLeft: "1rem" }}>
+    <Seo title={"All Topics"} />
+    <Box
+        sx={{
+          display: "flex",
+          borderBottom: 1,
+          borderColor: "divider",
+          py: "12px",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="body1">
+        {group.length > 1 ? `There are ${group.length} topics` : `There is ${group.length} topic`}
+        {" to read about"}
+        </Typography>
+        <MuiLink
+          href="/"
+          underline="hover"
+          component={Link}
+          to="/"
+          sx={{ fontFamily: "Roboto" }}
+        >
+          Home
+        </MuiLink>
+    </Box>
+    <Box sx={{ display: "flex", flexWrap: "wrap", gap: "12px"}}>
       {group.map(tag => (
-        <li key={tag.fieldValue}>
-          <MuiLink
-            underline="hover"
-            component={Link}
-            to={`/tag/${kebabCase(tag.fieldValue)}/`}
-            sx={{ fontFamily: "Roboto" }}
-          >
-            ({tag.totalCount}) {tag.fieldValue} 
-          </MuiLink>
-        </li>
+        <Chip
+          key={tag}
+          component={Link}
+          to={`/tag/${kebabCase(tag.fieldValue)}/`}
+          label={`${tag.fieldValue} (${tag.totalCount})`}
+          clickable
+        />
       ))}
-    </ul>
+    </Box>
   </Layout>
 )
 

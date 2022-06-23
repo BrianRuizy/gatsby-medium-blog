@@ -11,12 +11,12 @@ import Layout from "../components/layout"
 import shortcodes from "../components/mdx"
 import Seo from "../components/seo"
 
-import Box from "@mui/material/Box"
-import Stack from "@mui/material/Stack"
-import Typography from "@mui/material/Typography"
-
 import Avatar from "@mui/material/Avatar"
+import Box from "@mui/material/Box"
+import Chip from "@mui/material/Chip"
+import Stack from "@mui/material/Stack"
 import IconButton from "@mui/material/IconButton"
+import Typography from "@mui/material/Typography"
 import Tooltip from "@mui/material/Tooltip"
 
 import TwitterIcon from "@mui/icons-material/Twitter"
@@ -31,6 +31,44 @@ const ClampTypography = {
   WebkitLineClamp: "2",
   lineClamp: "2", 
   WebkitBoxOrient: "vertical",
+}
+
+function PostTags(props) {
+  const tags = props.data
+  return (
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          width: "100%",
+          maxWidth: "300px",
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{
+            fontSize: "16px !important",
+            letterSpacing: 0,
+            fontWeight: "500",
+            lineHeight: "20px",
+          }}
+        >
+          Topics mentioned
+        </Typography>
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+          {tags.map(tag => (
+              <Chip
+              key={tag}
+              component={Link}
+              to={`/tag/${kebabCase(tag)}/`}
+              label={tag}
+              clickable
+              />
+          ))}
+        </Box>
+      </Box>
+  )
 }
 
 function MoreReadings(props) {
@@ -55,7 +93,7 @@ function MoreReadings(props) {
           lineHeight: "20px",
         }}
       >
-        More articles
+        More stories from Brian
       </Typography>
       <Stack spacing={3}>
         {[next].map(item => {
@@ -163,12 +201,18 @@ function MoreReadings(props) {
 const PostDetailTemplate = ({ data, location }) => {
   const post = data.mdx
   const image = getImage(post.frontmatter.featuredImage)
+  const tags = post.frontmatter.tags
 
   return (
     <Layout
       location={location}
       title={""}
-      extraDrawerContent={<MoreReadings data={data} />}
+      extraDrawerContent={<>
+        <PostTags data={tags} />
+        <MoreReadings data={data} />
+      </>
+     
+    }
     >
       <Box
         sx={{

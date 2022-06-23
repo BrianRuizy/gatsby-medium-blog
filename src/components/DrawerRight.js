@@ -59,7 +59,7 @@ export default function RightDrawer({ extraDrawerContent }) {
           <Avatar
             alt="Brian Ruiz"
             src="https://media-exp1.licdn.com/dms/image/C4E03AQEznEUEL5QCMA/profile-displayphoto-shrink_200_200/0/1584754543548?e=2147483647&v=beta&t=6pz6xtlRYMNdakEiOcMfaY3i5urZQZggz3vORlDCJ_A"
-            sx={{ width: 52, height: 52 }}
+            sx={{ width: 64, height: 64 }}
           >
             BR
           </Avatar>
