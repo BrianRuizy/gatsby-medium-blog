@@ -35,7 +35,7 @@ const tagsPanel = () => (
       >
         <Typography
           variant="overline"
-          sx={{ whiteSpace: "nowrap" }}
+          sx={{ whiteSpace: "nowrap", color: "text.secondary" }}
         >
           All Topics
         </Typography>

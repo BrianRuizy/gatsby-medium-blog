@@ -73,6 +73,7 @@ const PostItem = ({ data }) => {
                   fontSize: "22px !important",
                   textTransform: "capitalize",
                   letterSpacing: "0",
+                  color: "text.primary",
                   "@media (max-width: 600px)": {
                     marginBottom: "0",
                     lineHeight: "20px",
@@ -90,6 +91,7 @@ const PostItem = ({ data }) => {
                   display: "initial",
                   fontFamily: 'Charter',
                   marginBottom: "1rem",
+                  color: "text.primary",
                   "@media (max-width: 600px)": {
                     display: "none !important",
                   },

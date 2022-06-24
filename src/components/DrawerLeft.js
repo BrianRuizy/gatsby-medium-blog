@@ -4,18 +4,16 @@ import { Link } from "gatsby"
 import Box from "@mui/material/Box"
 import Drawer from "@mui/material/Drawer"
 import IconButton from "@mui/material/IconButton"
+import Tooltip from "@mui/material/Tooltip"
 
 import AbcIcon from "@mui/icons-material/Abc";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-// import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
-
-export default function RightDrawer({ isRootPath}) {
-
+export default function RightDrawer({ isRootPath, ThemeButton }) {
+  
   return (
     <Drawer
       sx={{
@@ -58,19 +56,21 @@ export default function RightDrawer({ isRootPath}) {
           gap: "1rem",
         }}
       >
-        <IconButton component={Link} to="/">
-          {isRootPath ? (
-            <HomeIcon sx={{ color: "text.primary" }} />
-          ) : (
-            <HomeOutlinedIcon />
-          )}
-        </IconButton>
-        <IconButton>
-          <AlternateEmailOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <DarkModeOutlinedIcon />
-        </IconButton>
+        <Tooltip title="Home" placement="right" arrow>
+          <IconButton component={Link} to="/">
+            {isRootPath ? (
+              <HomeIcon sx={{ color: "text.primary" }} />
+            ) : (
+              <HomeOutlinedIcon />
+            )}
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Contact" placement="right" arrow>
+          <IconButton>
+            <AlternateEmailOutlinedIcon />
+          </IconButton>
+        </Tooltip>
+        {ThemeButton}
       </Box>
       <Box>
         <IconButton>

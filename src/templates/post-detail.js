@@ -25,49 +25,50 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import LinkIcon from "@mui/icons-material/Link"
 
 const ClampTypography = {
-  overflow: 'hidden',
+  overflow: "hidden",
   textOverflow: "ellipsis",
   display: "-webkit-box",
   WebkitLineClamp: "2",
-  lineClamp: "2", 
+  lineClamp: "2",
   WebkitBoxOrient: "vertical",
 }
 
 function PostTags(props) {
   const tags = props.data
   return (
-      <Box
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        width: "100%",
+        maxWidth: "300px",
+      }}
+    >
+      <Typography
+        variant="h3"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          width: "100%",
-          maxWidth: "300px",
+          color: "text.primary",
+          fontSize: "16px !important",
+          letterSpacing: 0,
+          fontWeight: "500",
+          lineHeight: "20px",
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{
-            fontSize: "16px !important",
-            letterSpacing: 0,
-            fontWeight: "500",
-            lineHeight: "20px",
-          }}
-        >
-          Topics mentioned
-        </Typography>
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-          {tags.map(tag => (
-              <Chip
-              key={tag}
-              component={Link}
-              to={`/tag/${kebabCase(tag)}/`}
-              label={tag}
-              clickable
-              />
-          ))}
-        </Box>
+        Topics mentioned
+      </Typography>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+        {tags.map(tag => (
+          <Chip
+            key={tag}
+            component={Link}
+            to={`/tag/${kebabCase(tag)}/`}
+            label={tag}
+            clickable
+          />
+        ))}
       </Box>
+    </Box>
   )
 }
 
@@ -87,6 +88,7 @@ function MoreReadings(props) {
       <Typography
         variant="h3"
         sx={{
+          color: "text.primary",
           fontSize: "16px !important",
           letterSpacing: 0,
           fontWeight: "500",
@@ -116,10 +118,10 @@ function MoreReadings(props) {
               <Box>
                 <Typography
                   variant="body2"
-                  sx={{ color: "text.secondary",  }}
+                  sx={{ color: "text.secondary" }}
                   gutterBottom
                 >
-                 {`${item.frontmatter.date} • ${item.timeToRead}`} min read
+                  {`${item.frontmatter.date} • ${item.timeToRead}`} min read
                 </Typography>
                 <Typography
                   variant="body1"
@@ -167,7 +169,7 @@ function MoreReadings(props) {
                   sx={{ color: "text.secondary" }}
                   gutterBottom
                 >
-                 {`${item.frontmatter.date} • ${item.timeToRead}`} min read
+                  {`${item.frontmatter.date} • ${item.timeToRead}`} min read
                 </Typography>
                 <Typography
                   variant="body1"
@@ -197,7 +199,6 @@ function MoreReadings(props) {
   )
 }
 
-
 const PostDetailTemplate = ({ data, location }) => {
   const post = data.mdx
   const image = getImage(post.frontmatter.featuredImage)
@@ -207,12 +208,12 @@ const PostDetailTemplate = ({ data, location }) => {
     <Layout
       location={location}
       title={""}
-      extraDrawerContent={<>
-        <PostTags data={tags} />
-        <MoreReadings data={data} />
-      </>
-     
-    }
+      extraDrawerContent={
+        <>
+          <PostTags data={tags} />
+          <MoreReadings data={data} />
+        </>
+      }
     >
       <Box
         sx={{
@@ -401,7 +402,6 @@ export const pageQuery = graphql`
           name
         }
       }
-      
     }
   }
 `

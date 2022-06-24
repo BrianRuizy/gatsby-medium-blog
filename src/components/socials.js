@@ -47,6 +47,7 @@ const socials = () => {
       <Typography
         variant="h3"
         sx={{
+          color: "text.primary",
           fontSize: "16px !important",
           letterSpacing: 0,
           fontWeight: "500",

@@ -71,6 +71,7 @@ export default function RightDrawer({ extraDrawerContent }) {
             letterSpacing: 0,
             fontWeight: "500",
             lineHeight: "20px",
+            color: "text.primary",
           }}
         >
           Brian Ruiz
