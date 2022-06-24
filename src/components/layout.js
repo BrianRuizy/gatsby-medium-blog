@@ -33,7 +33,6 @@ theme = responsiveFontSizes(theme)
 const Layout = ({ location, title, extraDrawerContent, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  // const [value, setValue] = React.useState(0);
 
   return (
     <ThemeProvider theme={theme}>

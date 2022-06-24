@@ -121,10 +121,6 @@ const PostItem = ({ data }) => {
           <Box
             sx={{
               width: "140px",
-              "& > div": {
-              borderRadius: "3px",
-
-              },
               "@media (max-width: 600px)": {
                 width: "68px !important",
               },
