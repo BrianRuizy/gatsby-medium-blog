@@ -17,7 +17,7 @@ export default function RightDrawer({ extraDrawerContent }) {
       sx={{
         display: "none",
         flexShrink: 0,
-        "@media (min-width: 1200px)": {
+        "@media (min-width: 1080px)": {
           display: "flex",
           width: "25%",
         },
@@ -30,7 +30,7 @@ export default function RightDrawer({ extraDrawerContent }) {
           padding: 4,
           gap: "4rem",
           alignItems: "start",
-          "@media (min-width: 1200px)": {
+          "@media (min-width: 1080px)": {
             display: "flex",
             width: "25%",
           },

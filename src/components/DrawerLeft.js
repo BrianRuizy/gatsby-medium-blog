@@ -18,9 +18,9 @@ export default function RightDrawer() {
       sx={{
         display: "none",
         flexShrink: 0,
-        "@media (min-width: 1200px)": {
+        "@media (min-width: 1080px)": {
           display: "flex",
-          width: "8.33%",
+          width: "7%",
         },
         "@media (min-width: 1536px)": {
           width: "12.5%",
@@ -31,9 +31,9 @@ export default function RightDrawer() {
           padding: "2rem 1rem",
           display: "none",
           alignItems: "center",
-          "@media (min-width: 1200px)": {
+          "@media (min-width: 1080px)": {
             display: "flex",
-            width: "8.33%",
+            width: "7%",
           },
           "@media (min-width: 1536px)": {
             width: "12.5%",

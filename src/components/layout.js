@@ -15,7 +15,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Paper from '@mui/material/Paper';
 
-
+import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
@@ -33,7 +33,7 @@ theme = responsiveFontSizes(theme)
 const Layout = ({ location, title, extraDrawerContent, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = React.useState(0);
 
   return (
     <ThemeProvider theme={theme}>
@@ -102,16 +102,22 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
           bottom: 0,
           left: 0,
           right: 0,
-          "@media (min-width: 1200px)": { display: "none" },
+          "@media (min-width: 1080px)": { display: "none" },
         }}
       >
-        <BottomNavigation
-        // value={value}
-        // onChange={(event, newValue) => {
-        //   setValue(newValue);
-        // }}
-        >
-          <BottomNavigationAction label="Home" icon={<HomeOutlinedIcon />} />
+        <BottomNavigation>
+          <BottomNavigationAction
+            component={Link}
+            to="/"
+            label="Home"
+            icon={
+              isRootPath ? (
+                <HomeIcon sx={{ color: "text.primary" }} />
+              ) : (
+                <HomeOutlinedIcon />
+              )
+            }
+          />
           <BottomNavigationAction
             label="Favorites"
             icon={<AlternateEmailOutlinedIcon />}
