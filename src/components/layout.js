@@ -33,7 +33,6 @@ theme = responsiveFontSizes(theme)
 const Layout = ({ location, title, extraDrawerContent, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  const isBlogPath = location.pathname.startsWith(`${__PATH_PREFIX__}/blog`)
   // const [value, setValue] = React.useState(0);
 
   return (
@@ -113,7 +112,7 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
             label="Home"
             sx={{mb: "-4px"}}
             icon={
-              isRootPath || isBlogPath ? (
+              isRootPath ? (
                 <HomeIcon sx={{ color: "text.primary" }} />
               ) : (
                 <HomeOutlinedIcon />
