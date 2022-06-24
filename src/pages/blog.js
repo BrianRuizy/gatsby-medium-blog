@@ -19,7 +19,6 @@ function LinkTab(props) {
     <Tab
       disableRipple
       component={Link}
-      to="/blog"
       sx={{ "&.Mui-selected": { color: "text.primary" } }}
       {...props}
     />
@@ -70,7 +69,10 @@ const BlogIndex = ({ data, location }) => {
         </Tabs>
       </Box>
 
-      <Grid container sx={{ gap: 4 }}>
+      <Grid 
+        container 
+        sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
+      >
         {posts.map(post => {
           // posts list sorted by date
           return (
@@ -85,6 +87,7 @@ const BlogIndex = ({ data, location }) => {
                 sx={{
                   width: "100%",
                   pt: 4,
+                  "@media (max-width: 600px)": { pt: "1.5rem" },
                 }}
               />
             </Box>

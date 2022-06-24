@@ -49,6 +49,7 @@ const PostItem = ({ data }) => {
               display: "flex",
               flexDirection: "column",
               gap: 2,
+              "@media (max-width: 600px)": { gap: 1.5 },
             }}
           >
             <Typography color="text.secondary" variant="body2">
@@ -74,8 +75,10 @@ const PostItem = ({ data }) => {
                   letterSpacing: "0",
                   "@media (max-width: 600px)": {
                     marginBottom: "0",
-                    lineHeight: "24px",
-                    fontSize: "18px !important",
+                    lineHeight: "20px",
+                    WebkitLineClamp: "3 !important",
+                    lineClamp: "3 !important", 
+                    fontSize: "16px !important",
                   },
                 }}
               >
@@ -119,7 +122,7 @@ const PostItem = ({ data }) => {
             sx={{
               width: "140px",
               "@media (max-width: 600px)": {
-                width: "80px !important",
+                width: "70px !important",
               },
             }}
           >

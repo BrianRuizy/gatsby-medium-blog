@@ -9,7 +9,6 @@ import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
 import Chip from "@mui/material/Chip"
 import MuiLink from "@mui/material/Link"

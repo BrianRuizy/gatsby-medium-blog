@@ -34,12 +34,12 @@ const shortcodes = {
       sx={{
         mt: "4rem",
         mb: "-12px",
-        fontSize: "24px !important",
+        fontSize: "22px !important",
         fontWeight: "900",
         lineHeight: "28px",
         letterSpacing: "0",
         "@media (max-width: 900px)": {
-          fontSize: "22px !important",
+          fontSize: "20px !important",
         },
       }}
       {...props}
@@ -55,7 +55,7 @@ const shortcodes = {
         letterSpacing: "0",
         fontWeight: "900",
         "@media (max-width: 900px)": {
-          fontSize: "18px !important",
+          fontSize: "17px !important",
         },
       }}
       {...props}

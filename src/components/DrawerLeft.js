@@ -11,7 +11,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+// import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 
 export default function RightDrawer({ isRootPath}) {
@@ -30,7 +30,6 @@ export default function RightDrawer({ isRootPath}) {
         },
         "& .MuiDrawer-paper": {
           justifyContent: "space-between",
-          alignItems: "end",
           padding: "2rem 1rem",
           display: "none",
           alignItems: "center",

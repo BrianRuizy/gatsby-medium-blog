@@ -80,7 +80,7 @@ const tagsPanel = () => (
                   fontWeight: "400",
                   minHeight: "unset",
                   minWidth: "unset",
-                  "-webkit-transition":
+                  "webkitTransition":
                     "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
                   transition:
                     "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
