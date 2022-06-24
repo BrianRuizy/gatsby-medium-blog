@@ -7,12 +7,15 @@ import IconButton from "@mui/material/IconButton"
 
 import AbcIcon from "@mui/icons-material/Abc";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
+import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 
-export default function RightDrawer() {
+export default function RightDrawer({ isRootPath}) {
+
   return (
     <Drawer
       sx={{
@@ -53,16 +56,22 @@ export default function RightDrawer() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: ".5rem",
+          gap: "1rem",
         }}
       >
-        <IconButton>
-          <HomeOutlinedIcon />
+        <IconButton component={Link} to="/">
+          {isRootPath ? (
+            <HomeIcon sx={{ color: "text.primary" }} />
+          ) : (
+            <HomeOutlinedIcon />
+          )}
         </IconButton>
         <IconButton>
           <AlternateEmailOutlinedIcon />
         </IconButton>
-        {/* <ThemeButton /> */}
+        <IconButton>
+          <DarkModeOutlinedIcon />
+        </IconButton>
       </Box>
       <Box>
         <IconButton>

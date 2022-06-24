@@ -38,7 +38,7 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex" }} data-is-root-path={isRootPath}>
-        <DrawerLeft />
+        <DrawerLeft isRootPath={isRootPath} />
         <Container
           maxWidth="string"
           disableGutters

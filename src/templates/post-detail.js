@@ -93,7 +93,7 @@ function MoreReadings(props) {
           lineHeight: "20px",
         }}
       >
-        More stories from Brian
+        More stories
       </Typography>
       <Stack spacing={3}>
         {[next].map(item => {
@@ -116,7 +116,7 @@ function MoreReadings(props) {
               <Box>
                 <Typography
                   variant="body2"
-                  sx={{ color: "text.secondary" }}
+                  sx={{ color: "text.secondary",  }}
                   gutterBottom
                 >
                  {`${item.frontmatter.date} • ${item.timeToRead}`} min read
@@ -377,7 +377,7 @@ export const pageQuery = graphql`
       timeToRead
       frontmatter {
         title
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMM, YYYY")
         featuredImage {
           childImageSharp {
             gatsbyImageData(aspectRatio: 1)
@@ -393,7 +393,7 @@ export const pageQuery = graphql`
       timeToRead
       frontmatter {
         title
-        date(formatString: "MMM D, YYYY")
+        date(formatString: "MMM, YYYY")
         featuredImage {
           childImageSharp {
             gatsbyImageData(aspectRatio: 1)
