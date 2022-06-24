@@ -47,7 +47,7 @@ export default function RightDrawer({ isRootPath}) {
       anchor="left"
     >
       <Box>
-        <IconButton aria-label="delete" href="/">
+        <IconButton aria-label="delete" component={Link} to="/">
           <AbcIcon />
         </IconButton>
       </Box>

@@ -39,7 +39,7 @@ const PostItem = ({ data }) => {
           alignItems: "center",
           gap: "4rem",
           "@media (max-width: 600px)": {
-            gap: "2rem",
+            gap: "1rem",
           },
         }}
       >
@@ -76,9 +76,7 @@ const PostItem = ({ data }) => {
                   "@media (max-width: 600px)": {
                     marginBottom: "0",
                     lineHeight: "20px",
-                    WebkitLineClamp: "3 !important",
-                    lineClamp: "3 !important", 
-                    fontSize: "18px !important",
+                    fontSize: "16px !important",
                   },
                 }}
               >
@@ -122,7 +120,7 @@ const PostItem = ({ data }) => {
             sx={{
               width: "140px",
               "@media (max-width: 600px)": {
-                width: "68px !important",
+                width: "64px !important",
               },
             }}
           >

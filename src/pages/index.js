@@ -99,14 +99,14 @@ const Index = ({ data, location }) => {
           <Tab
             label="All"
             {...a11yProps(0)}
-            sx={{ "&.Mui-selected": { color: "text.primary" } }}
+            sx={{ textTransform: "capitalize", fontWeight: 400, "&.Mui-selected": { color: "text.primary", } }}
           />
           {data.allMdx.group.map((category, index) => (
             <Tab
               key={category.fieldValue}
               label={category.fieldValue}
               {...a11yProps(index + 1)}
-              sx={{ "&.Mui-selected": { color: "text.primary" } }}
+              sx={{ textTransform: "capitalize", fontWeight: 400, "&.Mui-selected": { color: "text.primary", } }}
             />
           ))}
         </Tabs>

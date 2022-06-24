@@ -95,7 +95,7 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
         <DrawerRight extraDrawerContent={extraDrawerContent} />
       </Box>
       <Paper
-        elevation={3}
+        elevation={2}
         sx={{
           position: "fixed",
           bottom: 0,
