@@ -155,6 +155,7 @@ const Index = ({ data, location }) => {
                 </Box>
               )
             }
+            return
           })}
         </TabPanel>
       ))}

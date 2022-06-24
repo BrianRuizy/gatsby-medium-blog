@@ -127,6 +127,7 @@ function MoreReadings(props) {
                   variant="body1"
                   style={ClampTypography}
                   sx={{
+                    color: "text.primary !important",
                     fontWeight: "700",
                     lineHeight: "20px",
                     textTransform: "capitalize",
@@ -317,24 +318,6 @@ const PostDetailTemplate = ({ data, location }) => {
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
-        <footer>
-          {/* {post.frontmatter.tags && (
-          <div
-            className="post-tags"
-            style={{
-              display: "flex",
-              gap: ".5rem",
-              marginBottom: "1rem",
-            }}
-          >
-            {post.frontmatter.tags.map(tag => (
-              <Link to={`/tag/${kebabCase(tag)}`} key={tag}>
-                <button key={tag}>{tag}</button>
-              </Link>
-            ))}
-          </div>
-        )} */}
-        </footer>
       </article>
     </Layout>
   )

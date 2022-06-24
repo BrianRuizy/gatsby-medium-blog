@@ -1,8 +1,6 @@
 // defines mdx components styles to be used for post content
 import * as React from "react"
 
-import { getImage, GatsbyImage } from 'gatsby-plugin-image';
-
 import Box from "@mui/material/Box"
 import Divider from "@mui/material/Divider"
 import MuiLink from "@mui/material/Link"
@@ -14,6 +12,7 @@ const shortcodes = {
     <Typography
       variant="body1"
       sx={{
+        color: "text.postBody",
         fontFamily: "Charter, serif",
         fontSize: "20px",
         lineHeight: "32px",
@@ -67,12 +66,12 @@ const shortcodes = {
       sx={{
         pl: 2,
         my: "2rem",
-        color: "text.secondary",
         lineHeight: "32px",
         borderLeft: "3px solid ",
         borderColor: "text.primary",
         fontStyle: "italic",
         "& > p": {
+          color: "text.disabled",
           fontFamily: "Roboto, sans-serif",
           fontWeight: "400",
           letterSpacing: "-0.003em",

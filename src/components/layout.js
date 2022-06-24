@@ -87,6 +87,19 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
       createTheme({
         palette: {
           mode,
+          ...(mode === "light"
+            ? {
+                // palette values for light mode
+                text: {
+                  postBody: "rgba(0, 0, 0, 0.87)",
+                },
+              }
+            : {
+                // palette values for dark mode
+                text: {
+                  postBody: "rgba(255, 255, 255, 0.87)",
+                },
+              }),
         },
       }),
     [mode]
@@ -128,7 +141,10 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
                 sx={{
                   lineHeight: "52px",
                   fontWeight: "700",
-                  color: "text.primary",
+                  "& > a": {
+                    color: "text.primary",
+                    textDecoration: "none",
+                  },
                   "@media (max-width: 600px)": {
                     fontSize: "22px",
                   },
