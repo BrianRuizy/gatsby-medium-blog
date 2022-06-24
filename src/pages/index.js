@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import PropTypes from 'prop-types';
 
 // local imports
 import Post from "../templates/post"
@@ -14,20 +15,51 @@ import Grid from "@mui/material/Grid"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 
-function LinkTab(props) {
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
   return (
-    <Tab
-      disableRipple
-      component={Link}
-      sx={{ "&.Mui-selected": { color: "text.primary" } }}
-      {...props}
-    />
-  )
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Grid
+           container
+           sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
+         >
+          {children}
+        </Grid>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
 }
 
 const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
+
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   if (posts.length === 0) {
     return (
@@ -54,7 +86,8 @@ const Index = ({ data, location }) => {
         }}
       >
         <Tabs
-          value={0}
+          value={value}
+          onChange={handleChange}
           aria-label="nav tabs example"
           sx={{
             "& .MuiTabs-indicator": {
@@ -63,17 +96,24 @@ const Index = ({ data, location }) => {
             },
           }}
         >
-          <LinkTab label="Case Study" to="/" />
-          <LinkTab label="Blog" to="/blog" />
+          <Tab
+            label="All"
+            {...a11yProps(0)}
+            sx={{ "&.Mui-selected": { color: "text.primary" } }}
+          />
+          {data.allMdx.group.map((category, index) => (
+            <Tab
+              key={category.fieldValue}
+              label={category.fieldValue}
+              {...a11yProps(index + 1)}
+              sx={{ "&.Mui-selected": { color: "text.primary" } }}
+            />
+          ))}
         </Tabs>
       </Box>
 
-      <Grid
-        container
-        sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
-      >
+      <TabPanel value={value} index={0} key={"all"}>
         {posts.map(post => {
-          // posts list sorted by date
           return (
             <Box
               key={post.id}
@@ -92,7 +132,32 @@ const Index = ({ data, location }) => {
             </Box>
           )
         })}
-      </Grid>
+      </TabPanel>
+      {data.allMdx.group.map((category, index) => (
+        <TabPanel value={value} index={index+1} key={category.fieldValue}>
+          {posts.map(post => {
+            if (post.frontmatter.category === category.fieldValue) {
+              return (
+                <Box
+                  key={post.id}
+                  sx={{
+                    "&:last-child": { "& > hr": { display: "none" } },
+                  }}
+                >
+                  <Post data={post} />
+                  <Divider
+                    sx={{
+                      width: "100%",
+                      pt: 4,
+                      "@media (max-width: 600px)": { pt: "1.5rem" },
+                    }}
+                  />
+                </Box>
+              )
+            }
+          })}
+        </TabPanel>
+      ))}
     </Layout>
   )
 }
@@ -108,9 +173,8 @@ export const pageQuery = graphql`
     }
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 200
-      filter: { frontmatter: { category: { in: "Case Study" } } }
-    ) {
+      limit: 200) 
+    {
       group(field: frontmatter___category) {
         fieldValue
       }
@@ -122,6 +186,7 @@ export const pageQuery = graphql`
         }
         timeToRead
         frontmatter {
+          category
           date(formatString: "MMMM DD, YYYY")
           title
           description

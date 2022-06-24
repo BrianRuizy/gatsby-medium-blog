@@ -7,60 +7,57 @@ tags: [ "Google", "Machine Learning"]
 featuredImage: "../../../src/images/google.png"
 ---
 
+# Lorem ipsum
 
-# The Challenge
+lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut, labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut, labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut, labore et dolore magna aliqua.
 
-The main objective of the competition revolved around developing innovative solutions for improving the infrastructure of cities in the US. The 2019 Smart Infrastructure Hackathon was hosted at The Cannon (Houston), in partnership with Microsoft Azure. Thankfully, we had a team of really bright cloud solution architects for guidance.
 
-# Technology We’re Using
+![3d projection graph ](https://matplotlib.org/stable/_images/sphx_glr_polys3d_001_2_0x.png)
 
-The technology we opted for the project revolved heavily around Python. For the phone data we used a publicly available mobile app that allowed exporting the data to CSV files. We then leverage Python’s scripting ability to analyze the data from the phone, to use for the road pothole detection algorithm.
+## first step 
 
-Python also allowed us to create —matplotlib— visualizations of our data which we used to tweak the algorithm. All of this was tied togther with the Microsoft Azure platform. From storing the data (CSV’s and images) in Azure, to using the Azure Machine Learning platform to train the model.
+set the imports and lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
 
-![](https://brianruizy.com/static/f1577426c45e122c22a3aefcd0f5a7d8/58e7d/tech.png)
+```python
+from matplotlib.collections import PolyCollection
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import poisson
+```
 
-# Our Idea and App Proposal
+## secondly
+Fixing random state for reproducibility, and creating starting variables. 
+Also creating a function that Constructs the vertex list which defines the polygon filling the space under
+the (x, y) line graph. This assumes x is in ascending order.
+    
 
-After juggling several ideas we settled on the issue of road potholes. We discovered that potholes cost American drivers $6.4 billion per year, that is in repair and insurance costs. A single pothole may cause are up to $300 per year per vehicle (2016), while the average price to repair a pothole is on average $30 — $50 per pothole. Thus the effort to aid this issue can be indeed cost effective.
+```python
+np.random.seed(19680801)
 
-Looking at our challenge from a high level we need the following components or stages, to be able to solve the problem. Also, we need to design a 2-layer confirmation of a road pothole. The first is the active dashboard camera, and the second uses the user’s phone telemetry data, such as GPS and accelerometer modules.
 
-- Data collection and analysis
-- Algorithm to predict the probability of a pothole
-- Minimal Interface
-- Data visualization/mapping
+ax = plt.figure().add_subplot(projection='3d')
+x = np.linspace(0., 10., 31)
+lambdas = range(1, 9)
 
-## 1. Analyzing mobile telemetry data
+def polygon_under_graph(x, y):
+    return [(x[0], 0.), *zip(x, y), (x[-1], 0.)]
+```
 
-Every modern smartphone is equipped with very accurate telemetry systems. For instance, the GPS and accelerometer, which we leveraged for location and to track any abrupt movement indicating a pothole on the road.
 
-One of the difficulties with this approach was that logging every high acceleration movement may result in false positives of a road pothole. Below is also a time-series data visualization of the accelerometer data, generated with matplotlib.
+## Then we can plot the graph
 
-## 2. Live computer vision
 
-This part was more difficult to implement, but this was our second layer for prediction of potholes, implementation is done with some guidance from the Azure cloud architects.
+```python
 
-We used Azure Logic Apps to import our road image frames to the cloud, and with OpenCV were able to register a model to start analyzing our content with the conveniently named Azure microservice Computer Vision.
+# verts[i] is a list of (x, y) pairs defining polygon i.
+verts = [polygon_under_graph(x, poisson.pmf(l, x)) for l in lambdas]
+facecolors = plt.colormaps['viridis_r'](np.linspace(0, 1, len(verts)))
 
-![](https://miro.medium.com/max/1200/0*KS2_n2hz7Lrqyn_L.gif)
+poly = PolyCollection(verts, facecolors=facecolors, alpha=.7)
+ax.add_collection3d(poly, zs=lambdas, zdir='y')
 
-## 3. The Interface
+ax.set(xlim=(0, 10), ylim=(1, 9), zlim=(0, 0.35),
+       xlabel='x', ylabel=r'$\lambda$', zlabel='probability')
 
-From the start, the idea was to keep the interface as intuitive as possible to minimize driving distractions. Therefore, we intended to create an interface that would show a dialog box only when our system predicted there to be a pothole, from there the user would confirm if so.
-
-![](https://miro.medium.com/max/1400/0*tMtJgK7gjlD9taii.png)
-
-## 4. Geocoding / Mapping
-
-Finally, we needed to plot our GPS data so the city could take action. Our collected data included latitude, longitude, altitude, and location accuracy. Location accuracy is important to pinpoint multiple occurrences of the same pothole from different users for clustering the locations.
-
-![](https://miro.medium.com/max/1400/0*PYSGLUaVid-vzeHr.png)
-
-# The Final Result
-
-By the time the hackathon countdown ended, we were able to design and implement a viable solution that would achieve our initial idea. Nevertheless, this was achieved thanks to our strong team collaboration and efforts, and some sprinkled guidance from the MS architecture team.
-
-After presenting our MVP (minimum viable product), the judges called a draw for first place. Having won the competition granted us credits to some of Microsoft Azure cloud services like storage and processing. And, the company which hosted the competition granted us seats at their co-working space, which we could use to continue the development of our application and idea.
-
-![](https://miro.medium.com/max/1400/0*v0plg9CmtcGd_IyZ.jpg)
+plt.show()
+```
