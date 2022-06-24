@@ -11,6 +11,16 @@ import Typography from "@mui/material/Typography"
 import IconButton from "@mui/material/IconButton"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import Paper from '@mui/material/Paper';
+
+
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+
 import {
   createTheme,
   responsiveFontSizes,
@@ -23,6 +33,7 @@ theme = responsiveFontSizes(theme)
 const Layout = ({ location, title, extraDrawerContent, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  const [value, setValue] = React.useState(0);
 
   return (
     <ThemeProvider theme={theme}>
@@ -34,9 +45,10 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
           sx={{
             maxWidth: "692px",
             mt: 4,
-            mb: 8,
+            mb: 12,
             "@media (max-width: 900px)": {
               paddingX: 3,
+              mt: 2,
             },
           }}
         >
@@ -83,6 +95,34 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
         </Container>
         <DrawerRight extraDrawerContent={extraDrawerContent} />
       </Box>
+      <Paper
+        elevation={3}
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          "@media (min-width: 1200px)": { display: "none" },
+        }}
+      >
+        <BottomNavigation
+        // value={value}
+        // onChange={(event, newValue) => {
+        //   setValue(newValue);
+        // }}
+        >
+          <BottomNavigationAction label="Home" icon={<HomeOutlinedIcon />} />
+          <BottomNavigationAction
+            label="Favorites"
+            icon={<AlternateEmailOutlinedIcon />}
+          />
+          <BottomNavigationAction
+            label="Archive"
+            icon={<DarkModeOutlinedIcon />}
+          />
+          <BottomNavigationAction label="Archive" icon={<SendOutlinedIcon />} />
+        </BottomNavigation>
+      </Paper>
     </ThemeProvider>
   )
 }

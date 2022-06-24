@@ -30,7 +30,7 @@ const TagsPage = ({
   <Layout
     location={"All Topics"}
     title={
-      <>
+      <Box sx={{display: "flex", alignItems: "center"}}>
         <IconButton
           size="small"
           sx={{ background: "#f1f1f1", color: "text.primary", mr: 1 }}
@@ -38,7 +38,7 @@ const TagsPage = ({
           <LocalOfferIcon fontSize="small" />
         </IconButton>
         {"All Topics"}
-      </>
+      </Box>
     }
   >
     <Seo title={"All Topics"} />

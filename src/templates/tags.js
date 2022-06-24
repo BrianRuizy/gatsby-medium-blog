@@ -28,7 +28,7 @@ const Tags = ({ pageContext, data }) => {
     <Layout
       location={tag}
       title={
-        <>
+        <Box sx={{display: "flex", alignItems: "center"}}>
           <IconButton
             size="small"
             sx={{
@@ -40,7 +40,7 @@ const Tags = ({ pageContext, data }) => {
             <LocalOfferIcon fontSize="small" />
           </IconButton>
           {tag}
-        </>
+        </Box>
       }
     >
       <Seo title={`${tag} (${totalCount})`} />
@@ -52,6 +52,7 @@ const Tags = ({ pageContext, data }) => {
           py: "12px",
           justifyContent: "space-between",
           alignItems: "center",
+          gap: 2,
         }}
       >
         <Typography variant="body1">{tagHeader}</Typography>
@@ -62,7 +63,7 @@ const Tags = ({ pageContext, data }) => {
           to="/tags"
           sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
         >
-          All Tags
+          All Topics
         </MuiLink>
       </Box>
 
