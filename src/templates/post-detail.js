@@ -229,7 +229,14 @@ const PostDetailTemplate = ({ data, location }) => {
           <Avatar
             alt="Brian Ruiz"
             src="https://media-exp1.licdn.com/dms/image/C4E03AQEznEUEL5QCMA/profile-displayphoto-shrink_200_200/0/1584754543548?e=2147483647&v=beta&t=6pz6xtlRYMNdakEiOcMfaY3i5urZQZggz3vORlDCJ_A"
-            sx={{ width: "48px", height: "48px" }}
+            sx={{
+              width: "48px",
+              height: "48px",
+              "@media (max-width: 900px)": {
+                width: "36px",
+                height: "36px",
+              },
+            }}
           >
             BR
           </Avatar>

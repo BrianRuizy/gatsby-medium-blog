@@ -91,6 +91,7 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
             ? {
                 // palette values for light mode
                 text: {
+                  disabled: "rgba(0, 0, 0, 0.48)",
                   postBody: "rgba(0, 0, 0, 0.87)",
                 },
               }

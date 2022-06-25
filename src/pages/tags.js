@@ -29,10 +29,14 @@ const TagsPage = ({
   <Layout
     location={"All Topics"}
     title={
-      <Box sx={{display: "flex", alignItems: "center"}}>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
         <IconButton
           size="small"
-          sx={{ background: "#f1f1f1", color: "text.primary", mr: 1 }}
+          sx={{
+            mr: 1,
+            backgroundColor: "action.selected",
+            color: "text.primary",
+          }}
         >
           <LocalOfferIcon fontSize="small" />
         </IconButton>
@@ -42,30 +46,33 @@ const TagsPage = ({
   >
     <Seo title={"All Topics"} />
     <Box
-        sx={{
-          display: "flex",
-          borderBottom: 1,
-          borderColor: "divider",
-          py: "12px",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Typography variant="body1">
-        {group.length > 1 ? `There are ${group.length} topics` : `There is ${group.length} topic`}
+      sx={{
+        display: "flex",
+        borderBottom: 1,
+        borderColor: "divider",
+        py: "12px",
+        justifyContent: "space-between",
+        alignItems: "center",
+        gap: 2,
+      }}
+    >
+      <Typography variant="body1">
+        {group.length > 1
+          ? `There are ${group.length} topics`
+          : `There is ${group.length} topic`}
         {" to read about"}
-        </Typography>
-        <MuiLink
-          href="/"
-          underline="hover"
-          component={Link}
-          to="/"
-          sx={{ fontFamily: "Roboto" }}
-        >
-          Home
-        </MuiLink>
+      </Typography>
+      <MuiLink
+        href="/"
+        underline="hover"
+        component={Link}
+        to="/"
+        sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
+      >
+        Back home
+      </MuiLink>
     </Box>
-    <Box sx={{ display: "flex", flexWrap: "wrap", gap: "12px"}}>
+    <Box sx={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
       {group.map(tag => (
         <Chip
           key={tag}

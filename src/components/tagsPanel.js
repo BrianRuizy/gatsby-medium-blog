@@ -36,7 +36,13 @@ const tagsPanel = () => (
       >
         <Typography
           variant="overline"
-          sx={{ whiteSpace: "nowrap", color: "text.secondary" }}
+          sx={{
+            whiteSpace: "nowrap",
+            color: "text.secondary",
+            textDecoration: "none", 
+          }}
+          component={Link}
+          to="/tags"
         >
           All Topics
         </Typography>
@@ -69,10 +75,7 @@ const tagsPanel = () => (
                 label={tag.fieldValue}
                 component={Link}
                 to={`/tag/${kebabCase(tag.fieldValue)}/`}
-
-              >
-
-              </Chip>
+              ></Chip>
               // <Tab
               //   key={tag.fieldValue}
               //   component={Link}

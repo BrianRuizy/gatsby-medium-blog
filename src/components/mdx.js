@@ -68,7 +68,7 @@ const shortcodes = {
         my: "2rem",
         lineHeight: "32px",
         borderLeft: "3px solid ",
-        borderColor: "text.primary",
+        borderColor: "text.secondary",
         fontStyle: "italic",
         "& > p": {
           color: "text.disabled",

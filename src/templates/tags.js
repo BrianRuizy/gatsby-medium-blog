@@ -33,7 +33,7 @@ const Tags = ({ pageContext, data }) => {
             size="small"
             sx={{
               mr: 1,
-              background: "#f1f1f1",
+              backgroundColor: "action.selected",
               color: "text.primary",
             }}
           >

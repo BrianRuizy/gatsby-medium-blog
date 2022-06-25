@@ -24,6 +24,9 @@ export default function RightDrawer({ extraDrawerContent }) {
         "@media (min-width: 1536px)": {
           width: "29.16666667%",
         },
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
         "& .MuiDrawer-paper": {
           display: "none",
           justifyContent: "packed",
@@ -48,14 +51,14 @@ export default function RightDrawer({ extraDrawerContent }) {
         size="small"
         sx={{ maxWidth: "330px", width: "100%", borderRadius: "10px" }}
       />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-        }}
-      >
-        { extraDrawerContent ? null : 
+      {extraDrawerContent ? null : (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+          }}
+        >
           <Avatar
             alt="Brian Ruiz"
             src="https://media-exp1.licdn.com/dms/image/C4E03AQEznEUEL5QCMA/profile-displayphoto-shrink_200_200/0/1584754543548?e=2147483647&v=beta&t=6pz6xtlRYMNdakEiOcMfaY3i5urZQZggz3vORlDCJ_A"
@@ -63,30 +66,30 @@ export default function RightDrawer({ extraDrawerContent }) {
           >
             BR
           </Avatar>
-        }
-      
-        <Typography variant="h3"   
-          sx={{
-            fontSize: "16px !important",
-            letterSpacing: 0,
-            fontWeight: "500",
-            lineHeight: "20px",
-            color: "text.primary",
-          }}
-        >
-          Brian Ruiz
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ maxWidth: "300px", color: "text.secondary" }}
-        >
-          Hi, Brian here. I’m a Software Engineer who specializes in Python,
-          data analytics, UI/UX, and product design. Here you’ll find my blog
-          posts on all things tech.
-        </Typography>
-      </Box>
+          <Typography
+            variant="h3"
+            sx={{
+              fontSize: "16px !important",
+              letterSpacing: 0,
+              fontWeight: "500",
+              lineHeight: "20px",
+              color: "text.primary",
+            }}
+          >
+            Brian Ruiz
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ maxWidth: "300px", color: "text.secondary" }}
+          >
+            Hi, Brian here. I’m a Software Engineer who specializes in Python,
+            data analytics, UI/UX, and product design. Here you’ll find my blog
+            posts on all things tech.
+          </Typography>
+        </Box>
+      )}
       {extraDrawerContent}
-      <Socials />     
+      <Socials />
     </Drawer>
   )
 }
