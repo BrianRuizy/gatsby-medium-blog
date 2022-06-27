@@ -4,12 +4,14 @@ import { Link } from "gatsby"
 import DrawerLeft from "./DrawerLeft"
 import DrawerRight from "./DrawerRight"
 
+import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Container from "@mui/material/Container"
 import IconButton from "@mui/material/IconButton"
 import Paper from '@mui/material/Paper';
+import { StaticImage } from "gatsby-plugin-image"
 import Tooltip from "@mui/material/Tooltip"
 import Typography from "@mui/material/Typography"
 
@@ -206,7 +208,11 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
             <ThemeBottomNavigationAction />
             <BottomNavigationAction
               label="Contact"
-              icon={<SendOutlinedIcon />}
+              icon={
+                <Box sx={{ width: "100%", maxWidth: "24px", borderRadius: "100px", overflow: "hidden"}}>
+                  <StaticImage alt="br" src="../images/avatar.png" />
+                </Box>
+              }
             />
           </BottomNavigation>
         </Paper>

@@ -2,8 +2,8 @@
 title: How to create a COVID-19 dashboard web application with Python
 description: "Our application gained over 10k visits and received code contributions from open-source developers around the world."
 date: "2021-06-06T23:46:37.121Z"
-category: "Case Study"
-tags: [ "Math", "Python", "COVID-19", "Django", "Data Science", "UI / UX", "Plotly" ]
+category: "Blog"
+tags: [ "Project", "Python", "COVID-19", "Django", "Data Science", "UI / UX", "Plotly" ]
 featuredImage: "../../../src/images/ncov-phones.png"
 ---
 
@@ -103,7 +103,11 @@ def realtime_growth(request):
 ```
 
 ## 5. Plotly to visualize the data 📊
-We then create the D3.js-based line and scatter plots in JavaScript using Plotly. This creates an interactive, scientific data visualization easily on the Web browser. This one will probably be the most complex-looking part of the code because it takes a lot of tweaking to get the plot to your desired look and feel. But trust me it’s simpler than it looks. www.plot.ly has great documentation and examples.
+We then create the D3.js-based line and scatter plots in JavaScript using Plotly. This creates an interactive, scientific data visualization easily on the Web browser. This one will probably be the most complex-looking part of the code because it takes a lot of tweaking to get the plot to your desired look and feel. But trust me it’s simpler than it looks.
+
+<Alert severity="info">
+  <a href="https://plotly.com/python/">www.plot.ly</a> has great documentation and examples.
+</Alert>
 
 ```js
 var plot_data = [confirmed_trace, recovered_trace, deaths_trace];

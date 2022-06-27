@@ -5,7 +5,7 @@ import Box from "@mui/material/Box"
 import Divider from "@mui/material/Divider"
 import MuiLink from "@mui/material/Link"
 import Typography from "@mui/material/Typography"
-
+import Alert from "@mui/material/Alert"
 
 const shortcodes = {
   p: props => (
@@ -106,10 +106,20 @@ const shortcodes = {
       }}
     />
   ),
-  hr: props => <Divider sx={{ mt: 6 }} />,
-  a: props => <MuiLink {...props} />,
+  hr: props => <Divider sx={{ 
+    borderWidth: 0,
+    padding: "1rem",
+    textAlign: "center",
+    height: "auto",
+    "&:before": {
+      content: '"..."',
+      fontSize: "2rem",
+      letterSpacing: "16px !important",
+    }
+  }} />,
+  a: props => <MuiLink target="_blank" rel="noopener" {...props} />,
   img: props => (
-    <Box {...props} sx={{ mt: "2rem", textAlign: "center" }}>
+    <Box {...props} sx={{ my: "2rem", textAlign: "center" }}>
       <img {...props} style={{ width: "100%" }} alt={props.alt}/>
       <figcaption>
         <Typography
@@ -147,6 +157,7 @@ const shortcodes = {
       <pre {...props} ></pre>
     </Box>
   ),
+  Alert: props => (<Alert sx={{ my: "1.5rem", "@media (max-width: 900px)": {my: "1rem"} }} {...props} />), 
 }
 
 export default shortcodes
