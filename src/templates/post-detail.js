@@ -263,7 +263,7 @@ const PostDetailTemplate = ({ data, location }) => {
               sx={{ height: "fit-content" }}
               size="small"
               onClick={() => {
-                navigator.clipboard.writeText("https://b-r.io")
+                navigator.clipboard.writeText(`https://b-r.io/${location.pathname}`)
               }}
             >
               <LinkIcon sx={{ transform: "rotate(-45deg)" }} />

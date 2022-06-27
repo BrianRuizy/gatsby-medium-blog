@@ -139,7 +139,6 @@ const shortcodes = {
       </figcaption>
     </Box>
   ),
-
   figcaption: props => (
     <figcaption style={{ textAlign: "center" }}>
       <Typography

@@ -114,15 +114,26 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `brian-ruiz.io`,
+        name: `Brian Ruiz IO`,
         short_name: `b-r.io`,
         start_url: `/`,
         background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
         theme_color: `#121212`,
         display: `standalone`,
-        icon: `static/favicons/android-chrome-512x512.png`, // This path is relative to the root of the site.
+        icon: "src/images/gatsby-icon.png",
+        icons : [
+          {
+            "src": "/favicons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "/favicons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+          }
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
