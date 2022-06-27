@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import PropTypes from 'prop-types';
 
 // local imports
@@ -111,7 +111,6 @@ const Index = ({ data, location }) => {
           ))}
         </Tabs>
       </Box>
-
       <TabPanel value={value} index={0} key={"all"}>
         {posts.map(post => {
           return (
@@ -133,6 +132,7 @@ const Index = ({ data, location }) => {
           )
         })}
       </TabPanel>
+
       {data.allMdx.group.map((category, index) => (
         <TabPanel value={value} index={index+1} key={category.fieldValue}>
           {posts.map(post => {

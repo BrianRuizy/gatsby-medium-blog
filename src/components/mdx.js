@@ -109,7 +109,7 @@ const shortcodes = {
     <Divider
       sx={{
         borderWidth: 0,
-        padding: "1rem",
+        padding: ".5rem",
         textAlign: "center",
         height: "auto",
         "&:before": {
