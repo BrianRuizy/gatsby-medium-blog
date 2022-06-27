@@ -277,7 +277,7 @@ const PostDetailTemplate = ({ data, location }) => {
       />
       <article itemScope itemType="http://schema.org/Article">
         <header style={{ marginBottom: "6rem" }}>
-          <Box pb={4} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <Box pb={4} >
             <Box>
               <Typography
                 variant="h1"
@@ -303,7 +303,7 @@ const PostDetailTemplate = ({ data, location }) => {
                   letterSpacing: "0",
                   lineHeight: "28px",
                   fontWeight: "400",
-                  color: "text.secondary",
+                  color: "text.disabled",
                 }}
               >
                 {post.frontmatter.description}
