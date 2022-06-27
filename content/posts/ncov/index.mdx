@@ -16,13 +16,15 @@ When I started this side project there were not too many dashboards or sites to 
 > COVID-19 is an infectious disease caused by a newly discovered coronavirus. The best way to prevent and slow down transmission is to be well informed.
 > —<span>&nbsp;</span>who.int<span>&nbsp;</span>(2020)
 
-We have contributors from Spain, Poland, India, and various places in the U.S. who came together to create something useful and meaningful. Furthermore, the site has accumulated over 10k visits as shown by web analytics. And, the project is still being maintained and improved upon, thanks to the help of developers.
+[We have contributors from all over the world](https://github.com/BrianRuizy/covid19-dashboard/graphs/contributors) --Spain, Poland, India, and various places in the USA-- who came together to create something useful and meaningful. Furthermore, the site has accumulated over 10k visits as shown by web analytics. And, the project is still being maintained and improved upon, thanks to the help of developers.
 
 
 # Where the data comes from
-A large portion of the data comes from one of the original data repositories tracking COVID-19 cases, Johns Hopkins University: CSSE2019-ncov data repository. Additional data was collected from Our World in Data: OWID’s GitHub data repository. Lastly, to fill in some requirements we retrieved data for daily cases from New York Times COVID GitHub data repository.
+A large portion of the data comes from one of the original data repositories tracking COVID-19 cases, [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) CSSE2019-ncov data repository. Additional data was collected from [Our World in Data](https://ourworldindata.org/) GitHub data repository. Lastly, to fill in some requirements we retrieved data for daily cases from [New York Times](https://github.com/nytimes/covid-19-data) COVID GitHub data repository.
 
-For this project, it was crucial to have accurate, reliable, and trustworthy datasets. Which explains why the multiple aforementioned sources were diligently picked. Having not done so would only lead to misinformation and inaccurate representations of the global pandemic, which could have repercussions at scale.
+For this project,it was crucial to have <mark>accurate, and trustworthy datasets</mark>. 
+Which explains why the multiple aforementioned sources were diligently picked. 
+In doing so the goal is to provide the most accurate representations of the pandemic, the opposite could have it's own repercussions at scale.
 
 ![Person reading COVID news](https://miro.medium.com/max/700/0*4DeT3bxzq-akxL9q.jpg)
 
@@ -44,7 +46,7 @@ And, it was important to design the grid in such a way that the cards of data we
 ---
 
 # How it works
-The following is a snippet of how we’re using Python and Pandas to pull the data from different sources, and returning that data to the front-end with AJAX asynchronous requests. Using AJAX requests allows us to load the data asynchronously, which is a great way to improve the user experience by significantly reducing the initial page load time. 
+The following is a snippet of how we’re using <mark>Python to pull the data from different sources, and returning that data to the front-end to create data visualizations with Plotly</mark>. Using AJAX requests allows us to load the data asynchronously, which is a great way to improve the user experience by significantly reducing the initial page load time. 
 *Note that the code may be incomplete for concision.*
 
 ## 1. Web scraping with Pandas 🐼

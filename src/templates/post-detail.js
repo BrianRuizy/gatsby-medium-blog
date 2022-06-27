@@ -14,6 +14,7 @@ import Seo from "../components/seo"
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
 import Chip from "@mui/material/Chip"
+import Divider from "@mui/material/Divider"
 import Stack from "@mui/material/Stack"
 import IconButton from "@mui/material/IconButton"
 import Typography from "@mui/material/Typography"
@@ -109,6 +110,7 @@ function MoreReadings(props) {
                 flexDirection: "row",
                 alignItems: "center",
                 gap: "1rem",
+                justifyContent: "space-between",
               }}
             >
               <Box>
@@ -259,7 +261,9 @@ const PostDetailTemplate = ({ data, location }) => {
               sx={{ height: "fit-content" }}
               size="small"
               onClick={() => {
-                navigator.clipboard.writeText(`https://b-r.io/${location.pathname}`)
+                navigator.clipboard.writeText(
+                  `https://b-r.io/${location.pathname}`
+                )
               }}
             >
               <LinkIcon sx={{ transform: "rotate(-45deg)" }} />
@@ -272,8 +276,8 @@ const PostDetailTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article itemScope itemType="http://schema.org/Article">
-        <header style={{ marginBottom: "6rem" }}>
-          <Box pb={4} >
+        <header>
+          <Box pb={4}>
             <Box>
               <Typography
                 variant="h1"
@@ -321,6 +325,22 @@ const PostDetailTemplate = ({ data, location }) => {
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
+        <footer>
+          <Box
+            sx={{
+              display: "none",
+              "@media (max-width: 1080px)": {
+                display: "unset",
+              },
+
+            }}
+          >
+            <Divider sx={{my: 4}}/>
+            <PostTags data={tags} />
+            <Divider sx={{my: 4}}/>
+            <MoreReadings data={data} />
+          </Box>
+        </footer>
       </article>
     </Layout>
   )
