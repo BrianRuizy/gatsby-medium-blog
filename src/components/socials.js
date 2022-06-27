@@ -40,8 +40,6 @@ const socials = () => {
         display: "flex",
         flexDirection: "column",
         gap: 2,
-        width: "100%",
-        maxWidth: "330px",
       }}
     >
       <Typography
@@ -96,6 +94,9 @@ const socials = () => {
                 variant="outlined"
                 size="small"
                 sx={{
+                  color: "text.primary",
+                  borderColor: "text.secondary",
+                  fontWeight: 400,
                   height: "fit-content",
                   borderRadius: "99em",
                   textTransform: "capitalize",

@@ -118,6 +118,7 @@ const shortcodes = {
           letterSpacing: "16px !important",
         },
       }}
+      {...props}
     />
   ),
   a: props => <MuiLink target="_blank" rel="noopener" {...props} />,

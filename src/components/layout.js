@@ -179,7 +179,7 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
         </Box>
         <Paper
           // bottom navigation
-          elevation={2}
+          elevation={0}
           sx={{
             position: "fixed",
             bottom: 0,
