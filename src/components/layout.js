@@ -157,7 +157,7 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
               </Typography>
               {title && (
                 <IconButton sx={{ height: "fit-content" }}>
-                  <MoreHorizIcon />
+                  <MoreHorizIcon  alt="More"/>
                 </IconButton>
               )}
             </Box>
