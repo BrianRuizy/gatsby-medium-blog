@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import DrawerLeft from "./DrawerLeft"
 import DrawerRight from "./DrawerRight"
+import { Profiles } from "./socials"
 
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
@@ -10,6 +11,11 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Container from "@mui/material/Container"
 import IconButton from "@mui/material/IconButton"
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import Paper from '@mui/material/Paper';
 import { StaticImage } from "gatsby-plugin-image"
 import Tooltip from "@mui/material/Tooltip"
@@ -21,7 +27,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+
+import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import InstallMobileIcon from '@mui/icons-material/InstallMobile';
 
 
 import {
@@ -31,6 +40,7 @@ import {
   useTheme,
 } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline";
+import { Divider } from "@mui/material"
 
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
@@ -109,6 +119,15 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
   )
 
   theme = responsiveFontSizes(theme)
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -207,15 +226,59 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
             />
             <ThemeBottomNavigationAction />
             <BottomNavigationAction
-              label="Contact"
+              // open menu on click
+              label="user"
               icon={
                 <Box sx={{ width: "100%", maxWidth: "24px", borderRadius: "100px", overflow: "hidden"}}>
                   <StaticImage alt="br" src="../images/avatar.png" />
                 </Box>
               }
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
             />
           </BottomNavigation>
         </Paper>
+
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        elevation={2}
+      >
+        <MenuList dense>
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon><AlternateEmailOutlinedIcon/></ListItemIcon>
+            <ListItemText>Contact form</ListItemText>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon><EmailOutlinedIcon/></ListItemIcon>
+            <ListItemText>Subscribe to mail</ListItemText>
+          </MenuItem>
+
+          <Divider/>
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon><InstallMobileIcon/></ListItemIcon>
+            <ListItemText>Install</ListItemText>
+          </MenuItem>
+{/* 
+          {Object.keys(Profiles).map(key => {
+          const profile = Profiles[key]
+            return (
+              <MenuItem key={key} onClick={handleClose}>
+                <ListItemIcon><OpenInNewOutlinedIcon/></ListItemIcon>
+                <ListItemText>
+                  {profile.name}
+                </ListItemText>
+              </MenuItem>
+            )
+          })} */}
+
+        </MenuList>
+      </Menu>
       </ThemeProvider>
     </ColorModeContext.Provider>
   )

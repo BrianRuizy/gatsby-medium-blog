@@ -91,7 +91,7 @@ const PostItem = ({ data }) => {
                   display: "initial",
                   fontFamily: 'Charter',
                   marginBottom: "1rem",
-                  color: "text.primary",
+                  color: "text.postBody",
                   "@media (max-width: 600px)": {
                     display: "none !important",
                   },

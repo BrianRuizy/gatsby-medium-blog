@@ -113,4 +113,5 @@ const socials = () => {
   )
 }
 
+export const Profiles = profiles
 export default socials
