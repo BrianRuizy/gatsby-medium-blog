@@ -28,7 +28,7 @@ const Tags = ({ pageContext, data }) => {
     <Layout
       location={tag}
       title={
-        <Box sx={{display: "flex", alignItems: "center"}}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           <IconButton
             size="small"
             sx={{
@@ -67,7 +67,10 @@ const Tags = ({ pageContext, data }) => {
         </MuiLink>
       </Box>
 
-      <Grid container sx={{ gap: 4 }}>
+      <Grid
+        container
+        sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
+      >
         {edges.map(({ node }) => {
           // posts list by tag
           return (

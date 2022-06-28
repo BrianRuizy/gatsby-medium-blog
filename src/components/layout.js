@@ -134,7 +134,7 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 mb: "2rem",
-                "@media (max-width: 600px)": { mb: "1.5rem" },
+                "@media (max-width: 600px)": { mb: "1rem" },
               }}
             >
               <Typography

@@ -77,7 +77,9 @@ const PostItem = ({ data }) => {
                   "@media (max-width: 600px)": {
                     marginBottom: "0",
                     lineHeight: "20px",
-                    fontSize: "16px !important",
+                    fontSize: "18px !important",
+                    WebkitLineClamp: "3 !important",
+                    lineClamp: "3 !important",
                   },
                 }}
               >
@@ -122,7 +124,7 @@ const PostItem = ({ data }) => {
             sx={{
               width: "140px",
               "@media (max-width: 600px)": {
-                width: "64px !important",
+                width: "80px !important",
               },
             }}
           >
