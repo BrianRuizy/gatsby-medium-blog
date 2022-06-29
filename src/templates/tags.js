@@ -44,62 +44,63 @@ const Tags = ({ pageContext, data }) => {
     >
       <Seo title={`${tag} (${totalCount})`} />
       <Container maxWidth="string" sx={{ maxWidth: "692px", px: "1.5rem" }}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "2rem",
-          "@media (max-width: 600px)": { gap: "1.5rem" },
-        }}
-      >
-      <Box
-        sx={{
-          display: "flex",
-          borderBottom: 1,
-          borderColor: "divider",
-          py: "12px",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: 2,
-        }}
-      >
-        <Typography variant="body1">{tagHeader}</Typography>
-        <MuiLink
-          href="/"
-          underline="hover"
-          component={Link}
-          to="/tags"
-          sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+            "@media (max-width: 600px)": { gap: "1.5rem" },
+          }}
         >
-          All Topics
-        </MuiLink>
-      </Box>
-
-      <Grid
-        container
-        sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
-      >
-        {edges.map(({ node }) => {
-          // posts list by tag
-          return (
-            <Box
-              key={node.id}
-              sx={{
-                "&:last-child": { "& > hr": { display: "none" } },
-              }}
+          <Box
+            sx={{
+              display: "flex",
+              borderBottom: 1,
+              borderColor: "divider",
+              py: "12px",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: 2,
+            }}
+          >
+            <Typography variant="body1">{tagHeader}</Typography>
+            <MuiLink
+              href="/"
+              underline="hover"
+              component={Link}
+              to="/tags"
+              sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
             >
-              <Post data={node} />
-              <Divider
-                sx={{
-                  width: "100%",
-                  pt: 4,
-                }}
-              />
-            </Box>
-          )
-        })}
-      </Grid>
-      </Box>
+              All Topics
+            </MuiLink>
+          </Box>
+
+          <Grid
+            container
+            sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
+          >
+            {edges.map(({ node }) => {
+              // posts list by tag
+              return (
+                <Box
+                  key={node.id}
+                  sx={{
+                    "&:last-child": { "& > hr": { display: "none" } },
+                  }}
+                >
+                  <Post data={node} />
+                  <Divider
+                    sx={{
+                      width: "100%",
+                      pt: 4,
+                      "@media (max-width: 600px)": { pt: "1.5rem" },
+                    }}
+                  />
+                </Box>
+              )
+            })}
+          </Grid>
+        </Box>
       </Container>
     </Layout>
   )
