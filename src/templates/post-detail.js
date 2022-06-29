@@ -338,7 +338,7 @@ const PostDetailTemplate = ({ data, location }) => {
         <footer>
           <Container
             disableGutters
-            sx={{ backgroundColor: "#f9f9f9", pt: "4rem", pb: "6rem" }}
+            sx={{ backgroundColor: "background.alt", pt: "4rem", pb: "6rem" }}
           >
             <Container
               maxWidth="string"
@@ -381,7 +381,7 @@ const PostDetailTemplate = ({ data, location }) => {
 
                 <Typography
                   variant="body2"
-                  sx={{ maxWidth: "500px", color: "text.secondary" }}
+                  sx={{ maxWidth: "330px", color: "text.secondary" }}
                 >
                   Hi, I am a Software Engineer who specializes in Python, data
                   analytics, UI/UX, and product design. Here you will find my
@@ -393,8 +393,9 @@ const PostDetailTemplate = ({ data, location }) => {
                   display: "flex",
                   flexDirection: "column",
                   gap: "1.5rem",
+                  pt: "4rem",
                   "@media (min-width: 1080px)": {
-                    display: "none",
+                    // display: "none",
                   },
                 }}
               >

@@ -91,12 +91,18 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
                   disabled: "rgba(0, 0, 0, 0.48)",
                   postBody: "rgba(0, 0, 0, 0.87)",
                 },
+                background: {
+                  alt: "#fafafa",
+                }
               }
             : {
                 // palette values for dark mode
                 text: {
                   postBody: "rgba(255, 255, 255, 0.87)",
                 },
+                background: {
+                  alt: "#0f0f0f",
+                }
               }),
         },
       }),
