@@ -45,7 +45,11 @@ const TagsPage = ({
     }
   >
     <Seo title={"All Topics"} />
-    <Container maxWidth="string" sx={{ maxWidth: "692px", px: "1.5rem" }}>
+    <Container
+      disableGutters
+      maxWidth="string"
+      sx={{ maxWidth: "692px", "@media (max-width: 600px)": { px: "1.5rem" } }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -67,8 +71,8 @@ const TagsPage = ({
         >
           <Typography variant="body1">
             {group.length > 1
-              ? `There are ${group.length} topics`
-              : `There is ${group.length} topic`}
+              ? `${group.length} topics`
+              : `${group.length} topic`}
             {" to read about"}
           </Typography>
           <MuiLink

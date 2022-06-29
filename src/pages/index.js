@@ -79,14 +79,17 @@ const Index = ({ data, location }) => {
       <Seo title="Home" />
 
       <Container
+        disableGutters
         maxWidth="string"
         sx={{
           maxWidth: "692px",
-          px: "1.5rem",
           display: "flex",
           flexDirection: "column",
           gap: "2rem",
-          "@media (max-width: 600px)": { gap: "1.5rem" },
+          pb: "6rem",
+          "@media (max-width: 600px)": { 
+          px: "1.5rem",
+          gap: "1.5rem" },
         }}
       >
         <Tags />

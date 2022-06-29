@@ -43,7 +43,17 @@ const Tags = ({ pageContext, data }) => {
       }
     >
       <Seo title={`${tag} (${totalCount})`} />
-      <Container maxWidth="string" sx={{ maxWidth: "692px", px: "1.5rem" }}>
+      <Container
+        disableGutters
+        maxWidth="string"
+        sx={{
+          maxWidth: "692px",
+          pb: "6rem",
+          "@media (max-width: 600px)": {
+            px: "1.5rem",
+          },
+        }}
+      >
         <Box
           sx={{
             display: "flex",

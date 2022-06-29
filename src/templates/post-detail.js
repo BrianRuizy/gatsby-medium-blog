@@ -223,8 +223,15 @@ const PostDetailTemplate = ({ data, location }) => {
       />
       <article itemScope itemType="http://schema.org/Article">
         <Container
+          disableGutters
           maxWidth="string"
-          sx={{ maxWidth: "692px", px: "1.5rem", pb: "4rem" }}
+          sx={{
+            maxWidth: "692px",
+            pb: "4rem",
+            "@media (max-width: 600px)": {
+              px: "1.5rem",
+            },
+          }}
         >
           <header>
             <Box
@@ -341,8 +348,14 @@ const PostDetailTemplate = ({ data, location }) => {
             sx={{ backgroundColor: "background.alt", pt: "4rem", pb: "6rem" }}
           >
             <Container
+              disableGutters
               maxWidth="string"
-              sx={{ maxWidth: "692px", px: "1.5rem" }}
+              sx={{
+                maxWidth: "692px",
+                "@media (max-width: 600px)": {
+                  px: "1.5rem",
+                },
+              }}
             >
               <Box>
                 <Box
