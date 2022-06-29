@@ -116,7 +116,6 @@ const Index = ({ data, location }) => {
               {...a11yProps(0)}
               sx={{
                 textTransform: "capitalize",
-                minWidth: "4rem",
                 fontWeight: 400,
                 "&.Mui-selected": { color: "text.primary" },
               }}
@@ -128,7 +127,6 @@ const Index = ({ data, location }) => {
                 {...a11yProps(index + 1)}
                 sx={{
                   textTransform: "capitalize",
-                  minWidth: "4rem",
                   fontWeight: 400,
                   "&.Mui-selected": { color: "text.primary" },
                 }}
