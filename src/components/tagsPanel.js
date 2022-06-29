@@ -56,6 +56,9 @@ const tagsPanel = () => (
           sx={{
             width: "100%",
             alignItems: "center",
+            "& .MuiTabs-scrollButtons.Mui-disabled": {
+              opacity: 0.3,
+            },
             "& .MuiTabs-indicator": {
               display: "none",
             },

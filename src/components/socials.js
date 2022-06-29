@@ -71,7 +71,7 @@ const socials = () => {
                 sx={{
                   display: "flex",
                   flexDirection: "row",
-                  gap: "1rem",
+                  gap: "1.5rem",
                   alignItems: "center",
                 }}
               >
@@ -80,7 +80,7 @@ const socials = () => {
                     variant="square"
                     alt="avatar"
                     src={profile.icon}
-                    sx={{ width: 24, height: 24 }}
+                    sx={{ width: 20, height: 20 }}
                   />
                 </Box>
                 <Box>

@@ -1,21 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link, graphql } from "gatsby"
 
 import Post from "../templates/post"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 // Components
-import { Link, graphql } from "gatsby"
-import MuiLink from "@mui/material/Link"
+import Box from "@mui/material/Box"
+import Container from "@mui/material/Container"
 import Divider from "@mui/material/Divider"
-import Typography from "@mui/material/Typography"
+import Grid from "@mui/material/Grid"
 import IconButton from "@mui/material/IconButton"
 import LocalOfferIcon from "@mui/icons-material/LocalOffer"
-
-import Box from "@mui/material/Box"
-import Grid from "@mui/material/Grid"
-
+import MuiLink from "@mui/material/Link"
+import Typography from "@mui/material/Typography"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -44,6 +43,15 @@ const Tags = ({ pageContext, data }) => {
       }
     >
       <Seo title={`${tag} (${totalCount})`} />
+      <Container maxWidth="string" sx={{ maxWidth: "692px", px: "1.5rem" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "2rem",
+          "@media (max-width: 600px)": { gap: "1.5rem" },
+        }}
+      >
       <Box
         sx={{
           display: "flex",
@@ -91,6 +99,8 @@ const Tags = ({ pageContext, data }) => {
           )
         })}
       </Grid>
+      </Box>
+      </Container>
     </Layout>
   )
 }
@@ -142,9 +152,7 @@ export const pageQuery = graphql`
             tags
             featuredImage {
               childImageSharp {
-                gatsbyImageData(
-                  aspectRatio: 1  
-                )
+                gatsbyImageData(aspectRatio: 1)
               }
               name
             }

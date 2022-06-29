@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types"
 
 // local imports
 import Post from "../templates/post"
@@ -10,14 +10,14 @@ import Tags from "../components/tagsPanel"
 
 // MUI components
 import Box from "@mui/material/Box"
+import Container from "@mui/material/Container"
 import Divider from "@mui/material/Divider"
 import Grid from "@mui/material/Grid"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 
-
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props
 
   return (
     <div
@@ -29,37 +29,37 @@ function TabPanel(props) {
     >
       {value === index && (
         <Grid
-           container
-           sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
-         >
+          container
+          sx={{ gap: "2rem", "@media (max-width: 600px)": { gap: "1.5rem" } }}
+        >
           {children}
         </Grid>
       )}
     </div>
-  );
+  )
 }
 
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
-};
+}
 
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
+    "aria-controls": `simple-tabpanel-${index}`,
+  }
 }
 
 const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(0)
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   if (posts.length === 0) {
     return (
@@ -77,88 +77,111 @@ const Index = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
-      <Tags />
-      <Box
+
+      <Container
+        maxWidth="string"
         sx={{
-          width: "100%",
-          borderBottom: 1,
-          borderColor: "divider",
+          maxWidth: "692px",
+          px: "1.5rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "2rem",
+          "@media (max-width: 600px)": { gap: "1.5rem" },
         }}
       >
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
+        <Tags />
+        <Box
           sx={{
-            "& .MuiTabs-indicator": {
-              backgroundColor: "text.primary",
-              height: "1px",
-            },
+            width: "100%",
+            borderBottom: 1,
+            borderColor: "divider",
           }}
         >
-          <Tab
-            label="All"
-            {...a11yProps(0)}
-            sx={{ textTransform: "capitalize", fontWeight: 400, "&.Mui-selected": { color: "text.primary", } }}
-          />
-          {data.allMdx.group.map((category, index) => (
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="nav tabs example"
+            sx={{
+              "& .MuiTabs-indicator": {
+                backgroundColor: "text.primary",
+                height: "1px",
+              },
+            }}
+          >
             <Tab
-              key={category.fieldValue}
-              label={category.fieldValue}
-              {...a11yProps(index + 1)}
-              sx={{ textTransform: "capitalize", fontWeight: 400, "&.Mui-selected": { color: "text.primary", } }}
-            />
-          ))}
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0} key={"all"}>
-        {posts.map(post => {
-          return (
-            <Box
-              key={post.id}
+              label="All"
+              {...a11yProps(0)}
               sx={{
-                "&:last-child": { "& > hr": { display: "none" } },
+                textTransform: "capitalize",
+                minWidth: "4rem",
+                fontWeight: 400,
+                "&.Mui-selected": { color: "text.primary" },
               }}
-            >
-              <Post data={post} />
-              <Divider
+            />
+            {data.allMdx.group.map((category, index) => (
+              <Tab
+                key={category.fieldValue}
+                label={category.fieldValue}
+                {...a11yProps(index + 1)}
                 sx={{
-                  width: "100%",
-                  pt: 4,
-                  "@media (max-width: 600px)": { pt: "1.5rem" },
+                  textTransform: "capitalize",
+                  minWidth: "4rem",
+                  fontWeight: 400,
+                  "&.Mui-selected": { color: "text.primary" },
                 }}
               />
-            </Box>
-          )
-        })}
-      </TabPanel>
-
-      {data.allMdx.group.map((category, index) => (
-        <TabPanel value={value} index={index+1} key={category.fieldValue}>
+            ))}
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0} key={"all"}>
           {posts.map(post => {
-            if (post.frontmatter.category === category.fieldValue) {
-              return (
-                <Box
-                  key={post.id}
+            return (
+              <Box
+                key={post.id}
+                sx={{
+                  "&:last-child": { "& > hr": { display: "none" } },
+                }}
+              >
+                <Post data={post} />
+                <Divider
                   sx={{
-                    "&:last-child": { "& > hr": { display: "none" } },
+                    width: "100%",
+                    pt: 4,
+                    "@media (max-width: 600px)": { pt: "1.5rem" },
                   }}
-                >
-                  <Post data={post} />
-                  <Divider
-                    sx={{
-                      width: "100%",
-                      pt: 4,
-                      "@media (max-width: 600px)": { pt: "1.5rem" },
-                    }}
-                  />
-                </Box>
-              )
-            }
-            return
+                />
+              </Box>
+            )
           })}
         </TabPanel>
-      ))}
+
+        {data.allMdx.group.map((category, index) => (
+          <TabPanel value={value} index={index + 1} key={category.fieldValue}>
+            {posts.map(post => {
+              if (post.frontmatter.category === category.fieldValue) {
+                return (
+                  <Box
+                    key={post.id}
+                    sx={{
+                      "&:last-child": { "& > hr": { display: "none" } },
+                    }}
+                  >
+                    <Post data={post} />
+                    <Divider
+                      sx={{
+                        width: "100%",
+                        pt: 4,
+                        "@media (max-width: 600px)": { pt: "1.5rem" },
+                      }}
+                    />
+                  </Box>
+                )
+              }
+              return
+            })}
+          </TabPanel>
+        ))}
+      </Container>
     </Layout>
   )
 }
@@ -172,10 +195,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 200) 
-    {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 200) {
       group(field: frontmatter___category) {
         fieldValue
       }

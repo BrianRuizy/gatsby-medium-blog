@@ -15,34 +15,23 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 export default function RightDrawer({ isRootPath, ThemeButton }) {
   
   return (
-    <Drawer
+    <Box
       sx={{
-        display: "none",
-        flexShrink: 0,
-        "@media (min-width: 1080px)": {
-          display: "flex",
-          width: "7%",
-        },
-        "@media (min-width: 1536px)": {
-          width: "12.5%",
-        },
-        "& .MuiDrawer-paper": {
-          justifyContent: "space-between",
-          padding: "2rem 1rem",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "center",
+        height: "100vh",
+        width: "80px",
+        borderRight: "1px solid",
+        borderColor: "divider",
+        padding: "2.5rem 0",
+        position: "sticky",
+        top: 0,
+        "@media (max-width: 1080px)": {
           display: "none",
-          alignItems: "center",
-          "@media (min-width: 1080px)": {
-            display: "flex",
-            width: "7%",
-          },
-          "@media (min-width: 1536px)": {
-            width: "12.5%",
-            alignItems: "flex-end",
-          },
-        },
+        }
       }}
-      variant="permanent"
-      anchor="left"
     >
       <Box>
         <IconButton sx={{color: "text.primary"}} size="small" aria-label="delete" component={Link} to="/">
@@ -97,6 +86,6 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
           <AbcIcon />
         </IconButton>
       </Box>
-    </Drawer>
+    </Box>
   )
 }

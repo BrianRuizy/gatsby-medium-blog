@@ -10,13 +10,13 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import Box from "@mui/material/Box"
+import Container from "@mui/material/Container"
 import Chip from "@mui/material/Chip"
 import MuiLink from "@mui/material/Link"
 import IconButton from "@mui/material/IconButton"
 import Typography from "@mui/material/Typography"
 
 import LocalOfferIcon from "@mui/icons-material/LocalOffer"
-
 
 const TagsPage = ({
   data: {
@@ -45,44 +45,55 @@ const TagsPage = ({
     }
   >
     <Seo title={"All Topics"} />
-    <Box
-      sx={{
-        display: "flex",
-        borderBottom: 1,
-        borderColor: "divider",
-        py: "12px",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: 2,
-      }}
-    >
-      <Typography variant="body1">
-        {group.length > 1
-          ? `There are ${group.length} topics`
-          : `There is ${group.length} topic`}
-        {" to read about"}
-      </Typography>
-      <MuiLink
-        href="/"
-        underline="hover"
-        component={Link}
-        to="/"
-        sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
+    <Container maxWidth="string" sx={{ maxWidth: "692px", px: "1.5rem" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "2rem",
+          "@media (max-width: 600px)": { gap: "1.5rem" },
+        }}
       >
-        Back home
-      </MuiLink>
-    </Box>
-    <Box sx={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-      {group.map(tag => (
-        <Chip
-          key={tag}
-          component={Link}
-          to={`/tag/${kebabCase(tag.fieldValue)}/`}
-          label={`${tag.fieldValue} (${tag.totalCount})`}
-          clickable
-        />
-      ))}
-    </Box>
+        <Box
+          sx={{
+            display: "flex",
+            borderBottom: 1,
+            borderColor: "divider",
+            py: "12px",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: 2,
+          }}
+        >
+          <Typography variant="body1">
+            {group.length > 1
+              ? `There are ${group.length} topics`
+              : `There is ${group.length} topic`}
+            {" to read about"}
+          </Typography>
+          <MuiLink
+            href="/"
+            underline="hover"
+            component={Link}
+            to="/"
+            sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
+          >
+            Back home
+          </MuiLink>
+        </Box>
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+          {group.map(tag => (
+            <Chip
+              key={tag}
+              component={Link}
+              to={`/tag/${kebabCase(tag.fieldValue)}/`}
+              label={`${tag.fieldValue} (${tag.totalCount})`}
+              clickable
+            />
+          ))}
+        </Box>
+      </Box>
+    </Container>
   </Layout>
 )
 

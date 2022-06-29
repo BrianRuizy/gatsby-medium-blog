@@ -10,10 +10,13 @@ import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import shortcodes from "../components/mdx"
 import Seo from "../components/seo"
+import Post from "../templates/post"
 
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
 import Chip from "@mui/material/Chip"
+import Container from "@mui/material/Container"
 import Divider from "@mui/material/Divider"
 import Stack from "@mui/material/Stack"
 import IconButton from "@mui/material/IconButton"
@@ -214,132 +217,193 @@ const PostDetailTemplate = ({ data, location }) => {
         </>
       }
     >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: "1rem",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-        }}
-      >
-        <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-          <Avatar
-            alt="Brian Ruiz"
-            src="https://media-exp1.licdn.com/dms/image/C4E03AQEznEUEL5QCMA/profile-displayphoto-shrink_200_200/0/1584754543548?e=2147483647&v=beta&t=6pz6xtlRYMNdakEiOcMfaY3i5urZQZggz3vORlDCJ_A"
-            sx={{
-              width: "48px",
-              height: "48px",
-              "@media (max-width: 900px)": {
-                width: "36px",
-                height: "36px",
-              },
-            }}
-          >
-            BR
-          </Avatar>
-          <Stack>
-            <Typography variant="body1">Brian Ruiz</Typography>
-            <Typography color="text.secondary" variant="body2">
-              {post.frontmatter.date} &bull; {post.timeToRead + " min read"}
-            </Typography>
-          </Stack>
-        </Box>
-        {/* social share */}
-        <Stack direction="row" spacing={1}>
-          <IconButton sx={{ height: "fit-content" }} size="small">
-            <TwitterIcon />
-          </IconButton>
-          <IconButton sx={{ height: "fit-content" }} size="small">
-            <FacebookIcon />
-          </IconButton>
-          <IconButton sx={{ height: "fit-content" }} size="small">
-            <LinkedInIcon />
-          </IconButton>
-          <Tooltip title="Copy URL" arrow>
-            <IconButton
-              sx={{ height: "fit-content" }}
-              size="small"
-              onClick={() => {
-                navigator.clipboard.writeText(
-                  `https://b-r.io/${location.pathname}`
-                )
-              }}
-            >
-              <LinkIcon sx={{ transform: "rotate(-45deg)" }} />
-            </IconButton>
-          </Tooltip>
-        </Stack>
-      </Box>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
       <article itemScope itemType="http://schema.org/Article">
-        <header>
-          <Box pb={4}>
-            <Box>
-              <Typography
-                variant="h1"
-                gutterBottom
-                sx={{
-                  fontWeight: "900",
-                  letterSpacing: "-0.016em",
-                  lineHeight: "40px",
-                  textTransform: "capitalize",
-                  fontSize: "32px !important",
-                  "@media (max-width: 900px)": {
+        <Container
+          maxWidth="string"
+          sx={{ maxWidth: "692px", px: "1.5rem", pb: "4rem" }}
+        >
+          <header>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+              }}
+            >
+              <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+                <Avatar
+                  alt="Brian Ruiz"
+                  src="https://media-exp1.licdn.com/dms/image/C4E03AQEznEUEL5QCMA/profile-displayphoto-shrink_200_200/0/1584754543548?e=2147483647&v=beta&t=6pz6xtlRYMNdakEiOcMfaY3i5urZQZggz3vORlDCJ_A"
+                  sx={{
+                    width: "48px",
+                    height: "48px",
+                    "@media (max-width: 900px)": {
+                      width: "36px",
+                      height: "36px",
+                    },
+                  }}
+                >
+                  BR
+                </Avatar>
+                <Stack>
+                  <Typography variant="body1">Brian Ruiz</Typography>
+                  <Typography color="text.secondary" variant="body2">
+                    {post.frontmatter.date} &bull;{" "}
+                    {post.timeToRead + " min read"}
+                  </Typography>
+                </Stack>
+              </Box>
+              {/* social share */}
+              <Stack direction="row" spacing={1}>
+                <IconButton sx={{ height: "fit-content" }} size="small">
+                  <TwitterIcon />
+                </IconButton>
+                <IconButton sx={{ height: "fit-content" }} size="small">
+                  <FacebookIcon />
+                </IconButton>
+                <IconButton sx={{ height: "fit-content" }} size="small">
+                  <LinkedInIcon />
+                </IconButton>
+                <Tooltip title="Copy URL" arrow>
+                  <IconButton
+                    sx={{ height: "fit-content" }}
+                    size="small"
+                    onClick={() => {
+                      navigator.clipboard.writeText(
+                        `https://b-r.io/${location.pathname}`
+                      )
+                    }}
+                  >
+                    <LinkIcon sx={{ transform: "rotate(-45deg)" }} />
+                  </IconButton>
+                </Tooltip>
+              </Stack>
+            </Box>
+            <Box py={4}>
+              <Box>
+                <Typography
+                  variant="h1"
+                  gutterBottom
+                  sx={{
+                    fontWeight: "900",
+                    letterSpacing: "-0.016em",
                     lineHeight: "40px",
+                    textTransform: "capitalize",
+                    fontSize: "32px !important",
+                    "@media (max-width: 900px)": {
+                      lineHeight: "40px",
+                    },
+                  }}
+                >
+                  {post.frontmatter.title}
+                </Typography>
+                <Typography
+                  variant="h2"
+                  gutterBottom
+                  sx={{
+                    fontSize: "22px !important",
+                    letterSpacing: "0",
+                    lineHeight: "28px",
+                    fontWeight: "400",
+                    color: "text.disabled",
+                  }}
+                >
+                  {post.frontmatter.description}
+                </Typography>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                maxHeight: "40rem",
+                mb: "6rem",
+                "& > div": { maxHeight: "40rem" },
+              }}
+            >
+              <GatsbyImage
+                image={image}
+                alt={post.frontmatter.featuredImage.name}
+              />
+            </Box>
+          </header>
+          <MDXProvider components={shortcodes}>
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </MDXProvider>
+        </Container>
+        <footer>
+          <Container
+            disableGutters
+            sx={{ backgroundColor: "#f9f9f9", pt: "4rem", pb: "6rem" }}
+          >
+            <Container
+              maxWidth="string"
+              sx={{ maxWidth: "692px", px: "1.5rem" }}
+            >
+              <Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    mb: 1,
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      color: "text.primary",
+                      letterSpacing: 0,
+                      fontWeight: "500",
+                      lineHeight: "20px",
+                    }}
+                  >
+                    More stories from Brian
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    sx={{
+                      backgroundColor: "text.primary",
+                      borderColor: "divider",
+                      borderRadius: "2rem",
+                      textTransform: "none",
+                      fontWeight: 400,
+                    }}
+                  >
+                    Get Newsletter
+                  </Button>
+                </Box>
+
+                <Typography
+                  variant="body2"
+                  sx={{ maxWidth: "500px", color: "text.secondary" }}
+                >
+                  Hi, I am a Software Engineer who specializes in Python, data
+                  analytics, UI/UX, and product design. Here you will find my
+                  blog posts on all things tech.
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1.5rem",
+                  "@media (min-width: 1080px)": {
+                    display: "none",
                   },
                 }}
               >
-                {post.frontmatter.title}
-              </Typography>
-              <Typography
-                variant="h2"
-                gutterBottom
-                sx={{
-                  fontSize: "22px !important",
-                  letterSpacing: "0",
-                  lineHeight: "28px",
-                  fontWeight: "400",
-                  color: "text.disabled",
-                }}
-              >
-                {post.frontmatter.description}
-              </Typography>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              maxHeight: "40rem",
-              "& > div": { maxHeight: "40rem" },
-            }}
-          >
-            <GatsbyImage
-              image={image}
-              alt={post.frontmatter.featuredImage.name}
-            />
-          </Box>
-        </header>
-        <MDXProvider components={shortcodes}>
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </MDXProvider>
-        <footer>
-          <Box
-            sx={{
-              display: "none",
-              "@media (max-width: 1080px)": {
-                display: "unset",
-              },
-
-            }}
-          >
-            <Divider sx={{my: 4}}/>
-            <PostTags data={tags} />
-            <Divider sx={{my: 4}}/>
-            <MoreReadings data={data} />
-          </Box>
+                {data.next && <Post data={data.next} />}
+                {data.previous && <Divider />}
+                {data.previous && <Post data={data.previous} />}
+              </Box>
+            </Container>
+          </Container>
         </footer>
       </article>
     </Layout>
@@ -385,6 +449,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMM, YYYY")
+        description
         featuredImage {
           childImageSharp {
             gatsbyImageData(aspectRatio: 1)
@@ -401,6 +466,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMM, YYYY")
+        description
         featuredImage {
           childImageSharp {
             gatsbyImageData(aspectRatio: 1)

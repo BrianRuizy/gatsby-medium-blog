@@ -122,7 +122,7 @@ const PostItem = ({ data }) => {
         <Link to={data.fields.slug}>
           <Box
             sx={{
-              width: "140px",
+              width: "112px",
               "@media (max-width: 600px)": {
                 width: "80px !important",
               },
