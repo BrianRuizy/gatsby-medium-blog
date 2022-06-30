@@ -76,10 +76,9 @@ const Tags = ({ pageContext, data }) => {
             <Typography variant="body1">{tagHeader}</Typography>
             <MuiLink
               href="/"
-              underline="hover"
+              color="inherit"              
               component={Link}
               to="/tags"
-              sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
             >
               All Topics
             </MuiLink>

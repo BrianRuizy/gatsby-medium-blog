@@ -77,10 +77,9 @@ const TagsPage = ({
           </Typography>
           <MuiLink
             href="/"
-            underline="hover"
+            color="inherit"
             component={Link}
             to="/"
-            sx={{ fontFamily: "Roboto", whiteSpace: "nowrap" }}
           >
             Back home
           </MuiLink>

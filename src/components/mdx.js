@@ -68,7 +68,7 @@ const shortcodes = {
         my: "2rem",
         lineHeight: "32px",
         borderLeft: "3px solid ",
-        borderColor: "text.secondary",
+        borderColor: "text.primary",
         fontStyle: "italic",
         "& > p": {
           color: "text.disabled",
@@ -129,11 +129,10 @@ const shortcodes = {
   img: props => (
     <Box {...props} sx={{ my: "2rem", textAlign: "center" }}>
       <img {...props} style={{ width: "100%" }} alt={props.alt} />
-      <figcaption>
+      <figcaption style={{lineHeight: "20px" }}>
         <Typography
           variant="caption"
           sx={{
-            lineHeight: "20px",
             fontSize: "14px",
             color: "text.secondary",
             letterSpacing: 0,
@@ -169,6 +168,7 @@ const shortcodes = {
       {...props}
     />
   ),
+  Box: props => (<Box {...props} />),
 }
 
 export default shortcodes

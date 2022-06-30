@@ -87,6 +87,9 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
           ...(mode === "light"
             ? {
                 // palette values for light mode
+                primary: {
+                  main: '#6B38FB',
+                },
                 text: {
                   disabled: "rgba(0, 0, 0, 0.48)",
                   postBody: "rgba(0, 0, 0, 0.87)",
@@ -97,6 +100,9 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
               }
             : {
                 // palette values for dark mode
+                primary: {
+                  main: '#BB86FC',
+                },
                 text: {
                   postBody: "rgba(255, 255, 255, 0.87)",
                 },

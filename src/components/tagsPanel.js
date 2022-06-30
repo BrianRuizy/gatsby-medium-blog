@@ -72,7 +72,8 @@ const tagsPanel = () => (
                 label={tag.fieldValue}
                 component={Link}
                 to={`/tag/${kebabCase(tag.fieldValue)}/`}
-              ></Chip>
+                clickable
+              />
             )
           })}
         </Tabs>
