@@ -74,7 +74,7 @@ function PostTags(props) {
   )
 }
 
-function MoreReadings(props) {
+function MoreStories(props) {
   const { previous, next } = props.data
 
   return (
@@ -98,7 +98,7 @@ function MoreReadings(props) {
         More stories
       </Typography>
       <Stack spacing={3}>
-        {[next].map(item => {
+        {[next, previous].map(item => {
           if (!item) return null
           return (
             <Box
@@ -148,54 +148,6 @@ function MoreReadings(props) {
             </Box>
           )
         })}
-        {[previous].map(item => {
-          if (!item) return null
-          return (
-            <Box
-              key={item.fields.slug}
-              component={Link}
-              to={item.fields.slug}
-              rel={item}
-              sx={{
-                textDecoration: "none",
-                color: "unset",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                gap: "1rem",
-              }}
-            >
-              <Box>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "text.secondary" }}
-                  gutterBottom
-                >
-                  {`${item.frontmatter.date} • ${item.timeToRead}`} min read
-                </Typography>
-                <Typography
-                  variant="body1"
-                  style={ClampTypography}
-                  sx={{
-                    fontWeight: "700",
-                    lineHeight: "20px",
-                    textTransform: "capitalize",
-                    letterSpacing: "0",
-                  }}
-                >
-                  {" "}
-                  {item.frontmatter.title}
-                </Typography>
-              </Box>
-              <Box sx={{ width: "100%", maxWidth: "55px" }}>
-                <GatsbyImage
-                  image={getImage(item.frontmatter.featuredImage)}
-                  alt={item.frontmatter.featuredImage.name}
-                />
-              </Box>
-            </Box>
-          )
-        })}
       </Stack>
     </Box>
   )
@@ -213,7 +165,7 @@ const PostDetailTemplate = ({ data, location }) => {
       extraDrawerContent={
         <>
           <PostTags data={tags} />
-          <MoreReadings data={data} />
+          <MoreStories data={data} />
         </>
       }
     >

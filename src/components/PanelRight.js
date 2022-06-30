@@ -1,10 +1,9 @@
 import * as React from "react"
 
-// import TagsPopular from "./tagsPopular"
+import PinnedPosts from "./PinnedPosts"
 import Socials from "./socials"
 
 import Box from "@mui/material/Box"
-import Drawer from "@mui/material/Drawer"
 
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
@@ -25,7 +24,7 @@ export default function RightDrawer({ extraDrawerContent }) {
         },
         "@media (max-width: 1080px)": {
           display: "none",
-        }
+        },
       }}
     >
       <Box
@@ -36,7 +35,14 @@ export default function RightDrawer({ extraDrawerContent }) {
           width: "100%",
         }}
       >
-        <Box sx={{ position: "sticky", top: "0px", marginTop: "0px", display: "block"}}>
+        <Box
+          sx={{
+            position: "sticky",
+            top: "0px",
+            marginTop: "0px",
+            display: "block",
+          }}
+        >
           <Box
             sx={{
               padding: "2.5rem 2rem",
@@ -125,6 +131,7 @@ export default function RightDrawer({ extraDrawerContent }) {
                 </Typography>
               </Box>
             )}
+            {extraDrawerContent ? null : <PinnedPosts />}
             {extraDrawerContent}
             <Socials />
           </Box>
