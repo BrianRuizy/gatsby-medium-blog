@@ -216,6 +216,7 @@ const PostDetailTemplate = ({ data, location }) => {
                   sx={{
                     width: "48px",
                     height: "48px",
+                    backgroundColor: "divider",
                     "@media (max-width: 900px)": {
                       width: "36px",
                       height: "36px",
