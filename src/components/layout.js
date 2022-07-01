@@ -1,25 +1,18 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { navigate } from 'gatsby';
 
 import PanelLeft from "./PanelLeft"
 import PanelRight from "./PanelRight"
+import BottomNav from "./BottomNav"
 
-import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
-import BottomNavigation from "@mui/material/BottomNavigation"
-import BottomNavigationAction from "@mui/material/BottomNavigationAction"
 import Container from "@mui/material/Container"
 import IconButton from "@mui/material/IconButton"
 
-import Paper from "@mui/material/Paper"
 import Tooltip from "@mui/material/Tooltip"
 import Typography from "@mui/material/Typography"
 
-import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined"
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
-import HomeIcon from "@mui/icons-material/Home"
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
 
@@ -51,7 +44,13 @@ function ThemeIconButton() {
   )
 }
 
-const Layout = ({ location, title, extraDrawerContent, extraFooterContent, children }) => {
+const Layout = ({
+  location,
+  title,
+  extraDrawerContent,
+  extraFooterContent,
+  children,
+}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const [mode, setMode] = React.useState("light")
@@ -73,7 +72,7 @@ const Layout = ({ location, title, extraDrawerContent, extraFooterContent, child
             ? {
                 // palette values for light mode
                 primary: {
-                  main: '#6B38FB',
+                  main: "#6B38FB",
                 },
                 text: {
                   disabled: "rgba(0, 0, 0, 0.48)",
@@ -81,19 +80,19 @@ const Layout = ({ location, title, extraDrawerContent, extraFooterContent, child
                 },
                 background: {
                   alt: "#fafafa",
-                }
+                },
               }
             : {
                 // palette values for dark mode
                 primary: {
-                  main: '#BB86FC',
+                  main: "#BB86FC",
                 },
                 text: {
                   postBody: "rgba(255, 255, 255, 0.87)",
                 },
                 background: {
                   alt: "#1B1B1B",
-                }
+                },
               }),
         },
       }),
@@ -235,58 +234,11 @@ const Layout = ({ location, title, extraDrawerContent, extraFooterContent, child
               <PanelRight extraDrawerContent={extraDrawerContent} />
             </Box>
           </Box>
-          <Paper // bottom navigation
-            elevation={2}
-            sx={{
-              position: "fixed",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              "@media (min-width: 1081px)": { display: "none" },
-            }}
-          >
-            <BottomNavigation showLabels>
-              <BottomNavigationAction
-                label="Home"
-                onClick={() => { navigate("/") }}
-                icon={
-                  isRootPath ? (
-                    <HomeIcon sx={{ color: "text.primary" }} />
-                  ) : (
-                    <HomeOutlinedIcon />
-                  )
-                }
-              />
-              <BottomNavigationAction
-                label="Contact"
-                icon={<AlternateEmailOutlinedIcon />}
-              />
-              <BottomNavigationAction
-                label="Theme"
-                onClick={colorMode.toggleColorMode}
-                icon={
-                  theme.palette.mode === "dark" ? (
-                    <LightModeOutlinedIcon />
-                  ) : (
-                    <DarkModeOutlinedIcon />
-                  )
-                }
-              />
-              <BottomNavigationAction
-                label="About"
-                icon={
-                  <Avatar
-                    alt="Brian Ruiz"
-                    src="https://www.b-r.io/avatar.png"
-                    color="primary"
-                    sx={{ width: 24, height: 24, backgroundColor: "divider" }}
-                  >
-                    BR
-                  </Avatar>
-                }
-              />
-            </BottomNavigation>
-          </Paper>
+          <BottomNav
+            isRootPath={isRootPath}
+            colorMode={colorMode}
+            theme={theme}
+          />
         </Box>
       </ThemeProvider>
     </ColorModeContext.Provider>
