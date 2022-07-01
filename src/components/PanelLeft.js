@@ -1,12 +1,12 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
+import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
-import Drawer from "@mui/material/Drawer"
 import IconButton from "@mui/material/IconButton"
 import Tooltip from "@mui/material/Tooltip"
 
-import AbcIcon from "@mui/icons-material/Abc";
+
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -30,11 +30,16 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
         top: 0,
         "@media (max-width: 1080px)": {
           display: "none",
-        }
+        },
       }}
     >
       <Box>
-        <IconButton sx={{color: "text.primary"}} size="small" aria-label="delete" component={Link} to="/">
+        <IconButton
+          sx={{ color: "text.primary" }}
+          size="small"
+          component={Link}
+          to="/"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -82,9 +87,13 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
         {ThemeButton}
       </Box>
       <Box>
-        <IconButton>
-          <AbcIcon />
-        </IconButton>
+        <Avatar
+          alt="Brian Ruiz"
+          src="https://www.b-r.io/avatar.png"
+          sx={{ width: 32, height: 32, backgroundColor: "divider" }}
+        >
+          BR
+        </Avatar>
       </Box>
     </Box>
   )

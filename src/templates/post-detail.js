@@ -295,7 +295,7 @@ const PostDetailTemplate = ({ data, location }) => {
             <Box
               sx={{
                 maxHeight: "40rem",
-                mb: "6rem",
+                pb: "4rem",
                 "& > div": { maxHeight: "40rem" },
               }}
             >

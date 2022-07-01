@@ -104,7 +104,7 @@ export default function RightDrawer({ extraDrawerContent }) {
               >
                 <Avatar
                   alt="Brian Ruiz"
-                  src="avatar.png"
+                  src="https://www.b-r.io/avatar.png"
                   sx={{ width: 64, height: 64, backgroundColor: "divider" }}
                 >
                   BR
