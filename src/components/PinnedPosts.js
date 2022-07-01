@@ -66,7 +66,7 @@ const ComponentName = () => (
               <Box
                 key={item.slug}
                 component={Link}
-                to={item.slug}
+                to={`/${item.slug}`}
                 rel={item}
                 sx={{
                   textDecoration: "none",
