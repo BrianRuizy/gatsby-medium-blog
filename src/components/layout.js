@@ -286,7 +286,7 @@ const Layout = ({ location, title, extraDrawerContent, extraFooterContent, child
                 icon={
                   <Avatar
                     alt="Brian Ruiz"
-                    src="avatar.png"
+                    src="https://www.b-r.io/avatar.png"
                     color="primary"
                     sx={{ width: 24, height: 24, backgroundColor: "divider" }}
                   >
