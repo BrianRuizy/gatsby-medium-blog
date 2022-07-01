@@ -67,5 +67,8 @@
         }
       ]
     }
-  ]
+  ],
+  "frontMatter.content.autoUpdateDate": false,
+  "frontMatter.content.fmHighlight": true,
+  "frontMatter.dashboard.openOnStart": false
 }

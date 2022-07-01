@@ -92,6 +92,7 @@ const Index = ({ data, location }) => {
         }}
       >
         <Tags />
+        {/* category tabs selector */}
         <Box
           sx={{
             width: "100%",
@@ -133,35 +134,37 @@ const Index = ({ data, location }) => {
             ))}
           </Tabs>
         </Box>
-        <TabPanel value={value} index={0} key={"all"}>
+
+        {/* all posts panel  */}
+        <TabPanel value={value} index={0} key={"all"}> 
           {posts.map(post => {
             return (
-              <Box
+              <Grid
+                item
+                xs={12}
                 key={post.id}
                 sx={{
-                  width: "100%",
                   "&:last-child": { "& > hr": { display: "none" } },
                 }}
               >
                 <Post data={post} />
                 <Divider
-                  sx={{
-                    width: "100%",
-                    pt: 4,
-                    "@media (max-width: 600px)": { pt: "1.5rem" },
-                  }}
+                  sx={{ pt: 4, "@media (max-width: 600px)": { pt: "1.5rem" } }}
                 />
-              </Box>
+              </Grid>
             )
           })}
         </TabPanel>
 
+        {/* categories panels */}
         {data.allMdx.group.map((category, index) => (
           <TabPanel value={value} index={index + 1} key={category.fieldValue}>
             {posts.map(post => {
               if (post.frontmatter.category === category.fieldValue) {
                 return (
-                  <Box
+                  <Grid
+                    item
+                    xs={12}
                     key={post.id}
                     sx={{
                       "&:last-child": { "& > hr": { display: "none" } },
@@ -169,13 +172,9 @@ const Index = ({ data, location }) => {
                   >
                     <Post data={post} />
                     <Divider
-                      sx={{
-                        width: "100%",
-                        pt: 4,
-                        "@media (max-width: 600px)": { pt: "1.5rem" },
-                      }}
+                      sx={{ pt: 4, "@media (max-width: 600px)": { pt: "1.5rem" } }}
                     />
-                  </Box>
+                  </Grid>
                 )
               }
               return

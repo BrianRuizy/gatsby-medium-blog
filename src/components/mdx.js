@@ -18,7 +18,7 @@ const shortcodes = {
         lineHeight: "32px",
         letterSpacing: "-0.003em",
         mt: "1.5rem",
-        "@media (max-width: 900px)": {
+        "@media (max-width: 600px)": {
           fontSize: "17px",
           lineHeight: "28px",
           mt: "1rem",
@@ -37,7 +37,7 @@ const shortcodes = {
         fontWeight: "900",
         lineHeight: "28px",
         letterSpacing: "0",
-        "@media (max-width: 900px)": {
+        "@media (max-width: 600px)": {
           fontSize: "20px !important",
         },
       }}
@@ -53,7 +53,7 @@ const shortcodes = {
         fontSize: "20px !important",
         letterSpacing: "0",
         fontWeight: "900",
-        "@media (max-width: 900px)": {
+        "@media (max-width: 600px)": {
           fontSize: "17px !important",
         },
       }}
@@ -164,7 +164,7 @@ const shortcodes = {
   ),
   Alert: props => (
     <Alert
-      sx={{ my: "1.5rem", "@media (max-width: 900px)": { my: "1rem" } }}
+      sx={{ my: "1.5rem", "@media (max-width: 600px)": { my: "1rem" } }}
       {...props}
     />
   ),
