@@ -168,6 +168,21 @@ const PostDetailTemplate = ({ data, location }) => {
           <MoreStories data={data} />
         </>
       }
+      extraFooterContent={
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1.5rem",
+            pt: "4rem",
+          }}
+        >
+          {data.next && <Divider />}
+          {data.next && <Post data={data.next} />}
+          {data.previous && <Divider />}
+          {data.previous && <Post data={data.previous} />}
+        </Box>
+      }
     >
       <Seo
         title={post.frontmatter.title}
@@ -179,7 +194,6 @@ const PostDetailTemplate = ({ data, location }) => {
           maxWidth="string"
           sx={{
             maxWidth: "692px",
-            pb: "4rem",
             "@media (max-width: 600px)": {
               px: "1.5rem",
             },
@@ -294,83 +308,6 @@ const PostDetailTemplate = ({ data, location }) => {
             <MDXRenderer>{post.body}</MDXRenderer>
           </MDXProvider>
         </Container>
-        <footer>
-          <Container
-            disableGutters
-            sx={{ backgroundColor: "background.alt", pt: "4rem", pb: "6rem" }}
-          >
-            <Container
-              disableGutters
-              maxWidth="string"
-              sx={{
-                maxWidth: "692px",
-                "@media (max-width: 600px)": {
-                  px: "1.5rem",
-                },
-              }}
-            >
-              <Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    mb: 1,
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      color: "text.primary",
-                      letterSpacing: 0,
-                      fontWeight: "500",
-                      lineHeight: "20px",
-                    }}
-                  >
-                    More stories from Brian
-                  </Typography>
-                  <Button
-                    variant="contained"
-                    disableElevation
-                    sx={{
-                      backgroundColor: "text.primary",
-                      borderColor: "divider",
-                      borderRadius: "2rem",
-                      textTransform: "none",
-                      fontWeight: 400,
-                    }}
-                  >
-                    Get Newsletter
-                  </Button>
-                </Box>
-
-                <Typography
-                  variant="body2"
-                  sx={{ maxWidth: "330px", color: "text.secondary" }}
-                >
-                  Hi, I am a Software Engineer who specializes in Python, data
-                  analytics, UI/UX, and product design. Here you will find my
-                  blog posts on all things tech.
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1.5rem",
-                  pt: "4rem",
-                  "@media (min-width: 1080px)": {
-                    // display: "none",
-                  },
-                }}
-              >
-                {data.next && <Post data={data.next} />}
-                {data.previous && <Divider />}
-                {data.previous && <Post data={data.previous} />}
-              </Box>
-            </Container>
-          </Container>
-        </footer>
       </article>
     </Layout>
   )

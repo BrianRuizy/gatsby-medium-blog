@@ -11,24 +11,21 @@ const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={"404: Not Found"}>
       <Seo title={siteTitle}/>
       <Container
         disableGutters
         maxWidth="string"
         sx={{
           maxWidth: "692px",
-          pb: "6rem",
           "@media (max-width: 600px)": {
             px: "1.5rem",
           },
         }}
       >
-         <h1>404: Not Found</h1>
         <Typography>You just hit a route that doesn&#39;t exist... the sadness.</Typography>
-
       </Container>
-     
+
     </Layout>
   )
 }

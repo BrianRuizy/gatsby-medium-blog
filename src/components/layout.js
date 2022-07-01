@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import PanelLeft from "./PanelLeft"
 import PanelRight from "./PanelRight"
 
+import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
 import BottomNavigation from "@mui/material/BottomNavigation"
 import BottomNavigationAction from "@mui/material/BottomNavigationAction"
@@ -11,7 +12,6 @@ import Container from "@mui/material/Container"
 import IconButton from "@mui/material/IconButton"
 
 import Paper from "@mui/material/Paper"
-import { StaticImage } from "gatsby-plugin-image"
 import Tooltip from "@mui/material/Tooltip"
 import Typography from "@mui/material/Typography"
 
@@ -21,6 +21,8 @@ import HomeIcon from "@mui/icons-material/Home"
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
+
+import Button from "@mui/material/Button"
 
 import {
   createTheme,
@@ -66,7 +68,7 @@ function ThemeIconButton() {
   )
 }
 
-const Layout = ({ location, title, extraDrawerContent, children }) => {
+const Layout = ({ location, title, extraDrawerContent, extraFooterContent, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const [mode, setMode] = React.useState("light")
@@ -107,7 +109,7 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
                   postBody: "rgba(255, 255, 255, 0.87)",
                 },
                 background: {
-                  alt: "#0f0f0f",
+                  alt: "#1B1B1B",
                 }
               }),
         },
@@ -172,7 +174,79 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
                     )}
                   </Box>
                 </Container>
-                <main>{children}</main>
+                <main style={{ minHeight: "calc((100vh - 360px) - 116px)" }}>
+                  {children}
+                </main>
+                <footer>
+                  <Container
+                    disableGutters
+                    sx={{
+                      backgroundColor: "background.alt",
+                      pt: "4rem",
+                      pb: "8rem",
+                      mt: "4rem",
+                      "@media (max-width: 1080px)": {
+                        pb: "8rem",
+                      },
+                    }}
+                  >
+                    <Container
+                      disableGutters
+                      maxWidth="string"
+                      sx={{
+                        maxWidth: "692px",
+                        "@media (max-width: 600px)": {
+                          px: "1.5rem",
+                        },
+                      }}
+                    >
+                      <Box>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            mb: 1,
+                          }}
+                        >
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              color: "text.primary",
+                              letterSpacing: 0,
+                              fontWeight: "500",
+                              lineHeight: "20px",
+                            }}
+                          >
+                            More stories from Brian
+                          </Typography>
+                          <Button
+                            variant="contained"
+                            disableElevation
+                            sx={{
+                              backgroundColor: "text.primary",
+                              borderColor: "divider",
+                              borderRadius: "2rem",
+                              textTransform: "none",
+                              fontWeight: 400,
+                            }}
+                          >
+                            Get Newsletter
+                          </Button>
+                        </Box>
+                        <Typography
+                          variant="body2"
+                          sx={{ maxWidth: "330px", color: "text.secondary" }}
+                        >
+                          Hey, enjoying the content? Subscribe to my newsletter
+                          to stay up to date on new posts and more. 
+                          P.S. You can unsubscribe at any time.
+                        </Typography>
+                      </Box>
+                      {extraFooterContent}
+                    </Container>
+                  </Container>
+                </footer>
               </Box>
 
               <PanelRight extraDrawerContent={extraDrawerContent} />
@@ -210,16 +284,14 @@ const Layout = ({ location, title, extraDrawerContent, children }) => {
               <BottomNavigationAction
                 label="user"
                 icon={
-                  <Box
-                    sx={{
-                      width: "100%",
-                      maxWidth: "24px",
-                      borderRadius: "100px",
-                      overflow: "hidden",
-                    }}
+                  <Avatar
+                    alt="Brian Ruiz"
+                    src="avatar.png"
+                    color="primary"
+                    sx={{ width: 24, height: 24, backgroundColor: "divider" }}
                   >
-                    <StaticImage alt="br" src="../images/avatar.png" />
-                  </Box>
+                    BR
+                  </Avatar>
                 }
               />
             </BottomNavigation>

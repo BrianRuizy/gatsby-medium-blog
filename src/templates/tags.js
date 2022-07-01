@@ -48,7 +48,6 @@ const Tags = ({ pageContext, data }) => {
         maxWidth="string"
         sx={{
           maxWidth: "692px",
-          pb: "6rem",
           "@media (max-width: 600px)": {
             px: "1.5rem",
           },
@@ -94,6 +93,7 @@ const Tags = ({ pageContext, data }) => {
                 <Box
                   key={node.id}
                   sx={{
+                    width: "100%",
                     "&:last-child": { "& > hr": { display: "none" } },
                   }}
                 >

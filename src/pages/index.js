@@ -86,7 +86,6 @@ const Index = ({ data, location }) => {
           display: "flex",
           flexDirection: "column",
           gap: "2rem",
-          pb: "6rem",
           "@media (max-width: 600px)": { 
           px: "1.5rem",
           gap: "1.5rem" },
@@ -140,6 +139,7 @@ const Index = ({ data, location }) => {
               <Box
                 key={post.id}
                 sx={{
+                  width: "100%",
                   "&:last-child": { "& > hr": { display: "none" } },
                 }}
               >
