@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { navigate } from 'gatsby';
 
 import PanelLeft from "./PanelLeft"
 import PanelRight from "./PanelRight"
@@ -33,24 +34,6 @@ import {
 import CssBaseline from "@mui/material/CssBaseline"
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
-
-function ThemeBottomNavigationAction() {
-  const theme = useTheme()
-  const colorMode = React.useContext(ColorModeContext)
-  return (
-    <BottomNavigationAction
-      label="theme"
-      onClick={colorMode.toggleColorMode}
-      icon={
-        theme.palette.mode === "dark" ? (
-          <LightModeOutlinedIcon />
-        ) : (
-          <DarkModeOutlinedIcon />
-        )
-      }
-    />
-  )
-}
 
 function ThemeIconButton() {
   const theme = useTheme()
@@ -239,8 +222,8 @@ const Layout = ({ location, title, extraDrawerContent, extraFooterContent, child
                           sx={{ maxWidth: "330px", color: "text.secondary" }}
                         >
                           Hey, enjoying the content? Subscribe to my newsletter
-                          to stay up to date on new posts and more. 
-                          P.S. You can unsubscribe at any time.
+                          to stay up to date on new posts and more. P.S. You can
+                          unsubscribe at any time.
                         </Typography>
                       </Box>
                       {extraFooterContent}
@@ -252,7 +235,6 @@ const Layout = ({ location, title, extraDrawerContent, extraFooterContent, child
               <PanelRight extraDrawerContent={extraDrawerContent} />
             </Box>
           </Box>
-
           <Paper // bottom navigation
             elevation={2}
             sx={{
@@ -263,11 +245,10 @@ const Layout = ({ location, title, extraDrawerContent, extraFooterContent, child
               "@media (min-width: 1081px)": { display: "none" },
             }}
           >
-            <BottomNavigation>
+            <BottomNavigation showLabels>
               <BottomNavigationAction
-                component={Link}
-                to="/"
                 label="Home"
+                onClick={() => { navigate("/") }}
                 icon={
                   isRootPath ? (
                     <HomeIcon sx={{ color: "text.primary" }} />
@@ -280,9 +261,19 @@ const Layout = ({ location, title, extraDrawerContent, extraFooterContent, child
                 label="Contact"
                 icon={<AlternateEmailOutlinedIcon />}
               />
-              <ThemeBottomNavigationAction />
               <BottomNavigationAction
-                label="user"
+                label="Theme"
+                onClick={colorMode.toggleColorMode}
+                icon={
+                  theme.palette.mode === "dark" ? (
+                    <LightModeOutlinedIcon />
+                  ) : (
+                    <DarkModeOutlinedIcon />
+                  )
+                }
+              />
+              <BottomNavigationAction
+                label="About"
                 icon={
                   <Avatar
                     alt="Brian Ruiz"
