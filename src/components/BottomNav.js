@@ -12,9 +12,30 @@ import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlin
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
 
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Slide from '@mui/material/Slide';
+
+
+function HideOnScroll(props) {
+  const { children, window } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+
+  return (
+    <Slide appear={false} direction="up" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
 
 export default function BottomNav(props) {
   return (
+    <HideOnScroll {...props}>
     <Paper // bottom navigation
       elevation={2}
       sx={{
@@ -69,5 +90,6 @@ export default function BottomNav(props) {
         />
       </BottomNavigation>
     </Paper>
+    </HideOnScroll>
   )
 }

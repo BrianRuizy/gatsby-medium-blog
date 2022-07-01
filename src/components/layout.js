@@ -1,14 +1,14 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
+import BottomNav from "./BottomNav"
 import PanelLeft from "./PanelLeft"
 import PanelRight from "./PanelRight"
-import BottomNav from "./BottomNav"
 
 import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
 import IconButton from "@mui/material/IconButton"
-
 import Tooltip from "@mui/material/Tooltip"
 import Typography from "@mui/material/Typography"
 
@@ -16,7 +16,6 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
 
-import Button from "@mui/material/Button"
 
 import {
   createTheme,
@@ -112,7 +111,6 @@ const Layout = ({
                 isRootPath={isRootPath}
                 ThemeButton={<ThemeIconButton />}
               />
-
               <Box sx={{ display: "block", minWidth: 0, flex: "1 1 auto" }}>
                 <Container
                   disableGutters
@@ -164,12 +162,8 @@ const Layout = ({
                     disableGutters
                     sx={{
                       backgroundColor: "background.alt",
-                      pt: "4rem",
-                      pb: "8rem",
+                      py: "4rem",
                       mt: "4rem",
-                      "@media (max-width: 1080px)": {
-                        pb: "8rem",
-                      },
                     }}
                   >
                     <Container
@@ -230,7 +224,6 @@ const Layout = ({
                   </Container>
                 </footer>
               </Box>
-
               <PanelRight extraDrawerContent={extraDrawerContent} />
             </Box>
           </Box>
