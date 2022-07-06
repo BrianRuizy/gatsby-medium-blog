@@ -90,6 +90,8 @@ const Layout = ({
                   postBody: "rgba(255, 255, 255, 0.87)",
                 },
                 background: {
+                  default: "#0c0c0c",
+                  paper: "#0c0c0c",
                   alt: "#121212",
                 },
               }),
@@ -197,11 +199,9 @@ const Layout = ({
                             More stories from Brian
                           </Typography>
                           <Button
-                            variant="contained"
+                            variant="outlined"
                             disableElevation
                             sx={{
-                              backgroundColor: "text.primary",
-                              borderColor: "divider",
                               borderRadius: "2rem",
                               textTransform: "none",
                               fontWeight: 400,

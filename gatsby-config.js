@@ -117,8 +117,8 @@ module.exports = {
         name: `Brian Ruiz IO`,
         short_name: `b-r.io`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#6B38FB`,
+        // background_color: `#ffffff`,
+        theme_color: `#0c0c0c`,
         display: `standalone`,
         icon: "src/images/gatsby-icon.png",
         icons : [

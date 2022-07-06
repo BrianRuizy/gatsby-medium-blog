@@ -99,6 +99,11 @@ const ComponentName = () => (
                       "&:hover": {
                         color: "primary.main",
                       },
+                      "@media (max-width: 900px)": {
+                        "&:hover": {
+                          color: "unset",
+                        },
+                      }
                     }}
                   >
                     {" "}

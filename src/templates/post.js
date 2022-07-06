@@ -64,6 +64,11 @@ const PostItem = ({ data }) => {
                 "& h2:hover": {
                   color: "primary.main",
                 },
+                "@media (max-width: 900px)": {
+                  "& h2:hover": {
+                    color: "unset",
+                  },
+                }
               }}
             >
               <Typography
@@ -81,9 +86,7 @@ const PostItem = ({ data }) => {
                   "@media (max-width: 600px)": {
                     marginBottom: "0",
                     lineHeight: "20px",
-                    fontSize: "18px !important",
-                    WebkitLineClamp: "3 !important",
-                    lineClamp: "3 !important",
+                    fontSize: "16px !important",
                   },
                 }}
               >
@@ -128,7 +131,7 @@ const PostItem = ({ data }) => {
             sx={{
               width: "112px",
               "@media (max-width: 600px)": {
-                width: "80px !important",
+                width: "64px !important",
               },
             }}
           >
