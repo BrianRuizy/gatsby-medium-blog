@@ -98,7 +98,7 @@ export default function BottomNav(props) {
               >
                 <Box
                   sx={{
-                    my: "4rem",
+                    my: "2rem",
                     gap: "1rem",
                     display: "flex",
                     flexDirection: "column",
@@ -121,7 +121,6 @@ export default function BottomNav(props) {
                     variant="outlined"
                     name="name"
                     type={"text"}
-                    autoFocus
                   />
                   <TextField
                     id="outlined-email"
