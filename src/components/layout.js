@@ -90,7 +90,8 @@ const Layout = ({
                   postBody: "rgba(255, 255, 255, 0.87)",
                 },
                 background: {
-                  alt: "#1B1B1B",
+                  default: "#000",
+                  alt: "#121212",
                 },
               }),
         },

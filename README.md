@@ -103,3 +103,12 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+## Forms
+
+contact form is super easy to setup with getform.io.
+Simply add your api / endpoint url to the action attribute of your form and you're good to go.
+
+```<form action="https://getform.io/f/my-access-key">```
+
+https://app.getform.io/forms

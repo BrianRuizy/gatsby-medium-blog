@@ -124,7 +124,7 @@ const shortcodes = {
     <MuiLink target="_blank" rel="noopener" {...props} color="inherit" />
   ),
   mark: props => (
-    <mark {...props} style={{background: "rgba(26, 137, 23, 0.15)", color: "inherit"}} />
+    <mark {...props} style={{background: "rgba(107, 56, 251, 0.15)", color: "inherit"}} />
   ),
   img: props => (
     <Box {...props} sx={{ my: "2rem", textAlign: "center" }}>

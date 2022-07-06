@@ -95,6 +95,10 @@ const ComponentName = () => (
                       lineHeight: "20px",
                       textTransform: "capitalize",
                       letterSpacing: "0",
+                      transition: "color 0.2s ease-in-out",
+                      "&:hover": {
+                        color: "primary.main",
+                      },
                     }}
                   >
                     {" "}

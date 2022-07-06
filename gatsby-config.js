@@ -118,7 +118,7 @@ module.exports = {
         short_name: `b-r.io`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#121212`,
+        theme_color: `#6B38FB`,
         display: `standalone`,
         icon: "src/images/gatsby-icon.png",
         icons : [

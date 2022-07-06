@@ -61,6 +61,9 @@ const PostItem = ({ data }) => {
               sx={{
                 textDecoration: "none",
                 color: "unset",
+                "& h2:hover": {
+                  color: "primary.main",
+                },
               }}
             >
               <Typography
@@ -74,6 +77,7 @@ const PostItem = ({ data }) => {
                   textTransform: "capitalize",
                   letterSpacing: "0",
                   color: "text.primary",
+                  transition: "color 0.2s ease-in-out",
                   "@media (max-width: 600px)": {
                     marginBottom: "0",
                     lineHeight: "20px",
