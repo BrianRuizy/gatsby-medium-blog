@@ -1,6 +1,8 @@
 import * as React from "react"
 import { navigate } from "gatsby"
 
+import SearchDialog from "./search/search-dialog"
+
 import Avatar from "@mui/material/Avatar"
 import BottomNavigation from "@mui/material/BottomNavigation"
 import BottomNavigationAction from "@mui/material/BottomNavigationAction"
@@ -17,9 +19,11 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
+import SearchIcon from "@mui/icons-material/Search"
 
 import useScrollTrigger from "@mui/material/useScrollTrigger"
 import Slide from "@mui/material/Slide"
+
 
 function HideOnScroll(props) {
   const { children, window } = props
@@ -41,6 +45,14 @@ export default function BottomNav(props) {
   const [state, setState] = React.useState({
     bottom: false,
   })
+
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const toggleDrawer = (anchor, open) => event => {
     if (
@@ -77,6 +89,16 @@ export default function BottomNav(props) {
                 <HomeOutlinedIcon />
               )
             }
+          />
+          <BottomNavigationAction
+            label="search"
+            icon={<SearchIcon />}
+            onClick={handleClickOpen}
+          />
+          <SearchDialog
+            open={open}
+            setOpen={setOpen}
+            handleClose={handleClose}
           />
 
           <BottomNavigationAction
@@ -161,7 +183,6 @@ export default function BottomNav(props) {
               </form>
             </Container>
           </Drawer>
-
           <BottomNavigationAction
             label="Theme"
             onClick={props.colorMode.toggleColorMode}
@@ -171,19 +192,6 @@ export default function BottomNav(props) {
               ) : (
                 <DarkModeOutlinedIcon />
               )
-            }
-          />
-          <BottomNavigationAction
-            label="About"
-            icon={
-              <Avatar
-                alt="Brian Ruiz"
-                src="https://www.b-r.io/avatar.png"
-                color="primary"
-                sx={{ width: 24, height: 24, backgroundColor: "divider" }}
-              >
-                BR
-              </Avatar>
             }
           />
         </BottomNavigation>

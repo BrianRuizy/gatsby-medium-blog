@@ -9,6 +9,7 @@ import {
   PoweredBy,
 } from "react-instantsearch-dom"
 
+
 const HitCount = connectStateResults(({ searchResults }) => {
   const hitCount = searchResults && searchResults.nbHits
 
@@ -42,7 +43,7 @@ const SearchResult = ({ indices, className }) => (
     {indices.map(index => (
       <HitsInIndex index={index} key={index.name} />
     ))}
-    <PoweredBy />
+    {/* <PoweredBy /> */}
   </div>
 )
 

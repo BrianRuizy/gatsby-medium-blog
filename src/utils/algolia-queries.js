@@ -14,11 +14,12 @@ const pageQuery = `{
         id
         frontmatter {
           title
+          description
+          tags
         }
         fields {
           slug
         }
-        excerpt(pruneLength: 1000)
       }
     }
   }

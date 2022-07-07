@@ -1,16 +1,10 @@
-import { createRef, default as React, useState, useMemo } from "react"
+import * as React from 'react';
+import { useCallback, useEffect } from 'react';
 
 
 import PinnedPosts from "./PinnedPosts"
 import Socials from "./socials"
-
-import algoliasearch from "algoliasearch/lite"
-import { InstantSearch } from "react-instantsearch-dom"
-import SearchBox from "./search/search-box"
-
-import StyledSearchResult from "./search/styled-search-result"
-import useClickOutside from "./search/use-click-outside"
-
+import SearchDialog from "./search/search-dialog"
 
 import Box from "@mui/material/Box"
 import Avatar from "@mui/material/Avatar"
@@ -19,22 +13,35 @@ import SearchIcon from "@mui/icons-material/Search"
 import Typography from "@mui/material/Typography"
 
 
-
 export default function RightDrawer({ extraDrawerContent }) {
-  const searchIndices = [{ name: `Blog`, title: `Blog` }]
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-  const rootRef = createRef()
-  const [query, setQuery] = useState()
-  const [hasFocus, setFocus] = useState(false)
-  const searchClient = useMemo(
-    () =>
-      algoliasearch(
-        process.env.GATSBY_ALGOLIA_APP_ID,
-        process.env.GATSBY_ALGOLIA_SEARCH_KEY
-      ),
-    []
-  )
-  useClickOutside(rootRef, () => setFocus(false))
+  const handleKeyPress = useCallback((event) => {
+    // open dialog with command+k shortcut 
+      if (event.key === 'k' && event.metaKey) {
+        if (!open) {
+          setOpen(true)
+        }
+       
+      }
+     
+    }, []);
+  
+    useEffect(() => {
+      // attach the event listener
+      document.addEventListener('keydown', handleKeyPress);
+  
+      // remove the event listener
+      return () => {
+        document.removeEventListener('keydown', handleKeyPress);
+      };
+    }, [handleKeyPress]);
 
   return (
     <Box
@@ -78,7 +85,6 @@ export default function RightDrawer({ extraDrawerContent }) {
             }}
           >
             <Box
-              //action buttons
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -102,6 +108,7 @@ export default function RightDrawer({ extraDrawerContent }) {
               <Button
                 variant="outlined"
                 fullWidth
+                onClick={handleClickOpen}
                 sx={{
                   color: "text.primary",
                   borderColor: "divider",
@@ -117,25 +124,7 @@ export default function RightDrawer({ extraDrawerContent }) {
                 </Box>
                 ⌘K
               </Button>
-              <div
-                ref={rootRef}
-                style={{ position: "relative", margin: ".6rem 0" }}
-              >
-                <InstantSearch
-                  searchClient={searchClient}
-                  indexName={searchIndices[0].name}
-                  onSearchStateChange={({ query }) => setQuery(query)}
-                >
-                  <SearchBox
-                    onFocus={() => setFocus(true)}
-                    hasFocus={hasFocus}
-                  />
-                  <StyledSearchResult
-                    show={query && query.length > 0 && hasFocus}
-                    indices={searchIndices}
-                  />
-                </InstantSearch>
-              </div>
+              <SearchDialog open={open} setOpen={setOpen} handleClose={handleClose} />
             </Box>
             {extraDrawerContent ? null : (
               <Box

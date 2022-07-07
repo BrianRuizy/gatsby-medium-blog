@@ -2,6 +2,8 @@
 import { createRef, default as React, useState, useMemo } from "react"
 import { Link } from "gatsby"
 
+import SearchDialog from "./search/search-dialog"
+
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
@@ -18,14 +20,6 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchIcon from '@mui/icons-material/Search';
 
 
-import algoliasearch from "algoliasearch/lite"
-
-// import { InstantSearch } from "react-instantsearch-dom"
-
-// import StyledSearchBox from "./styled-search-box"
-// import StyledSearchResult from "./styled-search-result"
-// import useClickOutside from "./use-click-outside"
-
 export default function RightDrawer({ isRootPath, ThemeButton }) {
   const [state, setState] = React.useState({
     bottom: false,
@@ -37,20 +31,17 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
     }
     setState({ ...state, [anchor]: open });
   };
-  
-  const rootRef = createRef()
-  const [query, setQuery] = useState()
-  const [hasFocus, setFocus] = useState(false)
-  const searchClient = useMemo(
-    () =>
-      algoliasearch(
-        process.env.GATSBY_ALGOLIA_APP_ID,
-        process.env.GATSBY_ALGOLIA_SEARCH_KEY
-      ),
-    []
-  )
-  // useClickOutside(rootRef, () => setFocus(false))
-  
+
+
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
   return (
     <Box
       sx={{
@@ -116,11 +107,18 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
             )}
           </IconButton>
         </Tooltip>
-        <Tooltip title="Search" placement="right" arrow>
-          <IconButton >
-            <SearchIcon />
-          </IconButton>
-        </Tooltip>
+        <React.Fragment>
+          <Tooltip title="Search" placement="right" arrow>
+            <IconButton onClick={handleClickOpen}>
+              <SearchIcon />
+            </IconButton>
+          </Tooltip>
+          <SearchDialog
+            open={open}
+            setOpen={setOpen}
+            handleClose={handleClose}
+          />
+        </React.Fragment>
         <React.Fragment>
           <Tooltip title="Contact" placement="right" arrow>
             <IconButton onClick={toggleDrawer("bottom", true)}>

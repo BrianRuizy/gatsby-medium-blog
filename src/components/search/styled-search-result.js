@@ -3,23 +3,9 @@ import SearchResult from "./search-result"
 
 export default styled(SearchResult)`
   display: ${props => (props.show ? `block` : `none`)};
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
 
-  Popover {
-    max-height: 80vh;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    position: absolute;
-    z-index: 2;
-    right: 0;
-    top: 100%;
-    margin-top: 0.5em;
-    width: 80vw;
-    max-width: 30em;
-    box-shadow: 0 0 5px 0;
-    padding: 1em;
-    border-radius: 2px;
-    background: #fff;
-  }
 
   .HitCount {
     display: flex;
@@ -30,6 +16,7 @@ export default styled(SearchResult)`
     ul {
       list-style: none;
       margin-left: 0;
+      padding-left: 0;
     }
 
     li.ais-Hits-item {
@@ -45,13 +32,4 @@ export default styled(SearchResult)`
     }
   }
 
-  .ais-PoweredBy {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 80%;
-
-    svg {
-      width: 70px;
-    }
-  }
 `
