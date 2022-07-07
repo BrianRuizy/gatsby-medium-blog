@@ -13,11 +13,12 @@
      <img src="https://img.shields.io/github/license/BrianRuizy/gatsby-minimal-portfolio?color=red&style=flat" />
    </a>
 </p>
+
 </div>
 
 ![Cover](https://user-images.githubusercontent.com/23439187/177675013-db3b69f2-7c63-4424-9caa-b619c56deffc.png)
-
-Don't forget to leave a star ⭐!
+![Cover (1)](https://user-images.githubusercontent.com/23439187/177679060-97c9ec32-475d-4e44-8baa-9cf28e160983.png)
+<p align="center">Don't forget to leave a star ⭐!</p>
 
 ## Features
 
