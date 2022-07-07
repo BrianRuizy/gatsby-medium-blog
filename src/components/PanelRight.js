@@ -1,16 +1,41 @@
-import * as React from "react"
+import { createRef, default as React, useState, useMemo } from "react"
+
 
 import PinnedPosts from "./PinnedPosts"
 import Socials from "./socials"
 
-import Box from "@mui/material/Box"
+import algoliasearch from "algoliasearch/lite"
+import { InstantSearch } from "react-instantsearch-dom"
+import SearchBox from "./search/search-box"
 
+import StyledSearchResult from "./search/styled-search-result"
+import useClickOutside from "./search/use-click-outside"
+
+
+import Box from "@mui/material/Box"
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import SearchIcon from "@mui/icons-material/Search"
 import Typography from "@mui/material/Typography"
 
+
+
 export default function RightDrawer({ extraDrawerContent }) {
+  const searchIndices = [{ name: `Blog`, title: `Blog` }]
+
+  const rootRef = createRef()
+  const [query, setQuery] = useState()
+  const [hasFocus, setFocus] = useState(false)
+  const searchClient = useMemo(
+    () =>
+      algoliasearch(
+        process.env.GATSBY_ALGOLIA_APP_ID,
+        process.env.GATSBY_ALGOLIA_SEARCH_KEY
+      ),
+    []
+  )
+  useClickOutside(rootRef, () => setFocus(false))
+
   return (
     <Box
       sx={{
@@ -92,6 +117,25 @@ export default function RightDrawer({ extraDrawerContent }) {
                 </Box>
                 ⌘K
               </Button>
+              <div
+                ref={rootRef}
+                style={{ position: "relative", margin: ".6rem 0" }}
+              >
+                <InstantSearch
+                  searchClient={searchClient}
+                  indexName={searchIndices[0].name}
+                  onSearchStateChange={({ query }) => setQuery(query)}
+                >
+                  <SearchBox
+                    onFocus={() => setFocus(true)}
+                    hasFocus={hasFocus}
+                  />
+                  <StyledSearchResult
+                    show={query && query.length > 0 && hasFocus}
+                    indices={searchIndices}
+                  />
+                </InstantSearch>
+              </div>
             </Box>
             {extraDrawerContent ? null : (
               <Box

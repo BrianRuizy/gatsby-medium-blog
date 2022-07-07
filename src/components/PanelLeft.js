@@ -1,4 +1,5 @@
-import * as React from "react"
+
+import { createRef, default as React, useState, useMemo } from "react"
 import { Link } from "gatsby"
 
 import Avatar from "@mui/material/Avatar"
@@ -14,7 +15,16 @@ import Typography from "@mui/material/Typography"
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import SearchIcon from '@mui/icons-material/Search';
 
+
+import algoliasearch from "algoliasearch/lite"
+
+// import { InstantSearch } from "react-instantsearch-dom"
+
+// import StyledSearchBox from "./styled-search-box"
+// import StyledSearchResult from "./styled-search-result"
+// import useClickOutside from "./use-click-outside"
 
 export default function RightDrawer({ isRootPath, ThemeButton }) {
   const [state, setState] = React.useState({
@@ -27,6 +37,19 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
     }
     setState({ ...state, [anchor]: open });
   };
+  
+  const rootRef = createRef()
+  const [query, setQuery] = useState()
+  const [hasFocus, setFocus] = useState(false)
+  const searchClient = useMemo(
+    () =>
+      algoliasearch(
+        process.env.GATSBY_ALGOLIA_APP_ID,
+        process.env.GATSBY_ALGOLIA_SEARCH_KEY
+      ),
+    []
+  )
+  // useClickOutside(rootRef, () => setFocus(false))
   
   return (
     <Box
@@ -93,13 +116,17 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
             )}
           </IconButton>
         </Tooltip>
+        <Tooltip title="Search" placement="right" arrow>
+          <IconButton >
+            <SearchIcon />
+          </IconButton>
+        </Tooltip>
         <React.Fragment>
           <Tooltip title="Contact" placement="right" arrow>
             <IconButton onClick={toggleDrawer("bottom", true)}>
               <AlternateEmailOutlinedIcon />
             </IconButton>
           </Tooltip>
-
           <Drawer
             anchor={"bottom"}
             open={state["bottom"]}

@@ -15,8 +15,10 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.4",
     "@parcel/config-default": "^2.6.0",
+    "algoliasearch": "^4.13.1",
     "charter-webfont": "^4.1.0",
     "gatsby": "^4.16.0",
+    "gatsby-plugin-algolia": "^0.26.0",
     "gatsby-plugin-feed": "^4.16.0",
     "gatsby-plugin-gatsby-cloud": "^4.16.0",
     "gatsby-plugin-google-analytics": "^4.16.0",
@@ -37,6 +39,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
+    "react-instantsearch-dom": "^6.30.0",
     "remark-unwrap-images": "^3.0.1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75"
