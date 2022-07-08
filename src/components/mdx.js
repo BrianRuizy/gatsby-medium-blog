@@ -33,7 +33,7 @@ const shortcodes = {
       variant="h2"
       sx={{
         mt: "4rem",
-        mb: "-14px",
+        mb: "-12px",
         fontSize: "22px !important",
         fontWeight: "900",
         lineHeight: "28px",

@@ -80,13 +80,16 @@ const Index = ({ data, location }) => {
 
       <Container
         maxWidth="string"
+        disableGutters
         sx={{
-          maxWidth: "740px",
+          maxWidth: "692px",
           display: "flex",
           flexDirection: "column",
           gap: "2rem",
-          "@media (max-width: 600px)": { 
-          gap: "1.5rem" },
+          "@media (max-width: 600px)": {
+            gap: "1.5rem",
+            px: "1.5rem",
+          },
         }}
       >
         <Tags />
@@ -103,9 +106,8 @@ const Index = ({ data, location }) => {
             onChange={handleChange}
             aria-label="nav tabs example"
             sx={{
-              "& .MuiTabs-flexContainer":{
-                gap: '1rem',
-
+              "& .MuiTabs-flexContainer": {
+                gap: "1rem",
               },
               "& .MuiTabs-indicator": {
                 backgroundColor: "text.primary",
@@ -140,7 +142,7 @@ const Index = ({ data, location }) => {
         </Box>
 
         {/* all posts panel  */}
-        <TabPanel value={value} index={0} key={"all"}> 
+        <TabPanel value={value} index={0} key={"all"}>
           {posts.map(post => {
             return (
               <Grid
@@ -176,7 +178,10 @@ const Index = ({ data, location }) => {
                   >
                     <Post data={post} />
                     <Divider
-                      sx={{ pt: 4, "@media (max-width: 600px)": { pt: "1.5rem" } }}
+                      sx={{
+                        pt: 4,
+                        "@media (max-width: 600px)": { pt: "1.5rem" },
+                      }}
                     />
                   </Grid>
                 )

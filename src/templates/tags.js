@@ -45,7 +45,13 @@ const Tags = ({ pageContext, data }) => {
       <Seo title={`${tag} (${totalCount})`} />
       <Container
         maxWidth="string"
-        sx={{ maxWidth: "740px" }}
+        disableGutters
+        sx={{
+          maxWidth: "692px",
+          "@media (max-width: 600px)": {
+            px: "1.5rem",
+          },
+        }}
       >
         <Box
           sx={{
@@ -67,12 +73,7 @@ const Tags = ({ pageContext, data }) => {
             }}
           >
             <Typography variant="body1">{tagHeader}</Typography>
-            <MuiLink
-              href="/"
-              color="inherit"              
-              component={Link}
-              to="/tags"
-            >
+            <MuiLink href="/" color="inherit" component={Link} to="/tags">
               All Topics
             </MuiLink>
           </Box>

@@ -88,7 +88,7 @@ const Layout = ({
                 },
                 text: {
                   primary: "#f5f5f7",
-                  postBody: "#c1c1c6",
+                  postBody: "#B1B1B6",
                   secondary: "#A1A1A6",
                   disabled: "#86868b",
                 },
@@ -120,7 +120,7 @@ const Layout = ({
                 <Container
                   maxWidth="string"
                   sx={{
-                    maxWidth: "740px",
+                    maxWidth: "692px",
                     py: "2rem",
                     "@media (max-width: 600px)": {
                       py: "1rem",
@@ -192,6 +192,8 @@ const Layout = ({
                 </main>
                 <footer>
                   <Container
+                    disableGutters
+
                     sx={{
                       backgroundColor: "background.alt",
                       py: "4rem",
@@ -199,8 +201,14 @@ const Layout = ({
                     }}
                   >
                     <Container
+                      disableGutters
                       maxWidth="string"
-                      sx={{ maxWidth: "740px" }}
+                      sx={{
+                        maxWidth: "692px",
+                        "@media (max-width: 600px)": {
+                          px: "1.5rem",
+                        },
+                      }}
                     >
                       <Box>
                         <Box
@@ -225,6 +233,7 @@ const Layout = ({
                           <Button
                             variant="outlined"
                             color="primary"
+                            size="small"
                             sx={{
                               borderRadius: "2rem",
                               textTransform: "none",

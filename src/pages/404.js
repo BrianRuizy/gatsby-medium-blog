@@ -15,7 +15,14 @@ const NotFoundPage = ({ data, location }) => {
       <Seo title={siteTitle}/>
       <Container
         maxWidth="string"
-        sx={{ maxWidth: "740px" }}
+        disableGutters
+        sx={{
+          maxWidth: "692px",
+          "@media (max-width: 600px)": {
+            px: "1.5rem",
+          },
+        }}
+        
       >
         <Typography>You just hit a route that doesn&#39;t exist... the sadness.</Typography>
       </Container>
