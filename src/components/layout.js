@@ -118,13 +118,11 @@ const Layout = ({
               />
               <Box sx={{ display: "block", minWidth: 0, flex: "1 1 auto" }}>
                 <Container
-                  disableGutters
                   maxWidth="string"
                   sx={{
-                    maxWidth: "692px",
+                    maxWidth: "740px",
                     py: "2rem",
                     "@media (max-width: 600px)": {
-                      px: "1.5rem",
                       py: "1rem",
                     },
                   }}
@@ -157,7 +155,7 @@ const Layout = ({
                             "@media (max-width: 600px)": {
                               width: 32,
                               height: 32,
-                            }
+                            },
                           }}
                         >
                           BR
@@ -194,7 +192,6 @@ const Layout = ({
                 </main>
                 <footer>
                   <Container
-                    disableGutters
                     sx={{
                       backgroundColor: "background.alt",
                       py: "4rem",
@@ -202,14 +199,8 @@ const Layout = ({
                     }}
                   >
                     <Container
-                      disableGutters
                       maxWidth="string"
-                      sx={{
-                        maxWidth: "692px",
-                        "@media (max-width: 600px)": {
-                          px: "1.5rem",
-                        },
-                      }}
+                      sx={{ maxWidth: "740px" }}
                     >
                       <Box>
                         <Box

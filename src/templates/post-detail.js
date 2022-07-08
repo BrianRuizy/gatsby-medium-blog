@@ -194,14 +194,8 @@ const PostDetailTemplate = ({ data, location }) => {
       />
       <article itemScope itemType="http://schema.org/Article">
         <Container
-          disableGutters
           maxWidth="string"
-          sx={{
-            maxWidth: "692px",
-            "@media (max-width: 600px)": {
-              px: "1.5rem",
-            },
-          }}
+          sx={{ maxWidth: "740px" }}
         >
           <header>
             <Box
