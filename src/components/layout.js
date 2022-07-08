@@ -74,8 +74,9 @@ const Layout = ({
                   main: "#007aff",
                 },
                 text: {
-                  disabled: "rgba(0, 0, 0, 0.48)",
+                  primary: "#1d1d1f",
                   postBody: "rgba(0, 0, 0, 0.87)",
+                  disabled: "rgba(0, 0, 0, 0.48)",
                 },
                 background: {
                   alt: "#fafafa",
@@ -90,7 +91,7 @@ const Layout = ({
                   primary: "#f5f5f7",
                   secondary: "#A1A1A6",
                   disabled: "#86868b",
-                  postBody: "#A1A1A6",
+                  postBody: "#bbbbc0",
                 },
                 background: {
                   default: "rgb(9,9,9)",
@@ -233,8 +234,7 @@ const Layout = ({
                           </Typography>
                           <Button
                             variant="outlined"
-                            disableElevation
-                            size="small"
+                            color="primary"
                             sx={{
                               borderRadius: "2rem",
                               textTransform: "none",

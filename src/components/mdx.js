@@ -126,7 +126,7 @@ const shortcodes = {
   mark: props => (
     <mark
       {...props}
-      style={{ background: "rgba(52, 199, 88, 0.15)", color: "inherit" }}
+      style={{ background: "rgba(255, 204, 0, 0.15)", color: "inherit" }}
     />
   ),
   img: props => (

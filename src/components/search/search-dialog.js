@@ -39,6 +39,7 @@ export default function SearchDialog({ open, handleClose }) {
       open={open}
       onClose={handleClose}
       fullScreen={fullScreen}
+      PaperProps={{ elevation: 4 }}
       sx={{
         "& .MuiDialog-container": { alignItems: "flex-start" },
         "& .MuiDialog-paper": {
