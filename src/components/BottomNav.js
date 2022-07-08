@@ -76,7 +76,7 @@ export default function BottomNav(props) {
           "@media (min-width: 1081px)": { display: "none" },
         }}
       >
-        <BottomNavigation showLabels>
+        <BottomNavigation >
           <BottomNavigationAction
             label="Home"
             onClick={() => {

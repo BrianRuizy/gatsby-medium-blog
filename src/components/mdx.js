@@ -18,6 +18,7 @@ const shortcodes = {
         lineHeight: "32px",
         letterSpacing: "-0.003em",
         mt: "1.5rem",
+        wordBreak: "break-word",
         "@media (max-width: 600px)": {
           fontSize: "17px",
           lineHeight: "28px",
@@ -32,13 +33,14 @@ const shortcodes = {
       variant="h2"
       sx={{
         mt: "4rem",
-        mb: "-12px",
+        mb: "-14px",
         fontSize: "22px !important",
         fontWeight: "900",
         lineHeight: "28px",
         letterSpacing: "0",
         "@media (max-width: 600px)": {
           fontSize: "20px !important",
+          mt: "2.5rem",
         },
       }}
       {...props}
@@ -55,6 +57,8 @@ const shortcodes = {
         fontWeight: "900",
         "@media (max-width: 600px)": {
           fontSize: "17px !important",
+          mt: "2rem",
+
         },
       }}
       {...props}
@@ -68,7 +72,7 @@ const shortcodes = {
         my: "2rem",
         lineHeight: "32px",
         borderLeft: "3px solid ",
-        borderColor: "text.primary",
+        borderColor: "text.disabled",
         fontStyle: "italic",
         "& > p": {
           color: "text.disabled",
@@ -126,7 +130,7 @@ const shortcodes = {
   mark: props => (
     <mark
       {...props}
-      style={{ background: "rgba(255, 204, 0, 0.15)", color: "inherit" }}
+      style={{ background: "rgba(10, 132, 255, 0.15)", color: "inherit" }}
     />
   ),
   img: props => (
@@ -137,7 +141,7 @@ const shortcodes = {
           variant="caption"
           sx={{
             fontSize: "14px",
-            color: "text.secondary",
+            color: "text.disabled",
             letterSpacing: 0,
           }}
         >
@@ -154,7 +158,7 @@ const shortcodes = {
         sx={{
           lineHeight: "20px",
           fontSize: "14px",
-          color: "text.secondary",
+          color: "text.disabled",
           letterSpacing: 0,
         }}
       ></Typography>

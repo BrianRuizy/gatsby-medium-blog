@@ -105,6 +105,10 @@ const Index = ({ data, location }) => {
             onChange={handleChange}
             aria-label="nav tabs example"
             sx={{
+              "& .MuiTabs-flexContainer":{
+                gap: '1rem',
+
+              },
               "& .MuiTabs-indicator": {
                 backgroundColor: "text.primary",
                 height: "1px",
@@ -117,6 +121,7 @@ const Index = ({ data, location }) => {
               sx={{
                 textTransform: "capitalize",
                 fontWeight: 400,
+                minWidth: "60px",
                 "&.Mui-selected": { color: "text.primary" },
               }}
             />
@@ -128,6 +133,7 @@ const Index = ({ data, location }) => {
                 sx={{
                   textTransform: "capitalize",
                   fontWeight: 400,
+                  minWidth: "60px",
                   "&.Mui-selected": { color: "text.primary" },
                 }}
               />

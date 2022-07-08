@@ -33,14 +33,14 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <ListItemButton component={Link} to={hit.slug}>
-    <ListItemIcon>
+    <ListItemIcon sx={{ "@media (max-width: 600px)": { display: "none" } }}>
       <DescriptionOutlinedIcon />
     </ListItemIcon>
     <ListItemText
       primary={
         <>
           <Highlight attribute="title" hit={hit} tagName="mark" />
-          <Typography sx={{color: "text.disabled", display: "inline"}}>
+          <Typography sx={{ color: "text.disabled", display: "inline" }}>
             －<Snippet attribute="date" hit={hit} />
           </Typography>
         </>
