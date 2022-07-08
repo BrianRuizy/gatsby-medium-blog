@@ -173,8 +173,6 @@ export default function BottomNav(props) {
                     sx={{
                       textTransform: "none",
                       fontWeight: 400,
-                      backgroundColor: "text.primary",
-                      borderColor: "divider",
                     }}
                   >
                     Send

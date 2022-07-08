@@ -1,7 +1,7 @@
 const escapeStringRegexp = require("escape-string-regexp")
 
 const pagePath = `content/posts`
-const indexName = `Blog`
+const indexName = `Stories`
 
 const pageQuery = `{
   pages: allMdx(
@@ -14,6 +14,7 @@ const pageQuery = `{
         id
         frontmatter {
           title
+          date(formatString: "l")
           description
           tags
         }
@@ -39,7 +40,8 @@ const queries = [
     query: pageQuery,
     transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
     indexName,
-    settings: { attributesToSnippet: [`excerpt:20`] },
+    settings: { attributesToSnippet: [`description:20`, `date`, `tags`] },
+    
   },
 ]
 

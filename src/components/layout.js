@@ -71,7 +71,7 @@ const Layout = ({
             ? {
                 // palette values for light mode
                 primary: {
-                  main: "#6B38FB",
+                  main: "#007aff",
                 },
                 text: {
                   disabled: "rgba(0, 0, 0, 0.48)",
@@ -84,15 +84,17 @@ const Layout = ({
             : {
                 // palette values for dark mode
                 primary: {
-                  main: "#BB86FC",
+                  main: "#0a84ff",
                 },
                 text: {
+                  primary: "#f5f5f7",
+                  secondary: "#f5f5f7",
                   postBody: "rgba(255, 255, 255, 0.87)",
                 },
                 background: {
-                  default: "#0c0c0c",
-                  paper: "#0c0c0c",
-                  alt: "#121212",
+                  default: "#000",
+                  paper: "#121212",
+                  alt: "#0c0c0c",
                 },
               }),
         },
@@ -201,6 +203,7 @@ const Layout = ({
                           <Button
                             variant="outlined"
                             disableElevation
+                            size="small"
                             sx={{
                               borderRadius: "2rem",
                               textTransform: "none",
@@ -212,11 +215,11 @@ const Layout = ({
                         </Box>
                         <Typography
                           variant="body2"
-                          sx={{ maxWidth: "330px", color: "text.secondary" }}
+                          sx={{ maxWidth: "440px", color: "text.secondary" }}
                         >
                           Hey, enjoying the content? Subscribe to my newsletter
-                          to stay up to date on new posts and more. P.S. You can
-                          unsubscribe at any time.
+                          to stay up to date on new posts and more. P.S. No spam,
+                          unsubscribe any time.
                         </Typography>
                       </Box>
                       {extraFooterContent}

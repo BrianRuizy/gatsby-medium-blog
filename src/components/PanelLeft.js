@@ -193,8 +193,6 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
                     sx={{
                       textTransform: "none",
                       fontWeight: 400,
-                      backgroundColor: "text.primary",
-                      borderColor: "divider",
                     }}
                   >
                     Send

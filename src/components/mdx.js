@@ -121,15 +121,20 @@ const shortcodes = {
     />
   ),
   a: props => (
-    <MuiLink target="_blank" rel="noopener" {...props} color="inherit" />
+    <MuiLink target="_blank" rel="noopener" {...props} color="inherit" sx={{"&:hover":{
+      color:"primary.main"
+    }}} />
   ),
   mark: props => (
-    <mark {...props} style={{background: "rgba(107, 56, 251, 0.15)", color: "inherit"}} />
+    <mark
+      {...props}
+      style={{ background: "rgba(10, 132, 255, 0.2)", color: "inherit" }}
+    />
   ),
   img: props => (
     <Box {...props} sx={{ my: "2rem", textAlign: "center" }}>
       <img {...props} style={{ width: "100%" }} alt={props.alt} />
-      <figcaption style={{lineHeight: "20px" }}>
+      <figcaption style={{ lineHeight: "20px" }}>
         <Typography
           variant="caption"
           sx={{
@@ -168,7 +173,7 @@ const shortcodes = {
       {...props}
     />
   ),
-  Box: props => (<Box {...props} />),
+  Box: props => <Box {...props} />,
 }
 
 export default shortcodes

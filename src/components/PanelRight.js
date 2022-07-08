@@ -97,6 +97,7 @@ export default function RightDrawer({ extraDrawerContent }) {
                 fullWidth
                 sx={{
                   backgroundColor: "text.primary",
+                  color: "background.alt",
                   borderColor: "divider",
                   borderRadius: "2rem",
                   textTransform: "none",

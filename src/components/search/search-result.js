@@ -1,5 +1,17 @@
 import { Link } from "gatsby"
 import { default as React } from "react"
+
+import Box from "@mui/material/Box"
+import List from "@mui/material/List"
+import ListSubheader from "@mui/material/ListSubheader"
+import ListItemButton from "@mui/material/ListItemButton"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemText from "@mui/material/ListItemText"
+import Typography from "@mui/material/Typography"
+
+import ArticleIcon from "@mui/icons-material/Article"
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined"
+
 import {
   connectStateResults,
   Highlight,
@@ -9,42 +21,62 @@ import {
   PoweredBy,
 } from "react-instantsearch-dom"
 
-
 const HitCount = connectStateResults(({ searchResults }) => {
   const hitCount = searchResults && searchResults.nbHits
 
   return hitCount > 0 ? (
-    <div className="HitCount">
+    <span>
       {hitCount} result{hitCount !== 1 ? `s` : ``}
-    </div>
+    </span>
   ) : null
 })
 
 const PageHit = ({ hit }) => (
-  <div>
-    <Link to={hit.slug}>
-      <h4>
-        <Highlight attribute="title" hit={hit} tagName="mark" />
-      </h4>
-    </Link>
-    <Snippet attribute="excerpt" hit={hit} tagName="mark" />
-  </div>
+  <ListItemButton component={Link} to={hit.slug}>
+    <ListItemIcon>
+      <DescriptionOutlinedIcon />
+    </ListItemIcon>
+    <ListItemText
+      primary={
+        <>
+          <Highlight attribute="title" hit={hit} tagName="mark" />
+          <Typography sx={{color: "text.disabled", display: "inline"}}>
+            －<Snippet attribute="date" hit={hit} />
+          </Typography>
+        </>
+      }
+      // secondary={<Snippet attribute="description" hit={hit} tagName="mark" />}
+    />
+  </ListItemButton>
 )
 
 const HitsInIndex = ({ index }) => (
   <Index indexName={index.name}>
-    <HitCount />
-    <Hits className="Hits" hitComponent={PageHit} />
+    <List
+      subheader={
+        <ListSubheader component="div" id="nested-list-subheader">
+          {index.name}
+        </ListSubheader>
+      }
+      sx={{
+        "& ul": {
+          padding: 0,
+          listStyle: "none",
+        },
+      }}
+    >
+      <Hits hitComponent={PageHit} />
+    </List>
   </Index>
 )
 
-const SearchResult = ({ indices, className }) => (
-  <div className={className}>
+const SearchResult = ({ indices }) => (
+  <Box sx={{ borderTop: "1px solid", borderColor: "divider" }}>
     {indices.map(index => (
       <HitsInIndex index={index} key={index.name} />
     ))}
     {/* <PoweredBy /> */}
-  </div>
+  </Box>
 )
 
 export default SearchResult
