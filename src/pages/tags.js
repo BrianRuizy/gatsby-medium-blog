@@ -46,9 +46,8 @@ const TagsPage = ({
   >
     <Seo title={"All Topics"} />
     <Container
-      disableGutters
       maxWidth="string"
-      sx={{ maxWidth: "692px", "@media (max-width: 600px)": { px: "1.5rem" } }}
+      sx={{ maxWidth: "740px" }}
     >
       <Box
         sx={{
