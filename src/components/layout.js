@@ -16,7 +16,6 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
 
-
 import {
   createTheme,
   responsiveFontSizes,
@@ -24,6 +23,7 @@ import {
   useTheme,
 } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
+import { Avatar } from "@mui/material"
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
 
@@ -135,22 +135,52 @@ const Layout = ({
                       alignItems: "center",
                     }}
                   >
-                    <Typography
-                      variant="h4"
+                    <Box
                       sx={{
-                        lineHeight: "52px",
-                        fontWeight: "700",
-                        "& > a": {
-                          color: "text.primary",
-                          textDecoration: "none",
-                        },
-                        "@media (max-width: 600px)": {
-                          fontSize: "22px",
-                        },
+                        display: "flex",
+                        gap: "1rem",
+                        alignItems: "center",
                       }}
                     >
-                      <Link to="/">{title}</Link>
-                    </Typography>
+                      {isRootPath && (
+                        <Avatar
+                          alt="Brian Ruiz"
+                          src="https://www.b-r.io/avatar.png"
+                          sx={{
+                            width: 40,
+                            height: 40,
+                            backgroundColor: "divider",
+                            "@media (min-width: 1080px)": {
+                              display: "none",
+                            },
+                            "@media (max-width: 600px)": {
+                              width: 32,
+                              height: 32,
+                            }
+                          }}
+                        >
+                          BR
+                        </Avatar>
+                      )}
+
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          lineHeight: "52px",
+                          fontWeight: "700",
+                          "& > a": {
+                            color: "text.primary",
+                            textDecoration: "none",
+                          },
+                          "@media (max-width: 600px)": {
+                            fontSize: "22px",
+                          },
+                        }}
+                      >
+                        <Link to="/">{title}</Link>
+                      </Typography>
+                    </Box>
+
                     {title && (
                       <IconButton sx={{ height: "fit-content" }}>
                         <MoreHorizIcon alt="More" />
@@ -215,11 +245,11 @@ const Layout = ({
                         </Box>
                         <Typography
                           variant="body2"
-                          sx={{ maxWidth: "440px", color: "text.secondary" }}
+                          sx={{ maxWidth: "330px", color: "text.secondary" }}
                         >
                           Hey, enjoying the content? Subscribe to my newsletter
-                          to stay up to date on new posts and more. P.S. No spam,
-                          unsubscribe any time.
+                          to stay up to date on new posts and more. P.S. No
+                          spam, unsubscribe any time.
                         </Typography>
                       </Box>
                       {extraFooterContent}
