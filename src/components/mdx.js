@@ -58,7 +58,6 @@ const shortcodes = {
         "@media (max-width: 600px)": {
           fontSize: "17px !important",
           mt: "2rem",
-
         },
       }}
       {...props}
@@ -175,7 +174,65 @@ const shortcodes = {
       {...props}
     />
   ),
+  SpecialLink: props => (
+    <MuiLink href={props.href} underline="none" color={"inherit"}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          mt: 4,
+          border: "1px solid",
+          borderColor: "divider",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            padding: "1rem",
+          }}
+        >
+          <Typography sx={{ fontWeight: "600", fontSize: "17px" }}>
+            {props.title}
+          </Typography>
+          <Typography
+            sx={{ color: "text.postBody", lineHeight: "20px" }}
+            gutterBottom
+            style={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: "2",
+              lineClamp: "2",
+              WebkitBoxOrient: "vertical",
+            }}
+          >
+            {props.description}
+          </Typography>
+          <Typography sx={{ color: "text.disabled", fontSize: "14px" }}>
+            {props.site}
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            backgroundImage: `url(${props.image})`,
+            width: "100%",
+            maxWidth: "160px",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            "@media (max-width: 600px)": {
+              maxWidth: "140px",
+            },
+          }}
+        ></Box>
+      </Box>
+    </MuiLink>
+  ),
+
   Box: props => <Box {...props} />,
+  Typography: props => <Typography {...props} />,
 }
 
 export default shortcodes
