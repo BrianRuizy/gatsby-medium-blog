@@ -118,12 +118,14 @@ const Layout = ({
               />
               <Box sx={{ display: "block", minWidth: 0, flex: "1 1 auto" }}>
                 <Container
+                  disableGutters
                   maxWidth="string"
                   sx={{
                     maxWidth: "692px",
                     py: "2rem",
                     "@media (max-width: 600px)": {
                       py: "1rem",
+                      px: "1.5rem",
                     },
                   }}
                 >
