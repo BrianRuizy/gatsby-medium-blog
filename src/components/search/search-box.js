@@ -34,12 +34,16 @@ export default connectSearchBox(
             <Button
               variant="outlined"
               onClick={handleClose}
+              color="primary"
               size="small"
               sx={{
                 py: 0,
                 minWidth: 0,
                 fontSize: "14px",
+                fontWeight: "400",
                 textTransform: "none",
+                color: "text.secondary",
+                borderColor: "divider",
               }}
             >
               esc

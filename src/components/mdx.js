@@ -121,14 +121,12 @@ const shortcodes = {
     />
   ),
   a: props => (
-    <MuiLink target="_blank" rel="noopener" {...props} color="inherit" sx={{"&:hover":{
-      color:"primary.main"
-    }}} />
+    <MuiLink target="_blank" rel="noopener" {...props} color="inherit" />
   ),
   mark: props => (
     <mark
       {...props}
-      style={{ background: "rgba(10, 132, 255, 0.2)", color: "inherit" }}
+      style={{ background: "rgba(52, 199, 88, 0.15)", color: "inherit" }}
     />
   ),
   img: props => (
