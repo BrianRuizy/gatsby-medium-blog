@@ -88,13 +88,14 @@ const Layout = ({
                 },
                 text: {
                   primary: "#f5f5f7",
-                  secondary: "#f5f5f7",
-                  postBody: "rgba(255, 255, 255, 0.87)",
+                  secondary: "#A1A1A6",
+                  disabled: "#86868b",
+                  postBody: "#A1A1A6",
                 },
                 background: {
-                  default: "#000",
-                  paper: "#121212",
-                  alt: "#0c0c0c",
+                  default: "rgb(9,9,9)",
+                  alt: "rgb(14,14,14)",
+                  paper: "rgb(18,18,18)",
                 },
               }),
         },
@@ -245,7 +246,7 @@ const Layout = ({
                         </Box>
                         <Typography
                           variant="body2"
-                          sx={{ maxWidth: "330px", color: "text.secondary" }}
+                          sx={{ maxWidth: "330px", color: "text.disabled" }}
                         >
                           Hey, enjoying the content? Subscribe to my newsletter
                           to stay up to date on new posts and more. P.S. No

@@ -52,7 +52,7 @@ const PostItem = ({ data }) => {
               "@media (max-width: 600px)": { gap: 1.5 },
             }}
           >
-            <Typography color="text.secondary" variant="body2">
+            <Typography color="text.disabled" variant="body2">
               {data.frontmatter.date}
             </Typography>
             <Box

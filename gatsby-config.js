@@ -120,7 +120,7 @@ module.exports = {
         short_name: `b-r.io`,
         start_url: `/`,
         // background_color: `#ffffff`,
-        theme_color: `#0c0c0c`,
+        theme_color: `rgb(9,9,9)`,
         display: `standalone`,
         icon: "src/images/gatsby-icon.png",
         icons : [
@@ -130,6 +130,7 @@ module.exports = {
             "type": "image/png"
           },
           {
+            "src": "/favicons/android-chrome-192x192.png",
             "src": "/favicons/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",

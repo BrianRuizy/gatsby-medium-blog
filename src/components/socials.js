@@ -95,7 +95,7 @@ const socials = () => {
                 size="small"
                 sx={{
                   color: "text.primary",
-                  borderColor: "text.secondary",
+                  borderColor: "divider",
                   fontWeight: 400,
                   height: "fit-content",
                   borderRadius: "99em",
