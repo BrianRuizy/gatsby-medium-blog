@@ -119,7 +119,7 @@ module.exports = {
         name: `Brian Ruiz IO`,
         short_name: `b-r.io`,
         start_url: `/`,
-        // background_color: `#ffffff`,
+        background_color: `#fff`,
         theme_color: `rgb(9,9,9)`,
         display: `standalone`,
         icon: "src/images/gatsby-icon.png",
@@ -137,6 +137,7 @@ module.exports = {
             "purpose": "any maskable"
           }
         ],
+        theme_color_in_head: false, // This will avoid adding theme-color meta tag.
       },
     },
     `gatsby-plugin-react-helmet`,

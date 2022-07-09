@@ -5,6 +5,7 @@ import BottomNav from "./BottomNav"
 import PanelLeft from "./PanelLeft"
 import PanelRight from "./PanelRight"
 
+import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
@@ -23,7 +24,6 @@ import {
   useTheme,
 } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
-import { Avatar } from "@mui/material"
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
 
@@ -107,6 +107,7 @@ const Layout = ({
 
   return (
     <ColorModeContext.Provider value={colorMode}>
+      <meta content={theme.palette.background.default} name="theme-color" />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box sx={{ display: "block" }}>
@@ -195,7 +196,6 @@ const Layout = ({
                 <footer>
                   <Container
                     disableGutters
-
                     sx={{
                       backgroundColor: "background.alt",
                       py: "4rem",
