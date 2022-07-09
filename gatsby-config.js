@@ -116,25 +116,24 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Brian Ruiz IO`,
+        name: `BR Blog`,
         short_name: `b-r.io`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `rgb(9,9,9)`,
+        // theme_color: `#fff`,
         display: `standalone`,
         icon: "src/images/gatsby-icon.png",
         icons : [
           {
             "src": "/favicons/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
           },
           {
-            "src": "/favicons/android-chrome-192x192.png",
             "src": "/favicons/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
           }
         ],
         theme_color_in_head: false, // This will avoid adding theme-color meta tag.

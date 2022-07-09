@@ -62,7 +62,7 @@ export default function ContactDrawer(props) {
             <TextField
               id="outlined-email"
               label="Email"
-              variant="filled"
+              variant="[filled]"
               name="email"
               type={"email"}
               required
