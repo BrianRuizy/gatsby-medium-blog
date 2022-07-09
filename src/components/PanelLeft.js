@@ -1,5 +1,4 @@
-
-import { createRef, default as React, useState, useMemo } from "react"
+import * as React from "react"
 import { Link } from "gatsby"
 
 import SearchDialog from "./search/search-dialog"
@@ -8,39 +7,39 @@ import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
-import Drawer from '@mui/material/Drawer';
+import Drawer from "@mui/material/Drawer"
 import IconButton from "@mui/material/IconButton"
 import Tooltip from "@mui/material/Tooltip"
-import TextField  from "@mui/material/TextField"
+import TextField from "@mui/material/TextField"
 import Typography from "@mui/material/Typography"
 
-import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
-import HomeIcon from '@mui/icons-material/Home';
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import SearchIcon from '@mui/icons-material/Search';
-
+import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined"
+import HomeIcon from "@mui/icons-material/Home"
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
+import SearchIcon from "@mui/icons-material/Search"
 
 export default function RightDrawer({ isRootPath, ThemeButton }) {
   const [state, setState] = React.useState({
     bottom: false,
-  });
+  })
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
+  const toggleDrawer = (anchor, open) => event => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return
     }
-    setState({ ...state, [anchor]: open });
-  };
+    setState({ ...state, [anchor]: open })
+  }
 
-
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false)
   const handleClickOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
   const handleClose = () => {
-    setOpen(false);
-  };
-
+    setOpen(false)
+  }
 
   return (
     <Box
