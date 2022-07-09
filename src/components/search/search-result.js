@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import { default as React } from "react"
 
 import Box from "@mui/material/Box"
+import IconButton from "@mui/material/IconButton"
 import List from "@mui/material/List"
 import ListSubheader from "@mui/material/ListSubheader"
 import ListItemButton from "@mui/material/ListItemButton"
@@ -10,7 +11,6 @@ import ListItemText from "@mui/material/ListItemText"
 import Typography from "@mui/material/Typography"
 
 import ArticleIcon from "@mui/icons-material/Article"
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined"
 
 import {
   connectStateResults,
@@ -33,8 +33,22 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <ListItemButton component={Link} to={hit.slug}>
-    <ListItemIcon sx={{ "@media (max-width: 600px)": { display: "none" } }}>
-      <DescriptionOutlinedIcon />
+    <ListItemIcon
+      sx={{
+        minWidth: "2.5rem",
+        "@media (max-width: 600px)": { display: "none" },
+      }}
+    >
+      <IconButton
+        disableRipple
+        size="small"
+        sx={{
+          backgroundColor: "action.selected",
+          color: "text.primary",
+        }}
+      >
+        <ArticleIcon sx={{ fontSize: "14px" }} />
+      </IconButton>
     </ListItemIcon>
     <ListItemText
       primary={
@@ -54,11 +68,16 @@ const HitsInIndex = ({ index }) => (
   <Index indexName={index.name}>
     <List
       subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
+        <ListSubheader
+          component="div"
+          id="nested-list-subheader"
+          sx={{ background: "none", color: "text.disabled" }}
+        >
           {index.name}
         </ListSubheader>
       }
       sx={{
+        py: 1,
         "& ul": {
           padding: 0,
           listStyle: "none",

@@ -130,6 +130,7 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
             open={state["bottom"]}
             onClose={toggleDrawer("bottom", false)}
             PaperProps={{ elevation: 1 }}
+            BackdropProps={{ style: { backdropFilter: "blur(4px)" } }}
           >
             <Container maxWidth="sm">
               <form

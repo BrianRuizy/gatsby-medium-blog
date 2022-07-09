@@ -22,6 +22,7 @@ export default connectSearchBox(
         value={currentRefinement}
         onFocus={onFocus}
         InputProps={{
+          style: { fontSize: 18 },
           startAdornment: (
             <InputAdornment position="start">
               <SearchIcon />
@@ -48,14 +49,7 @@ export default connectSearchBox(
           ),
         }}
         sx={{
-          "& fieldset": {
-            border: "none",
-            "@media (max-width: 600px)": {
-              borderBottom: "1px solid",
-              borderColor: "divider",
-              borderRadius: "0",
-            },
-          },
+          "& fieldset": { border: "none" },
         }}
       />
     </form>

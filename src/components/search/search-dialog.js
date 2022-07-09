@@ -1,5 +1,4 @@
 import { createRef, default as React, useState, useMemo } from "react"
-
 import algoliasearch from "algoliasearch/lite"
 import { InstantSearch } from "react-instantsearch-dom"
 
@@ -7,17 +6,11 @@ import SearchBox from "./search-box"
 import SearchResult from "./search-result"
 import useClickOutside from "./use-click-outside"
 
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-
 import Box from "@mui/material/Box"
 import Dialog from "@mui/material/Dialog"
 
 export default function SearchDialog({ open, handleClose }) {
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const searchIndices = [{ name: `Stories`, title: `Stories` }]
-
   const rootRef = createRef()
   const [query, setQuery] = useState()
   const [hasFocus, setFocus] = useState(false)
@@ -31,25 +24,25 @@ export default function SearchDialog({ open, handleClose }) {
   )
   useClickOutside(rootRef, () => setFocus(false))
 
-
   return (
     <Dialog
       fullWidth
       maxWidth="string"
       open={open}
       onClose={handleClose}
-      fullScreen={fullScreen}
-      PaperProps={{ elevation: 4 }}
+      PaperProps={{ elevation: 0 }}
       sx={{
+        backdropFilter: "blur(4px)",
         "& .MuiDialog-container": { alignItems: "flex-start" },
         "& .MuiDialog-paper": {
           marginTop: "6rem",
-          maxWidth: "750px",
+          maxWidth: "720px",
           borderRadius: "12px",
+          border: "1px solid",
+          borderColor: "divider",
           "@media (max-width: 600px)": {
-            marginTop: 0,
-            borderRadius: 0
-          }
+            marginTop: "2rem",
+          },
         },
       }}
     >
@@ -59,7 +52,11 @@ export default function SearchDialog({ open, handleClose }) {
           indexName={searchIndices[0].name}
           onSearchStateChange={({ query }) => setQuery(query)}
         >
-          <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} handleClose={handleClose} />
+          <SearchBox
+            onFocus={() => setFocus(true)}
+            hasFocus={hasFocus}
+            handleClose={handleClose}
+          />
 
           {query && query.length > 0 && (
             <SearchResult indices={searchIndices} />

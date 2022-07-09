@@ -76,7 +76,7 @@ export default function BottomNav(props) {
           "@media (min-width: 1081px)": { display: "none" },
         }}
       >
-        <BottomNavigation >
+        <BottomNavigation>
           <BottomNavigationAction
             label="Home"
             onClick={() => {
@@ -110,7 +110,10 @@ export default function BottomNav(props) {
             anchor={"bottom"}
             open={state["bottom"]}
             onClose={toggleDrawer("bottom", false)}
-            PaperProps={{ elevation: 1 }}
+            PaperProps={{ elevation: 0 }}
+            sx={{
+              backdropFilter: "blur(4px)",
+            }}
           >
             <Container maxWidth="sm">
               <form
