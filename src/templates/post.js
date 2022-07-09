@@ -131,7 +131,7 @@ const PostItem = ({ data }) => {
             sx={{
               width: "112px",
               "@media (max-width: 600px)": {
-                width: "64px !important",
+                width: "72px !important",
               },
             }}
           >

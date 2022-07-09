@@ -12,9 +12,9 @@ export default connectSearchBox(
     <form>
       <TextField
         fullWidth
+        autoFocus
         variant="outlined"
         autoComplete="off"
-        autoFocus
         type="text"
         placeholder="Search Posts"
         aria-label="Search"

@@ -54,15 +54,15 @@ export default function ContactDrawer(props) {
             </Box>
             <TextField
               id="outlined-name"
-              label="Your name"
-              variant="outlined"
+              label="Name"
+              variant="filled"
               name="name"
               type={"text"}
             />
             <TextField
               id="outlined-email"
               label="Email"
-              variant="outlined"
+              variant="filled"
               name="email"
               type={"email"}
               required
@@ -70,13 +70,13 @@ export default function ContactDrawer(props) {
             <TextField
               id="outlined-message"
               label="Message"
-              variant="outlined"
+              variant="filled"
               placeholder="Something nice 😅"
               name="message"
               type={"text"}
               required
               multiline
-              rows={4}
+              rows={3}
             />
             <Button
               variant="contained"
