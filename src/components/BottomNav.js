@@ -1,6 +1,7 @@
 import * as React from "react"
 import { navigate } from "gatsby"
 
+import ContactDrawer from "./ContactDrawer"
 import SearchDialog from "./search/search-dialog"
 
 import BottomNavigation from "@mui/material/BottomNavigation"
@@ -98,6 +99,7 @@ export default function BottomNav(props) {
             onClick={toggleDrawer("bottom", true)}
             icon={<AlternateEmailOutlinedIcon />}
           />
+          <ContactDrawer open={state["bottom"]} onClose={toggleDrawer("bottom", false)} />
 
           <BottomNavigationAction
             label="Theme"

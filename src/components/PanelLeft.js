@@ -1,17 +1,13 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
+import ContactDrawer from "./ContactDrawer"
 import SearchDialog from "./search/search-dialog"
 
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
-import Container from "@mui/material/Container"
-import Drawer from "@mui/material/Drawer"
 import IconButton from "@mui/material/IconButton"
 import Tooltip from "@mui/material/Tooltip"
-import TextField from "@mui/material/TextField"
-import Typography from "@mui/material/Typography"
 
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined"
 import HomeIcon from "@mui/icons-material/Home"
@@ -124,83 +120,10 @@ export default function RightDrawer({ isRootPath, ThemeButton }) {
               <AlternateEmailOutlinedIcon />
             </IconButton>
           </Tooltip>
-          <Drawer
-            anchor={"bottom"}
+          <ContactDrawer
             open={state["bottom"]}
             onClose={toggleDrawer("bottom", false)}
-            PaperProps={{ elevation: 1 }}
-            BackdropProps={{ style: { backdropFilter: "blur(4px)" } }}
-          >
-            <Container maxWidth="sm">
-              <form
-                action="https://getform.io/f/faf8d119-4334-4fcc-ae56-2dc4de9cb453"
-                method="POST"
-                autocomplete="off"
-              >
-                <Box
-                  sx={{
-                    my: "4rem",
-                    gap: "1rem",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Box sx={{ mb: "1rem" }}>
-                    <Typography variant="h5" sx={{ fontWeight: 700 }}>
-                      Get in touch!
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      Want to work together? Let's connect!
-                    </Typography>
-                  </Box>
-                  <TextField
-                    id="outlined-name"
-                    label="Your name"
-                    variant="outlined"
-                    name="name"
-                    type={"text"}
-                    autoFocus
-                  />
-                  <TextField
-                    id="outlined-email"
-                    label="Email"
-                    variant="outlined"
-                    name="email"
-                    type={"email"}
-                    required
-                  />
-                  <TextField
-                    id="outlined-message"
-                    label="Message"
-                    variant="outlined"
-                    placeholder="Something nice 😅"
-                    name="message"
-                    type={"text"}
-                    required
-                    multiline
-                    rows={4}
-                  />
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    fullWidth
-                    disableElevation
-                    type="submit"
-                    sx={{
-                      textTransform: "none",
-                      fontWeight: 400,
-                    }}
-                  >
-                    Send
-                  </Button>
-                </Box>
-              </form>
-            </Container>
-          </Drawer>
+          />
         </React.Fragment>
         {ThemeButton}
       </Box>
