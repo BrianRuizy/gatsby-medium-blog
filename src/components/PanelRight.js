@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { useCallback, useEffect } from 'react';
-
+import * as React from "react"
+import { useCallback, useEffect } from "react"
 
 import PinnedPosts from "./PinnedPosts"
 import Socials from "./socials"
@@ -12,36 +11,33 @@ import Button from "@mui/material/Button"
 import SearchIcon from "@mui/icons-material/Search"
 import Typography from "@mui/material/Typography"
 
-
 export default function RightDrawer({ extraDrawerContent }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false)
   const handleClickOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
-  const handleKeyPress = useCallback((event) => {
-    // open dialog with command+k shortcut 
-      if (event.key === 'k' && event.metaKey) {
-        if (!open) {
-          setOpen(true)
-        }
-       
+  const handleKeyPress = useCallback(event => {
+    // open dialog with command+k shortcut
+    if (event.key === "k" && event.metaKey) {
+      if (!open) {
+        setOpen(true)
       }
-     
-    }, []);
-  
-    useEffect(() => {
-      // attach the event listener
-      document.addEventListener('keydown', handleKeyPress);
-  
-      // remove the event listener
-      return () => {
-        document.removeEventListener('keydown', handleKeyPress);
-      };
-    }, [handleKeyPress]);
+    }
+  }, [])
+
+  useEffect(() => {
+    // attach the event listener
+    document.addEventListener("keydown", handleKeyPress)
+
+    // remove the event listener
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress)
+    }
+  }, [handleKeyPress])
 
   return (
     <Box
@@ -125,7 +121,11 @@ export default function RightDrawer({ extraDrawerContent }) {
                 </Box>
                 ⌘K
               </Button>
-              <SearchDialog open={open} setOpen={setOpen} handleClose={handleClose} />
+              <SearchDialog
+                open={open}
+                setOpen={setOpen}
+                handleClose={handleClose}
+              />
             </Box>
             {extraDrawerContent ? null : (
               <Box
@@ -136,32 +136,36 @@ export default function RightDrawer({ extraDrawerContent }) {
                   gap: 2,
                 }}
               >
-                <Avatar
-                  alt="Brian Ruiz"
-                  src="https://www.b-r.io/avatar.png"
-                  sx={{ width: 72, height: 72, backgroundColor: "divider" }}
-                >
-                  BR
-                </Avatar>
-                <Typography
-                  variant="h3"
-                  sx={{
-                    fontSize: "16px !important",
-                    letterSpacing: 0,
-                    fontWeight: "500",
-                    lineHeight: "20px",
-                    color: "text.primary",
-                  }}
-                >
-                  Brian Ruiz
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ maxWidth: "300px", color: "text.secondary" }}
-                >
-                  Hi, Brian here. I’m a Software Engineer who specializes in
-                  Python, data analytics, UI/UX, and product design. Here you’ll
-                  find my blog posts on all things tech.
+                <Box display={"flex"} gap={2} alignItems={"center"}>
+                  <Avatar
+                    alt="Brian Ruiz"
+                    src="https://www.b-r.io/avatar.png"
+                    sx={{ width: 48, height: 48, backgroundColor: "divider" }}
+                  >
+                    BR
+                  </Avatar>
+                  <div>
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        fontSize: "16px !important",
+                        letterSpacing: 0,
+                        fontWeight: "500",
+                        lineHeight: "20px",
+                        color: "text.primary",
+                      }}
+                    >
+                      Brian Ruiz
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "text.disabled" }}>
+                      Software Engineer
+                    </Typography>
+                  </div>
+                </Box>
+                <Typography variant="body2" sx={{ maxWidth: "280px", color: "text.secondary" }}>
+                  Hey, Brian here! I'm a Software Engineer who specializes in
+                  Python, data analytics, UI/UX, and product design. Here you'll
+                  find my personal blogs on all things technology.
                 </Typography>
               </Box>
             )}

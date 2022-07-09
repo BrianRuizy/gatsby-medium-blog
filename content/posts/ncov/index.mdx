@@ -37,11 +37,12 @@ Several times I reconsidered the deployment of this project, but ultimately deci
 
 
 # Front-end design
+
 Overall the general approach of the application is to display a grid of different cards. The cards represent different forms of data organized in their respective way, and the user can interact with the data in several ways. 
 
-For instance, we have a map card that uses COVID case data stacked on top of GPS coordinates. In another card, we have a plot that shows the overall trajectory of confirmed cases using time-series data with dates.
+We have a map card that uses COVID case data stacked on top of GPS coordinates. In another card, we have a plot that shows the overall trajectory of confirmed cases using time-series data with dates.
 
-And, it was important to design the grid in such a way that the cards of data were responsive and friendly to different devices and viewports. The following image exemplifies that.
+And, it was important to design the grid in such a way that the cards of data were responsive and friendly to different devices and viewports. The following image shows that.
 
 ![Mobile Views of app](https://miro.medium.com/max/1400/0*qhtGaJEKHEruAokI.png)
 
@@ -49,7 +50,8 @@ And, it was important to design the grid in such a way that the cards of data we
 
 # How it works
 The following is a snippet of how we’re using <mark>Python to pull the data from different sources, and returning that data to the front-end to create data visualizations with Plotly</mark>. Using AJAX requests allows us to load the data asynchronously, which is a great way to improve the user experience by significantly reducing the initial page load time. 
-*Note that the code may be incomplete for concision.*
+
+*Note: Code is incomplete for concision.*
 
 ## 1. Web scraping with Pandas 🐼
 Here we defined a simple function that reads from a specific URL that contains a CSV of raw data, we convert it to a Pandas data frame and return it.
