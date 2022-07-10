@@ -163,11 +163,6 @@ const shortcodes = {
       ></Typography>
     </figcaption>
   ),
-  pre: props => (
-    <Box sx={{ my: "2rem" }}>
-      <pre {...props}></pre>
-    </Box>
-  ),
   Alert: props => (
     <Alert
       sx={{ my: "1.5rem", "@media (max-width: 600px)": { my: "1rem" } }}

@@ -1,5 +1,5 @@
 ---
-title: How we managed and monitored at scale of 100k weekly shipments
+title: How we managed and monitored at a scale of 100k weekly shipments
 description: At PeriShip we developed Industry leading logistics systems used by thousands of companies nationwide.
 date: 2021-05-14T22:12:03.284Z
 category: Work
@@ -29,9 +29,9 @@ PeriShips years of success allowed the company to diversify the solutions away f
 
 Using MDX, you can replace every HTML element that Markdown renders with a custom implementation. This allows you to use a set of design system components when rendering.
 
-**Note**: you can also provide your own custom components to the `MDXProvider` that make them globally available while writing MDX. You can find more details about this pattern in the Importing and Using Components in MDX guide.
+**Note**: you can also provide your own custom components to the that make them globally available while writing MDX. You can find more details about this pattern in the Importing and Using Components in MDX guide.
 
-```jsx
+```jsx 
 import { MDXProvider } from "@mdx-js/react"
 import * as DesignSystem from "your-design-system"
 
@@ -50,6 +50,40 @@ export default function Layout({ children }) {
       {children}
     </MDXProvider>
   )
+}
+```
+
+```bash
+cd repos
+mkdir my-mdx-components
+cd my-mdx-components
+npm init
+npm install @mdx-js/react @mdx-js/html @mdx-js/mdx-link-preview @mdx-js/mdx-link-preview-styles
+```
+
+```jsx
+import { useEffect } from "react"
+
+const events = [`mousedown`, `touchstart`]
+
+export default (ref, onClickOutside) => {
+  const isOutside = element => !ref.current || !ref.current.contains(element)
+
+  const onClick = event => {
+    if (isOutside(event.target)) {
+      onClickOutside()
+    }
+  }
+
+  useEffect(() => {
+    for (const event of events) {
+      document.addEventListener(event, onClick)
+    }
+
+    return () => {
+      for (const event of events) document.removeEventListener(event, onClick)
+    }
+  })
 }
 ```
 

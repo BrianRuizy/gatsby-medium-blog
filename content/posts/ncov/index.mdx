@@ -22,9 +22,9 @@ We have [contributors from all over the world](https://github.com/BrianRuizy/cov
 # Where does the data comes from?
 A large portion of the data comes from one of the original data repositories tracking COVID-19 cases, [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) CSSE2019-ncov data repository. Additional data was collected from [Our World in Data](https://ourworldindata.org/) GitHub data repository. Lastly, to fill in some requirements we retrieved data for daily cases from [New York Times](https://github.com/nytimes/covid-19-data) COVID GitHub data repository.
 
-For this project,it was crucial to have <mark>accurate, and trustworthy datasets</mark>. 
+For this project, it was crucial to have <mark>accurate, and trustworthy datasets</mark>. 
 Which explains why the multiple aforementioned sources were diligently picked. 
-In doing so the goal is to provide the most accurate representations of the pandemic, the opposite could have it's own repercussions at scale.
+In doing so the goal is to provide the most accurate representations of the pandemic, the opposite could have its own repercussions at scale.
 
 ![Person reading COVID news](https://miro.medium.com/max/700/0*4DeT3bxzq-akxL9q.jpg)
 
@@ -99,7 +99,7 @@ function load_realtime_growth_chart() {
 }
 ```
 ## 4. Returning HTTP response 🪃
-This function will now return the HTTP response. Whenever it is requested by the front-end, it will return the data frame which is used by Plotly to create the plot.
+This function will now return an HTTP response. When requested by the front-end, it will return the data frame used by Plotly to create the visualization.
 
 ```python
 def realtime_growth(request):
