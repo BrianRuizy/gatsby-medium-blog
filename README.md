@@ -25,6 +25,7 @@
 - PWA ready, installable on Android and iOS
 - Blog ready, easily add own blog posts with MDX
 - Toggable dark mode
+- Algolia Search, search by all attributes
 - Mobile friendly nav-dock, and bottom drawer
 - [Getform.io](getform.io) contact form with easy setup 
 - SEO ready, option to Add meta description
