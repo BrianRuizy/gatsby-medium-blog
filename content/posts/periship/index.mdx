@@ -25,6 +25,34 @@ PeriShips years of success allowed the company to diversify the solutions away f
 -Optum, Inc
 - McKesson Corporation
 
+# Customizing Markdown Components
+
+Using MDX, you can replace every HTML element that Markdown renders with a custom implementation. This allows you to use a set of design system components when rendering.
+
+**Note**: you can also provide your own custom components to the `MDXProvider` that make them globally available while writing MDX. You can find more details about this pattern in the Importing and Using Components in MDX guide.
+
+```jsx
+import { MDXProvider } from "@mdx-js/react"
+import * as DesignSystem from "your-design-system"
+
+export default function Layout({ children }) {
+  return (
+    <MDXProvider
+      components={{
+        // Map HTML element tag to React component
+        h1: DesignSystem.H1,
+        h2: DesignSystem.H2,
+        h3: DesignSystem.H3,
+        // Or define component inline
+        p: props => <p {...props} style={{ color: "rebeccapurple" }} />,
+      }}
+    >
+      {children}
+    </MDXProvider>
+  )
+}
+```
+
 # My contributions to the team
 
 I had the opportunity to work as a Software Engineer with PeriShip + PeriPharma, and contributed to various existing Django projects, ranging from client-facing to operations-facing web applications.

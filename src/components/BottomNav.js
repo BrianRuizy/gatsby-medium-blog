@@ -60,7 +60,7 @@ export default function BottomNav(props) {
   return (
     <HideOnScroll {...props}>
       <Paper // bottom navigation
-        elevation={1}
+        elevation={0}
         sx={{
           position: "fixed",
           bottom: 0,
