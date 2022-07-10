@@ -21,7 +21,7 @@ const shortcodes = {
         wordBreak: "break-word",
         hyphens: "auto",
         "@media (max-width: 600px)": {
-          fontSize: "16px",
+          fontSize: "17px",
           lineHeight: "28px",
           mt: "1rem",
         },

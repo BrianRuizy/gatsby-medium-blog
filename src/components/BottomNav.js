@@ -61,6 +61,9 @@ export default function BottomNav(props) {
     <HideOnScroll {...props}>
       <Paper // bottom navigation
         elevation={0}
+        style={{
+          paddingBottom: "env(safe-area-inset-bottom)",
+        }}
         sx={{
           position: "fixed",
           bottom: 0,
