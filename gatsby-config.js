@@ -120,7 +120,7 @@ module.exports = {
         short_name: `b-r.io`,
         start_url: `/`,
         background_color: `#fff`,
-        // theme_color: `#fff`,
+        theme_color: `???`,
         display: `standalone`,
         icon: "src/images/gatsby-icon.png",
         icons : [
@@ -128,12 +128,12 @@ module.exports = {
             "src": "/favicons/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "any maskable"
           },
           {
             "src": "/favicons/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
+            "purpose": "any maskable"
           }
         ],
         theme_color_in_head: false, // This will avoid adding theme-color meta tag.

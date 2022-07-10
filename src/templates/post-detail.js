@@ -25,7 +25,6 @@ import Tooltip from "@mui/material/Tooltip"
 import TwitterIcon from "@mui/icons-material/Twitter"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import LinkIcon from "@mui/icons-material/Link"
-import CopyAllIcon from '@mui/icons-material/CopyAll';
 
 const ClampTypography = {
   overflow: "hidden",
@@ -166,7 +165,6 @@ const PostDetailTemplate = ({ data, location }) => {
   const handleTooltipOpen = () => {
     setOpen(true)
     navigator.clipboard.writeText(`https://b-r.io${location.pathname}`)
-    // wait 3 seconds then close the tooltip
     setTimeout(() => {
       setOpen(false)
     }, 700)
@@ -218,7 +216,7 @@ const PostDetailTemplate = ({ data, location }) => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                gap: "1rem",
+                gap: ".5rem",
                 flexWrap: "wrap",
                 justifyContent: "space-between",
               }}
@@ -228,12 +226,12 @@ const PostDetailTemplate = ({ data, location }) => {
                   alt="Brian Ruiz"
                   src="../avatar.png"
                   sx={{
-                    width: "48px",
-                    height: "48px",
+                    width: 48,
+                    height: 48,
                     backgroundColor: "divider",
                     "@media (max-width: 900px)": {
-                      width: "40px",
-                      height: "40px",
+                      width: 40,
+                      height: 40,
                     },
                   }}
                 >
@@ -242,26 +240,22 @@ const PostDetailTemplate = ({ data, location }) => {
                 <Stack>
                   <Typography variant="body1">Brian Ruiz</Typography>
                   <Typography color="text.secondary" variant="body2">
-                    {post.frontmatter.date} &bull;{" "}
-                    {post.timeToRead + " min read"}
+                    {post.frontmatter.date}
+                    <Box
+                      sx={{
+                        display: "inline",
+                        "@media (max-width: 600px)": {
+                          display: "none",
+                        },
+                      }}
+                    >
+                      &bull; {post.timeToRead + " min read"}
+                    </Box>
                   </Typography>
                 </Stack>
               </Box>
               {/* social share */}
-              <Stack
-                direction="row"
-                sx={{
-                  "@media (min-width: 600px)": {
-                    gap: ".5rem",
-                  },
-                }}
-              >
-                <IconButton size="small">
-                  <LinkedInIcon />
-                </IconButton>
-                <IconButton size="small">
-                  <TwitterIcon />
-                </IconButton>
+              <Stack direction="row">
                 <Tooltip
                   PopperProps={{ disablePortal: true }}
                   open={open}
@@ -270,11 +264,18 @@ const PostDetailTemplate = ({ data, location }) => {
                   disableTouchListener
                   arrow
                   title="Copied link"
+                  placement="left"
                 >
-                  <IconButton onClick={handleTooltipOpen} size="small">
-                    <CopyAllIcon />
+                  <IconButton onClick={handleTooltipOpen}>
+                    <LinkIcon sx={{ transform: "rotate(-45deg)" }} />
                   </IconButton>
                 </Tooltip>
+                <IconButton>
+                  <TwitterIcon />
+                </IconButton>
+                <IconButton>
+                  <LinkedInIcon />
+                </IconButton>
               </Stack>
             </Box>
             <Box py={4}>

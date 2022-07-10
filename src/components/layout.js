@@ -149,15 +149,15 @@ const Layout = ({
                           alt="Brian Ruiz"
                           src="https://www.b-r.io/avatar.png"
                           sx={{
-                            width: 40,
-                            height: 40,
+                            width: 48,
+                            height: 48,
                             backgroundColor: "divider",
                             "@media (min-width: 1080px)": {
                               display: "none",
                             },
                             "@media (max-width: 600px)": {
-                              width: 32,
-                              height: 32,
+                              width: 40,
+                              height: 40,
                             },
                           }}
                         >
