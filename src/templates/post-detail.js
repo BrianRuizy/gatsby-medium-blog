@@ -264,7 +264,6 @@ const PostDetailTemplate = ({ data, location }) => {
                   disableTouchListener
                   arrow
                   title="Copied link"
-                  placement="left"
                 >
                   <IconButton onClick={handleTooltipOpen}>
                     <LinkIcon sx={{ transform: "rotate(-45deg)" }} />
@@ -290,7 +289,10 @@ const PostDetailTemplate = ({ data, location }) => {
                     textTransform: "capitalize",
                     fontSize: "32px !important",
                     "@media (max-width: 900px)": {
-                      lineHeight: "40px",
+                      lineHeight: "36px",
+                    },
+                    "@media (max-width: 600px)": {
+                      fontSize: "30px !important",
                     },
                   }}
                 >

@@ -19,8 +19,9 @@ const shortcodes = {
         letterSpacing: "-0.003em",
         mt: "1.5rem",
         wordBreak: "break-word",
+        hyphens: "auto",
         "@media (max-width: 600px)": {
-          fontSize: "17px",
+          fontSize: "16px",
           lineHeight: "28px",
           mt: "1rem",
         },
@@ -34,7 +35,7 @@ const shortcodes = {
       sx={{
         mt: "4rem",
         mb: "-12px",
-        fontSize: "22px !important",
+        fontSize: "24px !important",
         fontWeight: "900",
         lineHeight: "28px",
         letterSpacing: "0",
@@ -52,6 +53,7 @@ const shortcodes = {
       sx={{
         mt: "3rem",
         mb: "-12px",
+        color: "text.postBody",
         fontSize: "20px !important",
         letterSpacing: "0",
         fontWeight: "900",

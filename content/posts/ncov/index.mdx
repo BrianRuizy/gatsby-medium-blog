@@ -51,7 +51,7 @@ And, it was important to design the grid in such a way that the cards of data we
 # How it works
 The following is a snippet of how we’re using <mark>Python to pull the data from different sources, and returning that data to the front-end to create data visualizations with Plotly</mark>. Using AJAX requests allows us to load the data asynchronously, which is a great way to improve the user experience by significantly reducing the initial page load time. 
 
-*Note: Code is incomplete for concision.*
+<Alert severity="info">Note: Code is incomplete for concision.</Alert>
 
 ## 1. Web scraping with Pandas 🐼
 Here we defined a simple function that reads from a specific URL that contains a CSV of raw data, we convert it to a Pandas data frame and return it.
@@ -72,10 +72,9 @@ Now we define the function realtime_growth which cleans and manipulates the data
 def realtime_growth():
   df1 = confirmed_report()[confirmed_report().columns[4:]].sum()
   df2 = deaths_report()[deaths_report().columns[4:]].sum()
-  df3 = recovered_report()[recovered_report().columns[4:]].sum()
 
   growth_df = pd.DataFrame([])
-  growth_df['Confirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
+  growth_df['Confirmed'], growth_df['Deaths'] = df1, df2
   growth_df.index = growth_df.index.rename('Date')
 
   yesterday = pd.Timestamp('now').date() - pd.Timedelta(days=1)
@@ -113,11 +112,11 @@ def realtime_growth(request):
 We then create the D3.js-based line and scatter plots in JavaScript using Plotly. This creates an interactive, scientific data visualization easily on the Web browser. This one will probably be the most complex-looking part of the code because it takes a lot of tweaking to get the plot to your desired look and feel. But trust me it’s simpler than it looks.
 
 <Alert severity="info">
-  Visit <a href="https://plotly.com/python/">www.plot.ly</a> for documentation and examples.
+  Visit <a href="https://plotly.com/python/">plot.ly</a> for docs and examples.
 </Alert>
 
 ```js
-var plot_data = [confirmed_trace, recovered_trace, deaths_trace];
+var plot_data = [confirmed_trace, deaths_trace];
 var plot_layout = {
     paper_bgcolor:'rgba(0,0,0,0)',
     plot_bgcolor:'rgba(0,0,0,0)',
@@ -132,8 +131,16 @@ var plot_layout = {
         visible: true,
         type: "dropdown",
         buttons: [
-          {method: "relayout", label: "Logarithmic", args: [{"yaxis.type": "log"}]},
-          {method: "relayout", label: "Linear", args: [{"yaxis.type": "linear"}]}
+          {
+            method: "relayout", 
+            label: "Logarithmic", 
+            args: [{"yaxis.type": "log"}]
+          },
+          {
+            method: "relayout", 
+            label: "Linear", 
+            args: [{"yaxis.type": "linear"}]
+          }
         ],
         x: 0.05,
         xanchor: "auto",

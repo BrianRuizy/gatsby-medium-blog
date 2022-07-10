@@ -93,7 +93,7 @@ const Layout = ({
                   disabled: "#86868b",
                 },
                 background: {
-                  default: "rgb(9,9,9)",
+                  default: "#000",
                   alt: "rgb(14,14,14)",
                   paper: "rgb(18,18,18)",
                 },
