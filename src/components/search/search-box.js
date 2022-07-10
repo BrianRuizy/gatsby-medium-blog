@@ -22,7 +22,7 @@ export default connectSearchBox(
         value={currentRefinement}
         onFocus={onFocus}
         InputProps={{
-          style: { fontSize: 18 },
+          style: { fontSize: 16 },
           startAdornment: (
             <InputAdornment position="start">
               <SearchIcon />

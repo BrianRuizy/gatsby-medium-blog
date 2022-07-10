@@ -36,6 +36,8 @@ export default function SearchDialog({ open, handleClose }) {
         "& .MuiDialog-container": { alignItems: "flex-start" },
         "& .MuiDialog-paper": {
           marginTop: "6rem",
+          mx: "1rem",
+          width: "100%",
           maxWidth: "720px",
           borderRadius: "12px",
           border: "1px solid",

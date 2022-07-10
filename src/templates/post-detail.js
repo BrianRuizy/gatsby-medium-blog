@@ -23,9 +23,9 @@ import Typography from "@mui/material/Typography"
 import Tooltip from "@mui/material/Tooltip"
 
 import TwitterIcon from "@mui/icons-material/Twitter"
-import FacebookIcon from "@mui/icons-material/Facebook"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import LinkIcon from "@mui/icons-material/Link"
+import CopyAllIcon from '@mui/icons-material/CopyAll';
 
 const ClampTypography = {
   overflow: "hidden",
@@ -161,6 +161,17 @@ const PostDetailTemplate = ({ data, location }) => {
   const image = getImage(post.frontmatter.featuredImage)
   const tags = post.frontmatter.tags
 
+  const [open, setOpen] = React.useState(false)
+
+  const handleTooltipOpen = () => {
+    setOpen(true)
+    navigator.clipboard.writeText(`https://b-r.io${location.pathname}`)
+    // wait 3 seconds then close the tooltip
+    setTimeout(() => {
+      setOpen(false)
+    }, 700)
+  }
+
   return (
     <Layout
       location={location}
@@ -221,8 +232,8 @@ const PostDetailTemplate = ({ data, location }) => {
                     height: "48px",
                     backgroundColor: "divider",
                     "@media (max-width: 900px)": {
-                      width: "36px",
-                      height: "36px",
+                      width: "40px",
+                      height: "40px",
                     },
                   }}
                 >
@@ -237,27 +248,31 @@ const PostDetailTemplate = ({ data, location }) => {
                 </Stack>
               </Box>
               {/* social share */}
-              <Stack direction="row" spacing={1}>
-                <IconButton sx={{ height: "fit-content" }} size="small">
-                  <TwitterIcon />
-                </IconButton>
-                <IconButton sx={{ height: "fit-content" }} size="small">
-                  <FacebookIcon />
-                </IconButton>
-                <IconButton sx={{ height: "fit-content" }} size="small">
+              <Stack
+                direction="row"
+                sx={{
+                  "@media (min-width: 600px)": {
+                    gap: ".5rem",
+                  },
+                }}
+              >
+                <IconButton size="small">
                   <LinkedInIcon />
                 </IconButton>
-                <Tooltip title="Copy URL" arrow>
-                  <IconButton
-                    sx={{ height: "fit-content" }}
-                    size="small"
-                    onClick={() => {
-                      navigator.clipboard.writeText(
-                        `https://b-r.io/${location.pathname}`
-                      )
-                    }}
-                  >
-                    <LinkIcon sx={{ transform: "rotate(-45deg)" }} />
+                <IconButton size="small">
+                  <TwitterIcon />
+                </IconButton>
+                <Tooltip
+                  PopperProps={{ disablePortal: true }}
+                  open={open}
+                  disableFocusListener
+                  disableHoverListener
+                  disableTouchListener
+                  arrow
+                  title="Copied link"
+                >
+                  <IconButton onClick={handleTooltipOpen} size="small">
+                    <CopyAllIcon />
                   </IconButton>
                 </Tooltip>
               </Stack>

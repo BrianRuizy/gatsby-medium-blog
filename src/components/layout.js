@@ -200,6 +200,7 @@ const Layout = ({
                       backgroundColor: "background.alt",
                       py: "4rem",
                       mt: "4rem",
+                      pb: "8rem",
                     }}
                   >
                     <Container
