@@ -86,6 +86,8 @@ export default function ContactDrawer(props) {
               disableElevation
               type="submit"
               sx={{
+                backgroundColor: "text.primary",
+                color: "background.alt",
                 textTransform: "none",
                 fontWeight: 400,
               }}
