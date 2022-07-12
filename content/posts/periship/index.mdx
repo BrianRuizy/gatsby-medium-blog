@@ -32,25 +32,28 @@ Using MDX, you can replace every HTML element that Markdown renders with a custo
 **Note**: you can also provide your own custom components to the that make them globally available while writing MDX. You can find more details about this pattern in the Importing and Using Components in MDX guide.
 
 ```jsx 
-import { MDXProvider } from "@mdx-js/react"
-import * as DesignSystem from "your-design-system"
-
-export default function Layout({ children }) {
+import React from "react"
+import { graphql } from "gatsby"
+function BlogPostTemplate(props) {
+  const post = props.data.markdownRemark
   return (
-    <MDXProvider
-      components={{
-        // Map HTML element tag to React component
-        h1: DesignSystem.H1,
-        h2: DesignSystem.H2,
-        h3: DesignSystem.H3,
-        // Or define component inline
-        p: props => <p {...props} style={{ color: "rebeccapurple" }} />,
-      }}
-    >
-      {children}
-    </MDXProvider>
+    <div>
+      <h1>{post.frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    </div>
   )
 }
+export default BlogPostTemplate
+export const pageQuery = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+      }
+    }
+  }
+`
 ```
 
 ```bash

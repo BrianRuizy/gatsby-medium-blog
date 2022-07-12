@@ -18,7 +18,7 @@
  * --hue-6: hsl(29, 54%, 61%);
  * --hue-6-2: hsl(39, 67%, 69%);
  * --syntax-fg: hsl(220, 14%, 71%);
- * --syntax-bg: #121212;
+ * --syntax-bg: #1a1a1a;
  * --syntax-gutter: hsl(220, 14%, 45%);
  * --syntax-guide: hsla(220, 14%, 71%, 0.15);
  * --syntax-accent: hsl(220, 100%, 66%);
@@ -30,7 +30,7 @@
 
  code[class*="language-"],
  pre[class*="language-"] {
-     background: #121212;
+     background: #1a1a1a;
      color: hsl(220, 14%, 71%);
      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
      font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
@@ -442,20 +442,20 @@
  }
 
  .gatsby-highlight {
-     background-color: #121212;
+     background-color: #1a1a1a;
      border-radius: 0.3em;
      margin: 2rem 0 2.5rem;
      padding: 1.5rem 2rem;
      overflow: auto;
- }
+     /* border: 1px solid rgba(255, 255, 255, 0.12); */
 
+ }
 
 @media screen and (max-width: 600px) {
     .gatsby-highlight {
         padding: 1rem;
     }
 }
-    
 
  .gatsby-highlight pre[class*="language-"].line-numbers {
      padding: 0;

@@ -426,3 +426,26 @@
  .prism-previewer-easing.prism-previewer-easing circle {
      fill: transparent;
  }
+
+ .gatsby-highlight {
+    background-color: #fafafa;
+    border-radius: 0.3em;
+    margin: 2rem 0 2.5rem;
+    padding: 1.5rem 2rem;
+    overflow: auto;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+
+@media screen and (max-width: 600px) {
+   .gatsby-highlight {
+       padding: 1rem;
+   }
+}
+   
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+    padding: 0;
+    padding-left: 2.8em;
+    overflow: initial;
+}

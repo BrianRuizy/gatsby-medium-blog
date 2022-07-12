@@ -1,9 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import useDarkMode from 'use-dark-mode';
+import useDarkMode from "use-dark-mode"
 
-
-import Seo from "./seo"
 import BottomNav from "./BottomNav"
 import PanelLeft from "./PanelLeft"
 import PanelRight from "./PanelRight"
@@ -53,7 +51,7 @@ const Layout = ({
   const isRootPath = location.pathname === rootPath
   const darkModeHook = useDarkMode(false)
   const mode = darkModeHook.value === false ? "light" : "dark"
-  
+
   let theme = React.useMemo(
     () =>
       createTheme({
@@ -85,9 +83,7 @@ const Layout = ({
                   disabled: "#86868b",
                 },
                 background: {
-                  default: "#000",
-                  alt: "rgb(14,14,14)",
-                  paper: "rgb(18,18,18)",
+                  alt: "rgb(22,22,22)",
                 },
               }),
         },
@@ -98,8 +94,11 @@ const Layout = ({
   theme = responsiveFontSizes(theme)
 
   return (
-   <>
-      <meta content={darkModeHook.value === true ? "#000" : "#fff"} name="theme-color" />
+    <>
+      <meta
+        content={darkModeHook.value === true ? "#000" : "#fff"}
+        name="theme-color"
+      />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box sx={{ display: "block" }}>
@@ -255,10 +254,7 @@ const Layout = ({
               <PanelRight extraDrawerContent={extraDrawerContent} />
             </Box>
           </Box>
-          <BottomNav
-            isRootPath={isRootPath}
-            darkModeHook={darkModeHook}
-          />
+          <BottomNav isRootPath={isRootPath} darkModeHook={darkModeHook} />
         </Box>
       </ThemeProvider>
     </>

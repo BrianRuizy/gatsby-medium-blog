@@ -7,7 +7,6 @@ import "./src/styles/normalize.css"
 import "./src/styles/style.css"
 
 // Highlighting for code blocks
-// import "prismjs/themes/prism-solarizedlight.css"
 import "./src/styles/prism/one-dark.css"
 require("prismjs/plugins/line-numbers/prism-line-numbers.css")
 require("prismjs/plugins/command-line/prism-command-line.css")
