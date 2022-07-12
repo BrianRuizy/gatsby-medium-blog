@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import useDarkMode from 'use-dark-mode';
 
+
+import Seo from "./seo"
 import BottomNav from "./BottomNav"
 import PanelLeft from "./PanelLeft"
 import PanelRight from "./PanelRight"
@@ -25,15 +28,11 @@ import {
 } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
-
-function ThemeIconButton() {
-  const theme = useTheme()
-  const colorMode = React.useContext(ColorModeContext)
+function ThemeIconButton({ darkModeHook }) {
   return (
     <Tooltip title="Switch theme" placement="right" arrow>
-      <IconButton onClick={colorMode.toggleColorMode}>
-        {theme.palette.mode === "dark" ? (
+      <IconButton onClick={darkModeHook.toggle}>
+        {darkModeHook.value === "dark" ? (
           <LightModeOutlinedIcon />
         ) : (
           <DarkModeOutlinedIcon />
@@ -52,16 +51,9 @@ const Layout = ({
 }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  const [mode, setMode] = React.useState("light")
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode(prevMode => (prevMode === "light" ? "dark" : "light"))
-      },
-    }),
-    []
-  )
-
+  const darkModeHook = useDarkMode(false)
+  const mode = darkModeHook.value === false ? "light" : "dark"
+  
   let theme = React.useMemo(
     () =>
       createTheme({
@@ -106,8 +98,8 @@ const Layout = ({
   theme = responsiveFontSizes(theme)
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <meta content={theme.palette.background.default} name="theme-color" />
+   <>
+      <meta content={darkModeHook.value === true ? "#000" : "#fff"} name="theme-color" />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box sx={{ display: "block" }}>
@@ -115,7 +107,7 @@ const Layout = ({
             <Box sx={{ display: "flex" }} data-is-root-path={isRootPath}>
               <PanelLeft
                 isRootPath={isRootPath}
-                ThemeButton={<ThemeIconButton />}
+                ThemeButton={<ThemeIconButton darkModeHook={darkModeHook} />}
               />
               <Box sx={{ display: "block", minWidth: 0, flex: "1 1 auto" }}>
                 <Container
@@ -265,12 +257,11 @@ const Layout = ({
           </Box>
           <BottomNav
             isRootPath={isRootPath}
-            colorMode={colorMode}
-            theme={theme}
+            darkModeHook={darkModeHook}
           />
         </Box>
       </ThemeProvider>
-    </ColorModeContext.Provider>
+    </>
   )
 }
 

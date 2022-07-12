@@ -11,7 +11,7 @@ import Button from "@mui/material/Button"
 import SearchIcon from "@mui/icons-material/Search"
 import Typography from "@mui/material/Typography"
 
-export default function RightDrawer({ extraDrawerContent }) {
+export default function PanelRight({ extraDrawerContent }) {
   const [open, setOpen] = React.useState(false)
   const handleClickOpen = () => {
     setOpen(true)

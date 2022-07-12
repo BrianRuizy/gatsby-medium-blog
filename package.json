@@ -42,7 +42,8 @@
     "react-instantsearch-dom": "^6.30.0",
     "remark-unwrap-images": "^3.0.1",
     "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
+    "typeface-montserrat": "0.0.75",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "prettier": "^2.6.2"

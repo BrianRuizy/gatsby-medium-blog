@@ -106,9 +106,9 @@ export default function BottomNav(props) {
 
           <BottomNavigationAction
             label="Theme"
-            onClick={props.colorMode.toggleColorMode}
+            onClick={props.darkModeHook.toggle}
             icon={
-              props.theme.palette.mode === "dark" ? (
+              props.darkModeHook.value === true ? (
                 <LightModeOutlinedIcon />
               ) : (
                 <DarkModeOutlinedIcon />
