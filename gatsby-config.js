@@ -183,7 +183,7 @@ module.exports = {
         name: `BR Blog`,
         short_name: `b-r.io`,
         start_url: `/`,
-        background_color: `#000`,
+        background_color: `#121212`,
         theme_color: `???`,
         display: `standalone`,
         icon: "src/images/gatsby-icon.png",

@@ -96,7 +96,7 @@ const Layout = ({
   return (
     <>
       <meta
-        content={darkModeHook.value === true ? "#000" : "#fff"}
+        content={darkModeHook.value === true ? "#121212" : "#fff"}
         name="theme-color"
       />
       <ThemeProvider theme={theme}>
