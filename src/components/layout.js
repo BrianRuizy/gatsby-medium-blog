@@ -83,7 +83,9 @@ const Layout = ({
                   disabled: "#86868b",
                 },
                 background: {
+                  default: "rgb(18,18,18)",
                   alt: "rgb(22,22,22)",
+                  paper: "rgb(24,24,24)",
                 },
               }),
         },
@@ -96,7 +98,7 @@ const Layout = ({
   return (
     <>
       <meta
-        content={darkModeHook.value === true ? "#121212" : "#fff"}
+        content={theme.palette.background.default}
         name="theme-color"
       />
       <ThemeProvider theme={theme}>

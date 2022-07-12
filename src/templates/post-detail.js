@@ -126,7 +126,7 @@ function MoreStories(props) {
                   variant="body1"
                   style={ClampTypography}
                   sx={{
-                    color: "text.primary !important",
+                    color: "text.primary",
                     fontWeight: "700",
                     lineHeight: "20px",
                     textTransform: "capitalize",
@@ -145,6 +145,7 @@ function MoreStories(props) {
                 <GatsbyImage
                   image={getImage(item.frontmatter.featuredImage)}
                   alt={item.frontmatter.featuredImage.name}
+                  style={{borderRadius: "4px"}}
                 />
               </Box>
             </Box>

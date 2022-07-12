@@ -114,6 +114,7 @@ const ComponentName = () => (
                   <GatsbyImage
                     image={getImage(item.frontmatter.featuredImage)}
                     alt={item.frontmatter.featuredImage.name}
+                    style={{borderRadius: "4px"}}
                   />
                 </Box>
               </Box>
