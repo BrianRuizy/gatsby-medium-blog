@@ -4,7 +4,7 @@ description: "Our application gained over 10k visits and received code contribut
 date: "2021-06-06T23:46:37.121Z"
 category: "Blog"
 tags: [ "Project", "Python", "COVID-19", "Django", "Data Science", "UI / UX", "Plotly" ]
-featuredImage: "../../../src/images/ncov.png"
+featuredImage: "../../../src/images/ncov-phones.png"
 pinned: true
 ---
 
@@ -44,14 +44,15 @@ We have a map card that uses COVID case data stacked on top of GPS coordinates. 
 
 And, it was important to design the grid in such a way that the cards of data were responsive and friendly to different devices and viewports. The following image shows that.
 
-![Mobile Views of app](https://miro.medium.com/max/1400/0*qhtGaJEKHEruAokI.png)
+![Mobile Views of app](floating.png)
 
 ---
 
 # How it works
+
 The following is a snippet of how we’re using <mark>Python to scrape the data from different sources and returning that data to the front-end</mark> to create data visualizations with Plotly. Using AJAX requests allows us to load the data asynchronously, which is a great way to improve the user experience by significantly reducing the initial page load time. 
 
-<Alert severity="info">Note: Code is incomplete for concision.</Alert>
+<Alert severity="warning">Note that example code is incomplete for concision.</Alert>
 
 ## 1. Web scraping with Pandas 🐼
 Here we defined a simple function that reads from a specific URL that contains a CSV of raw data, we convert it to a Pandas data frame and return it.
@@ -96,16 +97,6 @@ function load_realtime_growth_chart() {
     xhttp.open("GET", "realtime_growth");
     xhttp.send();
 }
-```
-## 4. Returning HTTP response 🪃
-This function will now return an HTTP response. When requested by the front-end, it will return the data frame used by Plotly to create the visualization.
-
-```python
-def realtime_growth(request):
-    df = realtime_growth();
-    df.index = pd.to_datetime(df.index)
-    df.index = df.index.strftime('%Y-%m-%d')
-    return HttpResponse(df.to_json(orient='columns'), content_type='application/json')
 ```
 
 ## 5. Plotly to visualize the data 📊

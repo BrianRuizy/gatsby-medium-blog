@@ -34,7 +34,7 @@ const shortcodes = {
       variant="h2"
       sx={{
         mt: "4rem",
-        mb: "-12px",
+        mb: "-14px",
         fontSize: "24px !important",
         fontWeight: "900",
         lineHeight: "28px",
@@ -52,12 +52,12 @@ const shortcodes = {
       variant="h3"
       sx={{
         mt: "3rem",
-        mb: "-12px",
+        mb: "-14px",
         fontSize: "20px !important",
         letterSpacing: "0",
         fontWeight: "900",
         "@media (max-width: 600px)": {
-          fontSize: "17x !important",
+          fontSize: "17px !important",
           mt: "2rem",
         },
       }}
@@ -130,7 +130,7 @@ const shortcodes = {
   mark: props => (
     <mark
       {...props}
-      style={{ background: "rgba(10, 132, 255, 0.15)", color: "inherit" }}
+      style={{ background: "rgba(26, 137, 23, 0.1)", color: "inherit" }}
     />
   ),
   img: props => (
@@ -166,7 +166,14 @@ const shortcodes = {
   ),
   Alert: props => (
     <Alert
-      sx={{ my: "1.5rem", "@media (max-width: 600px)": { my: "1rem" } }}
+      sx={{
+        backgroundColor: "background.alt",
+        lineHeight: "20px",
+        fontSize: "14px",
+        letterSpacing: 0,
+        my: "1.5rem",
+        "@media (max-width: 600px)": { my: "1rem" },
+      }}
       {...props}
     />
   ),
