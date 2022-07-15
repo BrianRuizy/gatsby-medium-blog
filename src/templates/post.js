@@ -79,7 +79,6 @@ const PostItem = ({ data }) => {
                   fontWeight: "700",
                   lineHeight: "28px",
                   fontSize: "22px !important",
-                  textTransform: "capitalize",
                   letterSpacing: "0",
                   color: "text.primary",
                   transition: "color 0.2s ease-in-out",

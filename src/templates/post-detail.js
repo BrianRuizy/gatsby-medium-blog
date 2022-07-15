@@ -129,7 +129,6 @@ function MoreStories(props) {
                     color: "text.primary",
                     fontWeight: "700",
                     lineHeight: "20px",
-                    textTransform: "capitalize",
                     letterSpacing: "0",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
@@ -250,7 +249,7 @@ const PostDetailTemplate = ({ data, location }) => {
                         },
                       }}
                     >
-                      &bull; {post.timeToRead + " min read"}
+                      &nbsp;&bull;&nbsp;{post.timeToRead + " min read"}
                     </Box>
                   </Typography>
                 </Stack>
@@ -287,7 +286,6 @@ const PostDetailTemplate = ({ data, location }) => {
                     fontWeight: "900",
                     letterSpacing: "-0.016em",
                     lineHeight: "40px",
-                    textTransform: "capitalize",
                     fontSize: "32px !important",
                     "@media (max-width: 900px)": {
                       lineHeight: "36px",
