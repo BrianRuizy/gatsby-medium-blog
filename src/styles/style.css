@@ -20,3 +20,11 @@
 pre {
   font-size: 13px;
 }
+
+img {
+  width: 100%;
+}
+
+.gatsby-resp-image-image {
+  box-shadow: none !important;
+}

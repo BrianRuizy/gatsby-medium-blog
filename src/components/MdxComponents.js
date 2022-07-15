@@ -129,29 +129,12 @@ const shortcodes = {
   ),
   mark: props => (
     <mark
+      style={{ background: "rgba(26, 137, 23, 0.10)", color: "inherit" }}
       {...props}
-      style={{ background: "rgba(26, 137, 23, 0.1)", color: "inherit" }}
     />
   ),
-  img: props => (
-    <Box {...props} sx={{ my: "2rem", textAlign: "center" }}>
-      <img {...props} style={{ width: "100%" }} alt={props.alt} />
-      <figcaption style={{ lineHeight: "20px" }}>
-        <Typography
-          variant="caption"
-          sx={{
-            fontSize: "14px",
-            color: "text.disabled",
-            letterSpacing: 0,
-          }}
-        >
-          {props.alt}
-        </Typography>
-      </figcaption>
-    </Box>
-  ),
   figcaption: props => (
-    <figcaption style={{ textAlign: "center" }}>
+    <figcaption style={{ textAlign: "center", marginTop: "8px"  }}>
       <Typography
         variant="caption"
         {...props}
@@ -217,16 +200,15 @@ const shortcodes = {
             {props.site}
           </Typography>
         </Box>
-
         <Box
           sx={{
             backgroundImage: `url(${props.image})`,
             width: "100%",
-            maxWidth: "160px",
+            maxWidth: "140px",
             backgroundSize: "cover",
             backgroundPosition: "center",
             "@media (max-width: 600px)": {
-              maxWidth: "140px",
+              maxWidth: "120px",
             },
           }}
         ></Box>
