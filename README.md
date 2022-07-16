@@ -24,7 +24,7 @@
 
 - PWA ready, installable on Android and iOS
 - Algolia Search, search by all attributes
-- [Getform.io](getform.io) contact form with easy setup.
+- Getform.io contact form with easy setup.
 - Blog ready, easily add your blog posts with MDX
 - Togglable dark mode
 - Mobile friendly nav-dock, and bottom drawer
@@ -95,4 +95,6 @@ lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem quisqu
   Visit <a href="https://python.org">here</a> for docs and examples.
 </Alert>
 ```
+![image](https://user-images.githubusercontent.com/23439187/179371961-520835ab-e4ef-4086-90d7-791e26934732.png)
+
 
