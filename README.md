@@ -22,13 +22,12 @@
 
 ## Features
 
-- PWA ready, installable on Android and iOS
-- Algolia Search, search by all attributes
-- Getform.io contact form with easy setup.
-- Blog ready, easily add your blog posts with MDX
-- Togglable dark mode
-- Mobile friendly nav-dock, and bottom drawer
-- SEO ready, option to Add meta description
+- 📲 PWA ready, installable on Android and iOS
+- 🔎 Algolia Search, search by all attributes
+- 📧Getform.io contact form with easy setup.
+- 📝 Blog ready, easily add your blog posts with MDX
+- 🌗 Togglable dark mode
+- 💻 SEO ready, option to Add meta description
 
 ## Getting Started
 
