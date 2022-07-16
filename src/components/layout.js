@@ -65,6 +65,7 @@ const Layout = ({
                 },
                 text: {
                   primary: "#1d1d1f",
+                  postBody: "#1d1d1f",
                   disabled: "rgba(0, 0, 0, 0.48)",
                 },
                 background: {

@@ -92,7 +92,7 @@ export default function PanelRight({ extraDrawerContent }) {
                 disableElevation
                 fullWidth
                 sx={{
-                  backgroundColor: "text.primary",
+                  backgroundColor: "text.postBody",
                   color: "background.alt",
                   borderColor: "divider",
                   borderRadius: "2rem",

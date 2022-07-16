@@ -85,7 +85,7 @@ const PostItem = ({ data }) => {
                   "@media (max-width: 600px)": {
                     marginBottom: "0",
                     lineHeight: "20px",
-                    fontSize: "16px !important",
+                    fontSize: "17px !important",
                   },
                 }}
               >

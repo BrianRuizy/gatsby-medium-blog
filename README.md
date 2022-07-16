@@ -23,17 +23,49 @@
 ## Features
 
 - PWA ready, installable on Android and iOS
-- Blog ready, easily add own blog posts with MDX
-- Toggable dark mode
 - Algolia Search, search by all attributes
+- [Getform.io](getform.io) contact form with easy setup.
+- Blog ready, easily add your blog posts with MDX
+- Togglable dark mode
 - Mobile friendly nav-dock, and bottom drawer
-- [Getform.io](getform.io) contact form with easy setup 
 - SEO ready, option to Add meta description
 
+## Getting Started
 
-## Quick Start
+Before developing and working with the codebase on your IDE of choice, there are some services to set up to get the project running successfully.
 
-Prerequisites include [Node.JS v13](https://www.gatsbyjs.com/docs/tutorial/part-zero/#install-nodejs-for-your-appropriate-operating-system) and [Gatsby CLI](https://www.gatsbyjs.com/docs/tutorial/part-zero/#install-nodejs-for-your-appropriate-operating-system). See Gatsby's [Development Environment Setup](https://www.gatsbyjs.com/docs/tutorial/part-zero/) documentation for more details or issues with initial project installation.
+### 1. Algolia Search
+
+Algolia Search environment variables are required in the project's `.env` file.
+
+You will need to provide some information that identifies your account to the Algolia plugin and authorizes it to write data to it. If you don’t already have an Algolia account, create one [here](https://www.algolia.com/users/sign_up). Then, go to the **API Keys** section of your Algolia profile.
+
+There is already a file named `.env.example` in the project's root directory. You can rename this to `.env` and fill in the values or you can copy the contents of the file and paste them into your `.env` file as shown below.
+
+```.env
+GATSBY_ALGOLIA_APP_ID=<App ID>
+GATSBY_ALGOLIA_SEARCH_KEY=<Search-Only API Key>
+ALGOLIA_ADMIN_KEY=<Admin API Key>
+
+```
+
+### 2. GetForm
+
+contact form is super easy to set up with getform.io.
+Simply add your API / endpoint URL to the action attribute of your form and you're good to go. See https://app.getform.io/forms for documentation. The location for this component is `src/components/ContactDrawer.js`.
+
+```jsx
+  <form
+    action="https://getform.io/f/faf8d119-4334-4fcc-ae56-2dc4de9cb453"
+    method="POST"
+  >
+  ...
+  </form>
+```
+
+## Run the project
+
+Not you must have already installed [Node.JS](https://www.gatsbyjs.com/docs/tutorial/part-zero/#install-nodejs-for-your-appropriate-operating-system) and [Gatsby CLI](https://www.gatsbyjs.com/docs/tutorial/part-zero/#install-nodejs-for-your-appropriate-operating-system). See Gatsby's [Development Environment Setup](https://www.gatsbyjs.com/docs/tutorial/part-zero/) documentation for more details or if you have issues with the CLI installation.
 
 ```bash
 nvm install 18
@@ -42,25 +74,25 @@ nvm use 18
 npm install -g gatsby-cli
 ```
 
-1. **Install Project**
+1. Install project dependencies ```npm install```.
 
-```bash
-npm install
+2. Start Developing. Navigate into your new site’s directory and start up the local server ```gatsby develop``` 🎉.
+
+See the [reference guide](https://www.gatsbyjs.com/docs/reference/gatsby-cli/) to read more on other commands you can use with the Gatsby CLI.
+
+## Adding your blog posts
+
+Adding your own content is super simple with the Jamstack design of the project. You won't need to write any HTML or CSS, just markdown (although you absolutely can if you wish to change the design or add your own features). The MDX posts are found in the `content/posts/` directory. With MDX you can even add react components to your posts as found below.
+
+Visit [mdxjs.com](https://mdxjs.com) to see what other cool things you can implement.
+
+```mdx
+## Example header here
+
+lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem quisquam.
+
+<Alert severity="info">
+  Visit <a href="https://python.org">here</a> for docs and examples.
+</Alert>
 ```
-
-2. **Start Developing**
-
-Navigate into your new site’s directory and start it up the local server.
-
-```bash
-gatsby develop
-```
-    
-    
-## Forms
-
-contact form is super easy to setup with getform.io.
-Simply add your api / endpoint url to the action attribute of your form and you're good to go. See https://app.getform.io/forms for documentation.
-
-```<form action="https://getform.io/f/my-access-key">```
 
