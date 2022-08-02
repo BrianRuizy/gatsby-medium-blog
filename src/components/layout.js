@@ -13,10 +13,13 @@ import Container from "@mui/material/Container"
 import IconButton from "@mui/material/IconButton"
 import Tooltip from "@mui/material/Tooltip"
 import Typography from "@mui/material/Typography"
+import MuiLink from "@mui/material/Link"
 
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import ForkRightIcon from '@mui/icons-material/ForkRight';
 
 import {
   createTheme,
@@ -25,6 +28,7 @@ import {
   useTheme,
 } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
+import { Divider } from "@mui/material"
 
 function ThemeIconButton({ darkModeHook }) {
   return (
@@ -95,13 +99,24 @@ const Layout = ({
   )
 
   theme = responsiveFontSizes(theme)
+  
+  // get stars and forks from https://api.github.com/repos/BrianRuizy/gatsby-medium-blog
+  const [githubStars, setGithubStars] = React.useState(0)
+  const [githubForks, setGithubForks] = React.useState(0)
+  React.useEffect(() => {
+    fetch("https://api.github.com/repos/BrianRuizy/gatsby-medium-blog")
+      .then(res => res.json())
+      .then(data => {
+        setGithubStars(data.stargazers_count)
+        setGithubForks(data.forks_count)
+      }
+      )
+  }, [])
+
 
   return (
     <>
-      <meta
-        content={theme.palette.background.default}
-        name="theme-color"
-      />
+      <meta content={theme.palette.background.default} name="theme-color" />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box sx={{ display: "block" }}>
@@ -250,6 +265,38 @@ const Layout = ({
                         </Typography>
                       </Box>
                       {extraFooterContent}
+                      <Divider sx={{ my: "2rem" }} />
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          color: "text.disabled",
+                          "@media (max-width: 600px)": {
+                            flexDirection: "column",
+                            alignItems: "center",
+                          }
+                        }}
+                      >
+                        <Typography variant="caption">
+                          © {new Date().getFullYear()} Built by Brian Ruiz
+                        </Typography>
+
+                        <MuiLink
+                          component={Link}
+                          underline="none"
+                          sx={{ color: "text.disabled" }}
+                          to="https://github.com/BrianRuizy/gatsby-medium-blog"
+                          target="_blank"
+                        >
+                          <Typography variant="caption" sx={{ display: "flex", alignItems: "center",}}>
+                            Gatsby Medium Blog {" "}
+                            <StarBorderIcon alt="Github stars" sx={{ml: 1, fontSize: "16px"}}/>
+                            {githubStars}
+                            <ForkRightIcon alt="Github forks" sx={{ml: .25, fontSize: "16px"}}/>
+                            {githubForks}
+                          </Typography>
+                        </MuiLink>
+                      </Box>
                     </Container>
                   </Container>
                 </footer>
