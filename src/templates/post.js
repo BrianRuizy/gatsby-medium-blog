@@ -37,7 +37,7 @@ const PostItem = ({ data }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          gap: "4rem",
+          gap: "60px",
           "@media (max-width: 600px)": {
             gap: "1rem",
           },
@@ -128,9 +128,9 @@ const PostItem = ({ data }) => {
         <Link to={data.fields.slug}>
           <Box
             sx={{
-              width: "120px",
+              width: "170px",
               "@media (max-width: 600px)": {
-                width: "80px !important",
+                width: "90px !important",
               },
             }}
           >

@@ -77,7 +77,7 @@ export default function PanelRight({ extraDrawerContent }) {
               display: "flex",
               flexDirection: "column",
               justifyContent: "packed",
-              gap: "4rem",
+              gap: "60px",
             }}
           >
             <Box
@@ -99,8 +99,12 @@ export default function PanelRight({ extraDrawerContent }) {
                   textTransform: "none",
                   fontWeight: 400,
                 }}
+                // email to the author
+                onClick={() => {
+                  window.location.href = "mailto:brianruiz0123@gmail.com"
+                }}
               >
-                Subscribe to newsletter
+                Contact Me
               </Button>
               <Button
                 variant="outlined"
@@ -162,10 +166,10 @@ export default function PanelRight({ extraDrawerContent }) {
                     </Typography>
                   </div>
                 </Box>
-                <Typography variant="body2" sx={{ maxWidth: "280px", color: "text.secondary" }}>
-                  Hey, Brian here! I'm a Software Engineer who specializes in
+                <Typography variant="body2" sx={{  color: "text.secondary" }}>
+                  I'm a Software Engineer who specializes in
                   Python, data analytics, UI/UX, and product design. Here you'll
-                  find my personal blogs on all things technology.
+                  find my personal blogs on all things tech.
                 </Typography>
               </Box>
             )}

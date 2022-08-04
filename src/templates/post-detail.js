@@ -144,7 +144,7 @@ function MoreStories(props) {
                 <GatsbyImage
                   image={getImage(item.frontmatter.featuredImage)}
                   alt={item.frontmatter.featuredImage.name}
-                  style={{borderRadius: "4px"}}
+                  style={{borderRadius: "4px", aspectRatio: 1}}
                 />
               </Box>
             </Box>
@@ -288,7 +288,7 @@ const PostDetailTemplate = ({ data, location }) => {
                     lineHeight: "40px",
                     fontSize: "32px !important",
                     "@media (max-width: 900px)": {
-                      lineHeight: "36px",
+                      lineHeight: "32px",
                     },
                     "@media (max-width: 600px)": {
                       fontSize: "30px !important",
@@ -376,7 +376,7 @@ export const pageQuery = graphql`
         description
         featuredImage {
           childImageSharp {
-            gatsbyImageData(aspectRatio: 1)
+            gatsbyImageData
           }
           name
         }
@@ -393,7 +393,7 @@ export const pageQuery = graphql`
         description
         featuredImage {
           childImageSharp {
-            gatsbyImageData(aspectRatio: 1)
+            gatsbyImageData
           }
           name
         }

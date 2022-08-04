@@ -83,7 +83,7 @@ const Layout = ({
                 },
                 text: {
                   primary: "#f5f5f7",
-                  postBody: "#D1D1D6",
+                  postBody: "#C1C1C6",
                   secondary: "#A1A1A6",
                   disabled: "#86868b",
                 },
