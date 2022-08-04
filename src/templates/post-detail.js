@@ -6,6 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // Utilities
 import kebabCase from "lodash/kebabCase"
+import { Provider, ClapButton } from "@lyket/react"
 
 import Layout from "../components/layout"
 import shortcodes from "../components/MdxComponents"
@@ -22,8 +23,7 @@ import IconButton from "@mui/material/IconButton"
 import Typography from "@mui/material/Typography"
 import Tooltip from "@mui/material/Tooltip"
 
-import TwitterIcon from "@mui/icons-material/Twitter"
-import LinkedInIcon from "@mui/icons-material/LinkedIn"
+import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined"
 import LinkIcon from "@mui/icons-material/Link"
 
 const ClampTypography = {
@@ -144,7 +144,7 @@ function MoreStories(props) {
                 <GatsbyImage
                   image={getImage(item.frontmatter.featuredImage)}
                   alt={item.frontmatter.featuredImage.name}
-                  style={{borderRadius: "4px", aspectRatio: 1}}
+                  style={{ borderRadius: "4px", aspectRatio: 1 }}
                 />
               </Box>
             </Box>
@@ -255,7 +255,10 @@ const PostDetailTemplate = ({ data, location }) => {
                 </Stack>
               </Box>
               {/* social share */}
-              <Stack direction="row">
+              <Stack direction="row" spacing={0} alignItems="center">
+                <IconButton onClick={handleTooltipOpen}>
+                  <ShareOutlinedIcon />
+                </IconButton>
                 <Tooltip
                   PopperProps={{ disablePortal: true }}
                   open={open}
@@ -269,12 +272,30 @@ const PostDetailTemplate = ({ data, location }) => {
                     <LinkIcon sx={{ transform: "rotate(-45deg)" }} />
                   </IconButton>
                 </Tooltip>
-                <IconButton>
-                  <TwitterIcon />
-                </IconButton>
-                <IconButton>
-                  <LinkedInIcon />
-                </IconButton>
+
+                <Box
+                  sx={{
+                    fontSize: "15px",
+                    color: "text.primary !important",
+                    "* > svg": {
+                      color: "action.active",
+                      fill: "currentColor",
+                    },
+                  }}
+                >
+                  <Provider
+                    apiKey="pt_9aaebf23b47b7acc590ce3fbcae458"
+                    theme={{
+                      colors: {
+                        primary: "inherit",
+                        highlight: "#6200EE",
+                        text: "inherit",
+                      },
+                    }}
+                  >
+                    <ClapButton id={post.id} hideCounterIfLessThan={1} />
+                  </Provider>
+                </Box>
               </Stack>
             </Box>
             <Box py={4}>
@@ -308,7 +329,7 @@ const PostDetailTemplate = ({ data, location }) => {
                     color: "text.disabled",
                     "@media (max-width: 600px)": {
                       fontSize: "18px !important",
-                    }
+                    },
                   }}
                 >
                   {post.frontmatter.description}
@@ -355,6 +376,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       body
       timeToRead
+      slug
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
