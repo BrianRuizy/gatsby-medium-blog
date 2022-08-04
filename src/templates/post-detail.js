@@ -1,4 +1,6 @@
 import * as React from "react"
+import { useState, useEffect } from "react";
+
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link, graphql } from "gatsby"
@@ -8,10 +10,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import kebabCase from "lodash/kebabCase"
 import { Provider, ClapButton } from "@lyket/react"
 
+// local components
 import Layout from "../components/layout"
 import shortcodes from "../components/MdxComponents"
 import Seo from "../components/seo"
 import Post from "../templates/post"
+import PostProgress from "../components/postProgress";
 
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
@@ -170,6 +174,24 @@ const PostDetailTemplate = ({ data, location }) => {
     }, 700)
   }
 
+   //Width State
+   const [width, setWidth] = useState(0)
+   // scroll function
+   const scrollHeight = () => {
+     var el = document.documentElement,
+       ScrollTop = el.scrollTop || document.body.scrollTop,
+       ScrollHeight = el.scrollHeight || document.body.scrollHeight
+     var percent = (ScrollTop / (ScrollHeight - el.clientHeight)) * 100
+     // store percentage in state
+     setWidth(percent)
+   }
+
+   //useEffect to control the component lifecycle
+   useEffect(() => {
+     window.addEventListener("scroll", scrollHeight)
+     return () => window.removeEventListener("scroll", scrollHeight)
+   })
+
   return (
     <Layout
       location={location}
@@ -196,11 +218,13 @@ const PostDetailTemplate = ({ data, location }) => {
         </Box>
       }
     >
+      <PostProgress text={post.frontmatter.title} percent={width}/>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
       <article itemScope itemType="http://schema.org/Article">
+
         <Container
           maxWidth="string"
           disableGutters
@@ -256,9 +280,6 @@ const PostDetailTemplate = ({ data, location }) => {
               </Box>
               {/* social share */}
               <Stack direction="row" spacing={0} alignItems="center">
-                <IconButton onClick={handleTooltipOpen}>
-                  <ShareOutlinedIcon />
-                </IconButton>
                 <Tooltip
                   PopperProps={{ disablePortal: true }}
                   open={open}
@@ -312,7 +333,7 @@ const PostDetailTemplate = ({ data, location }) => {
                       lineHeight: "36px",
                     },
                     "@media (max-width: 600px)": {
-                      fontSize: "28px !important",
+                      fontSize: "32px !important",
                     },
                   }}
                 >
@@ -328,7 +349,7 @@ const PostDetailTemplate = ({ data, location }) => {
                     fontWeight: "400",
                     color: "text.disabled",
                     "@media (max-width: 600px)": {
-                      fontSize: "18px !important",
+                      fontSize: "22px !important",
                     },
                   }}
                 >

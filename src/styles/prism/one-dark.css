@@ -313,8 +313,8 @@
  /* Line separating gutter from coding area */
  .line-numbers.line-numbers .line-numbers-rows,
  .command-line .command-line-prompt {
-     border-right-color: hsla(220, 14%, 71%, 0.15);
-     /* border: none; */
+     /* border-right-color: hsla(220, 14%, 71%, 0.15); */
+     border: none;
  }
  
  /* Stuff in the gutter */

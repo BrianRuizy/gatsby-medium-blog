@@ -74,6 +74,7 @@ const Layout = ({
                 },
                 background: {
                   alt: "#fafafa",
+                  appBar: "rgba(255,255,255,0.84)",
                 },
               }
             : {
@@ -91,6 +92,7 @@ const Layout = ({
                   default: "rgb(18,18,18)",
                   alt: "rgb(22,22,22)",
                   paper: "rgb(24,24,24)",
+                  appBar: "rgba(18,18,18,0.84)",
                 },
               }),
         },
