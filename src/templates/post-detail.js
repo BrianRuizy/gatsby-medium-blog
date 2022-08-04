@@ -288,10 +288,10 @@ const PostDetailTemplate = ({ data, location }) => {
                     lineHeight: "40px",
                     fontSize: "32px !important",
                     "@media (max-width: 900px)": {
-                      lineHeight: "32px",
+                      lineHeight: "36px",
                     },
                     "@media (max-width: 600px)": {
-                      fontSize: "30px !important",
+                      fontSize: "28px !important",
                     },
                   }}
                 >
@@ -306,6 +306,9 @@ const PostDetailTemplate = ({ data, location }) => {
                     lineHeight: "28px",
                     fontWeight: "400",
                     color: "text.disabled",
+                    "@media (max-width: 600px)": {
+                      fontSize: "18px !important",
+                    }
                   }}
                 >
                   {post.frontmatter.description}
@@ -315,7 +318,7 @@ const PostDetailTemplate = ({ data, location }) => {
             <Box
               sx={{
                 maxHeight: "40rem",
-                pb: "2rem",
+                pb: "4rem",
                 "& > div": { maxHeight: "40rem" },
               }}
             >
