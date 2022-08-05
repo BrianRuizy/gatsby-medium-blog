@@ -298,6 +298,7 @@ const PostDetailTemplate = ({ data, location }) => {
                   sx={{
                     fontSize: "15px",
                     color: "text.secondary",
+                    
                     "* > svg": {
                       color: "action.active",
                       fill: "currentColor",
@@ -306,6 +307,16 @@ const PostDetailTemplate = ({ data, location }) => {
                       width: "40px !important",
                       height: "40px !important",
                       backgroundColor: "none",
+                      transition: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+                      "&:hover": {
+                        backgroundColor: "action.hover",
+                        opacity: "initial",
+                      },
+                      "&:focus": {
+                        backgroundColor: "action.selected",
+                        transition: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+
+                      }
                     }
                   }}
                 >
@@ -315,7 +326,7 @@ const PostDetailTemplate = ({ data, location }) => {
                       colors: {
                         primary: "inherit",
                         text: "inherit",
-                        highlight: "#6200EE",
+                        highlight: "#6200EE20",
                       },
                     }}
                   >
