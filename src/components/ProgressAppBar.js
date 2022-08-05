@@ -51,6 +51,10 @@ export default function ProgressAppBar(props) {
               whiteSpace: "nowrap",
               overflow: "hidden",
               textOverflow: "ellipsis",
+              fontSize: "16px",
+              "@media (max-width: 600px)": {
+                fontSize: "14px",
+              },
             }}
           >
             {props.text}
