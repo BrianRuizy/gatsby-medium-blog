@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
@@ -12,7 +12,7 @@ import ClearIcon from "@mui/icons-material/Clear"
 import useScrollTrigger from "@mui/material/useScrollTrigger"
 import Fade from "@mui/material/Fade"
 
-export default function PostProgress(props) {
+export default function ProgressAppBar(props) {
   const { window } = props
 
   const trigger = useScrollTrigger({
@@ -55,7 +55,7 @@ export default function PostProgress(props) {
           >
             {props.text}
           </Typography>
-          <IconButton size="small" component={Link} to="/">
+          <IconButton size="small" onClick={() => navigate(-1)}>
             <ClearIcon sx={{ fontSize: "16px" }} />
           </IconButton>
         </Toolbar>

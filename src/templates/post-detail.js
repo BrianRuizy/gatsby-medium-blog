@@ -15,7 +15,7 @@ import Layout from "../components/layout"
 import shortcodes from "../components/MdxComponents"
 import Seo from "../components/seo"
 import Post from "../templates/post"
-import PostProgress from "../components/postProgress";
+import ProgressAppBar from "../components/ProgressAppBar";
 
 import Avatar from "@mui/material/Avatar"
 import Box from "@mui/material/Box"
@@ -218,7 +218,7 @@ const PostDetailTemplate = ({ data, location }) => {
         </Box>
       }
     >
-      <PostProgress text={post.frontmatter.title} percent={width}/>
+      <ProgressAppBar text={post.frontmatter.title} percent={width}/>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
