@@ -279,7 +279,7 @@ const PostDetailTemplate = ({ data, location }) => {
                 </Stack>
               </Box>
               {/* social share */}
-              <Stack direction="row" spacing={0} alignItems="center">
+              <Stack direction="row" spacing={.5} alignItems="center">
                 <Tooltip
                   PopperProps={{ disablePortal: true }}
                   open={open}
@@ -297,11 +297,16 @@ const PostDetailTemplate = ({ data, location }) => {
                 <Box
                   sx={{
                     fontSize: "15px",
-                    color: "text.primary !important",
+                    color: "text.secondary",
                     "* > svg": {
                       color: "action.active",
                       fill: "currentColor",
                     },
+                    "* > button": {
+                      width: "40px !important",
+                      height: "40px !important",
+                      backgroundColor: "none",
+                    }
                   }}
                 >
                   <Provider
@@ -309,8 +314,8 @@ const PostDetailTemplate = ({ data, location }) => {
                     theme={{
                       colors: {
                         primary: "inherit",
-                        highlight: "#6200EE",
                         text: "inherit",
+                        highlight: "#6200EE",
                       },
                     }}
                   >
