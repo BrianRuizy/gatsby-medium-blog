@@ -32,6 +32,7 @@ const pageQueryTags = `{
     group(field: frontmatter___tags) {
       objectID: fieldValue
       fieldValue
+      totalCount
     }
   }
 }`
@@ -49,7 +50,7 @@ function tagToAlgoliaRecord(tag) {
   return {
     objectID: tag.fieldValue,
     fieldValue: tag.fieldValue,
-    
+    totalCount: tag.totalCount, 
   }
 }
 
@@ -65,6 +66,7 @@ const queries = [
     query: pageQueryTags,
     transformer: ({ data }) => data.tags.group.map( tag => (tagToAlgoliaRecord(tag))),
     indexName2, 
+    settings: { attributesToSnippet: [`totalCount`] },
   },
 ]
 
