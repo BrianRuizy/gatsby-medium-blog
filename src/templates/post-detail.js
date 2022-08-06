@@ -27,7 +27,6 @@ import IconButton from "@mui/material/IconButton"
 import Typography from "@mui/material/Typography"
 import Tooltip from "@mui/material/Tooltip"
 
-import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined"
 import LinkIcon from "@mui/icons-material/Link"
 
 const ClampTypography = {

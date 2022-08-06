@@ -25,7 +25,6 @@ import {
   createTheme,
   responsiveFontSizes,
   ThemeProvider,
-  useTheme,
 } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
 import { Divider } from "@mui/material"
@@ -66,7 +65,7 @@ const Layout = ({
                 // palette values for light mode
                 primary: {
                   main: "#6200EE",
-                  light: "#6200EE20",
+                  light: "#6200EE40",
                 },
                 text: {
                   primary: "#1d1d1f",
@@ -82,7 +81,7 @@ const Layout = ({
                 // palette values for dark mode
                 primary: {
                   main: "#E9DAAC",
-                  light: "#E9DAAC40",
+                  light: "#E9DAAC80",
                 },
                 text: {
                   primary: "#f5f5f7",

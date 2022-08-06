@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
@@ -18,7 +18,7 @@ export default function ProgressAppBar(props) {
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
     disableHysteresis: false,
-    threshold: 220,
+    threshold: 300,
   })
 
   return (
@@ -34,7 +34,7 @@ export default function ProgressAppBar(props) {
       >
         <Toolbar
           sx={{
-            gap: 2,
+            gap: 4,
             maxWidth: "692px",
             width: "100%",
             mx: "auto",
