@@ -100,12 +100,14 @@ const shortcodes = {
     <li
       {...props}
       style={{
+        listStyleType: "square",
         marginTop: "1.14em",
         marginBottom: "-0.46em",
         fontFamily: "Charter, serif",
         fontSize: "20px",
         lineHeight: "32px",
         letterSpacing: "-0.003em",
+        paddingLeft: ".5rem",
       }}
     />
   ),
@@ -134,7 +136,7 @@ const shortcodes = {
     />
   ),
   figcaption: props => (
-    <figcaption style={{ textAlign: "center", marginTop: "8px"  }}>
+    <figcaption style={{ textAlign: "center", marginTop: "8px",  marginBottom: "16px"  }}>
       <Typography
         variant="caption"
         {...props}

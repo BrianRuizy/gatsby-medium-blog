@@ -6,7 +6,7 @@
 /**
  * One Dark colours (accurate as of commit 8ae45ca on 6 Sep 2018)
  * From colors.less
- * --mono-1: hsl(220, 14%, 71%);
+ * --mono-1: hsl(220, 14%, 81%);
  * --mono-2: hsl(220, 9%, 55%);
  * --mono-3: hsl(220, 10%, 40%);
  * --hue-1: hsl(187, 47%, 55%);
@@ -17,10 +17,10 @@
  * --hue-5-2: hsl(5, 48%, 51%);
  * --hue-6: hsl(29, 54%, 61%);
  * --hue-6-2: hsl(39, 67%, 69%);
- * --syntax-fg: hsl(220, 14%, 71%);
+ * --syntax-fg: hsl(220, 14%, 81%);
  * --syntax-bg: #1a1a1a;
  * --syntax-gutter: hsl(220, 14%, 45%);
- * --syntax-guide: hsla(220, 14%, 71%, 0.15);
+ * --syntax-guide: hsla(220, 14%, 81%, 0.15);
  * --syntax-accent: hsl(220, 100%, 66%);
  * From syntax-variables.less
  * --syntax-selection-color: hsl(220, 13%, 28%);
@@ -31,7 +31,7 @@
  code[class*="language-"],
  pre[class*="language-"] {
      background: #1a1a1a;
-     color: hsl(220, 14%, 71%);
+     color: hsl(220, 14%, 81%);
      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
      font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
      direction: ltr;
@@ -98,7 +98,7 @@
  .token.doctype,
  .token.punctuation,
  .token.entity {
-     color: hsl(220, 14%, 71%);
+     color: hsl(220, 14%, 81%);
  }
  
  .token.attr-name,
@@ -146,7 +146,7 @@
  /* HTML overrides */
  .token.attr-value > .token.punctuation.attr-equals,
  .token.special-attr > .token.attr-value > .token.value.css {
-     color: hsl(220, 14%, 71%);
+     color: hsl(220, 14%, 81%);
  }
  
  /* CSS overrides */
@@ -155,7 +155,7 @@
  }
  
  .language-css .token.property {
-     color: hsl(220, 14%, 71%);
+     color: hsl(220, 14%, 81%);
  }
  
  .language-css .token.function,
@@ -183,7 +183,7 @@
  
  /* JSON overrides */
  .language-json .token.operator {
-     color: hsl(220, 14%, 71%);
+     color: hsl(220, 14%, 81%);
  }
  
  .language-json .token.null.keyword {
@@ -194,7 +194,7 @@
  .language-markdown .token.url,
  .language-markdown .token.url > .token.operator,
  .language-markdown .token.url-reference.url > .token.string {
-     color: hsl(220, 14%, 71%);
+     color: hsl(220, 14%, 81%);
  }
  
  .language-markdown .token.url > .token.content {
@@ -257,7 +257,7 @@
  .token.token.cr:before,
  .token.token.lf:before,
  .token.token.space:before {
-     color: hsla(220, 14%, 71%, 0.15);
+     color: hsla(220, 14%, 81%, 0.15);
      text-shadow: none;
  }
  
@@ -284,7 +284,7 @@
  div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover,
  div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
      background: hsl(220, 13%, 28%);
-     color: hsl(220, 14%, 71%);
+     color: hsl(220, 14%, 81%);
  }
  
  /* Line Highlight plugin overrides */
@@ -297,7 +297,7 @@
  .line-highlight.line-highlight:before,
  .line-highlight.line-highlight[data-end]:after {
      background: hsl(220, 13%, 26%);
-     color: hsl(220, 14%, 71%);
+     color: hsl(220, 14%, 81%);
      padding: 0.1em 0.6em;
      border-radius: 0.3em;
      box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2); /* same as Toolbar plugin default */
@@ -313,7 +313,7 @@
  /* Line separating gutter from coding area */
  .line-numbers.line-numbers .line-numbers-rows,
  .command-line .command-line-prompt {
-     /* border-right-color: hsla(220, 14%, 71%, 0.15); */
+     /* border-right-color: hsla(220, 14%, 81%, 0.15); */
      border: none;
  }
  
@@ -425,7 +425,7 @@
  /* For time, this is the alternate colour */
  .prism-previewer-angle.prism-previewer-angle circle,
  .prism-previewer-time.prism-previewer-time circle {
-     stroke: hsl(220, 14%, 71%);
+     stroke: hsl(220, 14%, 81%);
      stroke-opacity: 1;
  }
  
@@ -433,7 +433,7 @@
  .prism-previewer-easing.prism-previewer-easing circle,
  .prism-previewer-easing.prism-previewer-easing path,
  .prism-previewer-easing.prism-previewer-easing line {
-     stroke: hsl(220, 14%, 71%);
+     stroke: hsl(220, 14%, 81%);
  }
  
  /* Fill colour of the handle */
@@ -444,7 +444,7 @@
  .gatsby-highlight {
      background-color: #1a1a1a;
      border-radius: 0.3em;
-     margin: 2rem 0 2.5rem;
+     margin: 2rem 0 1rem;
      padding: 1.5rem 2rem;
      overflow: auto;
      /* border: 1px solid rgba(255, 255, 255, 0.12); */

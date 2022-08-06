@@ -44,8 +44,8 @@ export default function PanelRight({ extraDrawerContent }) {
       sx={{
         display: "block",
         minHeight: "100vh",
-        // borderLeft: "1px solid",
-        // borderColor: "divider",
+        borderLeft: "1px solid",
+        borderColor: "divider",
         width: "394px",
         "@media (max-width: 1240px)": {
           width: "280px",
