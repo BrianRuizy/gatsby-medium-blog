@@ -66,8 +66,8 @@ const PageHit = ({ hit }) => (
       secondary={<Snippet attribute="description" hit={hit} tagName="mark" />}
       sx={{
         "* > mark": {
-          backgroundColor: "primary.light",
-          color: "inherit",
+          backgroundColor: "unset",
+          color: "primary.main",
         },
         "> .MuiTypography-body2": {
           whiteSpace: "nowrap",
@@ -100,11 +100,18 @@ const TagHit = ({ hit }) => (
       </IconButton>
     </ListItemIcon>
     <ListItemText
-      primary={<Highlight attribute="fieldValue" hit={hit} tagName="mark" />}
+      primary={
+        <>
+          <Highlight attribute="fieldValue" hit={hit} tagName="mark" />
+          <Typography sx={{ color: "text.disabled", display: "inline" }}>
+            －<Snippet attribute="totalCount" hit={hit} />
+          </Typography>
+        </>
+      }
       sx={{
         "* > mark": {
-          backgroundColor: "primary.light",
-          color: "inherit",
+          backgroundColor: "unset",
+          color: "primary.main",
         },
       }}
     />
