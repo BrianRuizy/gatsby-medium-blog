@@ -130,13 +130,20 @@ const shortcodes = {
     <MuiLink target="_blank" rel="noopener" {...props} color="inherit" />
   ),
   mark: props => (
-    <mark
-      style={{ background: "rgba(26, 137, 23, 0.10)", color: "inherit" }}
-      {...props}
-    />
+    <Typography sx={{ backgroundColor: "primary.light", 
+      fontFamily: "inherit",
+      fontSize: "inherit",
+      lineHeight: "inherit",
+      color: "inherit",
+      display: "inline",
+    }}>
+      <mark {...props} style={{"backgroundColor": "inherit", color: "inherit"}}>{props.children}</mark>
+    </Typography>
   ),
   figcaption: props => (
-    <figcaption style={{ textAlign: "center", marginTop: "8px",  marginBottom: "16px"  }}>
+    <figcaption
+      style={{ textAlign: "center", marginTop: "8px", marginBottom: "16px" }}
+    >
       <Typography
         variant="caption"
         {...props}

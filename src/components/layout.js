@@ -65,7 +65,7 @@ const Layout = ({
                 // palette values for light mode
                 primary: {
                   main: "#6200EE",
-                  light: "#6200EE40",
+                  light: "#6200EE10",
                 },
                 text: {
                   primary: "#1d1d1f",
@@ -81,7 +81,7 @@ const Layout = ({
                 // palette values for dark mode
                 primary: {
                   main: "#E9DAAC",
-                  light: "#E9DAAC80",
+                  light: "#E9DAAC20",
                 },
                 text: {
                   primary: "#f5f5f7",
