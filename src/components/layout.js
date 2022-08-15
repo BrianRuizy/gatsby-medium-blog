@@ -274,16 +274,8 @@ const Layout = ({
                           display: "flex",
                           justifyContent: "space-between",
                           color: "text.disabled",
-                          "@media (max-width: 600px)": {
-                            flexDirection: "column",
-                            alignItems: "center",
-                          }
                         }}
                       >
-                        <Typography variant="caption">
-                          © {new Date().getFullYear()} Built by Brian Ruiz
-                        </Typography>
-
                         <MuiLink
                           component={Link}
                           underline="none"
@@ -291,14 +283,36 @@ const Layout = ({
                           to="https://github.com/BrianRuizy/gatsby-medium-blog"
                           target="_blank"
                         >
-                          <Typography variant="caption" sx={{ display: "flex", alignItems: "center",}}>
-                            Gatsby Medium Blog {" "}
-                            <StarBorderIcon alt="Github stars" sx={{ml: 1, fontSize: "16px"}}/>
+                          <Typography
+                            variant="body2"
+                            sx={{ display: "flex", alignItems: "center" }}
+                          >
+                            Gatsby Medium Blog
+                            <StarBorderIcon
+                              alt="Github stars"
+                              sx={{ ml: 0.5, fontSize: "16px" }}
+                            />
                             {githubStars}
-                            <ForkRightIcon alt="Github forks" sx={{ml: .25, fontSize: "16px"}}/>
+                            <ForkRightIcon
+                              alt="Github forks"
+                              sx={{ ml: 0.25, fontSize: "16px" }}
+                            />
                             {githubForks}
                           </Typography>
                         </MuiLink>
+                        <Typography variant="body2">
+                          ©{new Date().getFullYear()}
+                          <Box
+                            sx={{
+                              display: "inline",
+                              "@media (max-width: 600px)": {
+                                display: "none",
+                              },
+                            }}
+                          >
+                            {" "}Built by Brian Ruiz
+                          </Box>
+                        </Typography>
                       </Box>
                     </Container>
                   </Container>

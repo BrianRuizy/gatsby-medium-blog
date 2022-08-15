@@ -39,9 +39,9 @@ const tagsPanel = () => (
             whiteSpace: "nowrap",
             color: "text.secondary",
             textDecoration: "none", 
-            "@media (max-width: 600px)": {
-              display: "none",
-            }
+            // "@media (max-width: 600px)": {
+            //   display: "none",
+            // }
           }}
         component={Link}
           to="/tags"
