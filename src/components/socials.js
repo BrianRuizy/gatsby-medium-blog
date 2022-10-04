@@ -19,17 +19,23 @@ const profiles = {
     icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png",
     followers: "1227",
   },
-  medium: {
-    name: "Medium",
-    url: "https://medium.com/@brianruizy",
-    icon: "https://miro.medium.com/max/1400/1*psYl0y9DUzZWtHzFJLIvTw.png",
-    followers: "10",
-  },
   instagram: {
     name: "Instagram",
     url: "https://www.instagram.com/brianruizy/",
     icon: "https://johnhoward.on.ca/peterborough/wp-content/uploads/sites/12/2021/03/instagram-logo-svg-vector-for-print.svg",
     followers: "1117",
+  },
+  youtube: {
+    name: "YouTube",
+    url: "https://www.youtube.com/channel/UCCIFp-Se_xjfYc94H04oK7Q",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/768px-YouTube_full-color_icon_%282017%29.svg.png",
+    followers: "21",
+  },
+  medium: {
+    name: "Medium",
+    url: "https://medium.com/@brianruizy",
+    icon: "https://miro.medium.com/max/1400/1*psYl0y9DUzZWtHzFJLIvTw.png",
+    followers: "10",
   },
 }
 
@@ -86,7 +92,7 @@ const socials = () => {
                 <Box>
                   <Typography sx={{ fontWeight: 500 }}>{profile.name}</Typography>
                   <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    {profile.followers} followers
+                    {profile.followers} { profile.name === "Youtube" ? "subscribers" : "followers" }
                   </Typography>
                 </Box>
               </Box>
