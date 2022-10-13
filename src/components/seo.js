@@ -36,7 +36,7 @@ const Seo = ({ description, lang, meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={defaultTitle ? `${defaultTitle} | %s ` : null}
       meta={[
         {
           name: `description`,
@@ -49,6 +49,10 @@ const Seo = ({ description, lang, meta, title }) => {
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: `https://b-r.io/og-image.png`,
         },
         {
           property: `og:type`,

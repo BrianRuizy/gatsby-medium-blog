@@ -64,7 +64,7 @@ const Index = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="Home" />
+        <Seo title="Portfolio" />
         <p>
           No blog posts found. Add markdown posts to "content/posts" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -76,8 +76,7 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="Home" />
-
+      <Seo title="Portfolio" />
       <Container
         maxWidth="string"
         disableGutters

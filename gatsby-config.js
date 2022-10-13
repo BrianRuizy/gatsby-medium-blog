@@ -7,13 +7,13 @@ module.exports = {
       name: `Brian Ruiz`,
       summary: `Brian Ruiz is a Software Engineer based out of Houston, TX.`,
     },
-    description: `Brian Ruiz is a Software Engineer based out of Houston, TX. Here you'll find his portfolio tech blog posts.`,
+    description: `Brian Ruiz is a Software Engineer based out of Houston, TX.`,
     siteUrl: `https://b-r.io`,
     social: {
-      twitter: `brianruizy`,
       linkedin: `brianruizy`,
       github: `BrianRuizy`,
       instagram: `brianruizy`,
+      youtube: `UCCIFp-Se_xjfYc94H04oK7Q`,
     },
   },
   plugins: [
