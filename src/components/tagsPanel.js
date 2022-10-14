@@ -38,15 +38,18 @@ const tagsPanel = () => (
           sx={{
             whiteSpace: "nowrap",
             color: "text.secondary",
-            textDecoration: "none", 
+            textDecoration: "none",
+            "&:hover": {
+              textDecoration: "underline",
+            }
             // "@media (max-width: 600px)": {
             //   display: "none",
             // }
           }}
-        component={Link}
+          component={Link}
           to="/tags"
         >
-          All Topics
+          Story Topics
         </Typography>
         <Tabs
           value={0}

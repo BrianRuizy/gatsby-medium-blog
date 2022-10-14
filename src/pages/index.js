@@ -103,6 +103,8 @@ const Index = ({ data, location }) => {
           <Tabs
             value={value}
             onChange={handleChange}
+            variant="scrollable"
+            scrollButtons="auto"
             aria-label="nav tabs example"
             sx={{
               "& .MuiTabs-flexContainer": {
@@ -115,7 +117,7 @@ const Index = ({ data, location }) => {
             }}
           >
             <Tab
-              label="All"
+              label="All Stories"
               {...a11yProps(0)}
               sx={{
                 textTransform: "capitalize",
@@ -137,6 +139,17 @@ const Index = ({ data, location }) => {
                 }}
               />
             ))}
+            <Tab
+              label="My Gear"
+              component="a"
+              href="/gear"
+              sx={{
+                textTransform: "capitalize",
+                fontWeight: 400,
+                minWidth: "60px",
+                "&.Mui-selected": { color: "text.primary" },
+              }}
+            />
           </Tabs>
         </Box>
 

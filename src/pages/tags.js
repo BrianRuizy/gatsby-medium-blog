@@ -27,7 +27,7 @@ const TagsPage = ({
   },
 }) => (
   <Layout
-    location={"All Topics"}
+    location={"Story Topics"}
     title={
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <IconButton
@@ -40,11 +40,11 @@ const TagsPage = ({
         >
           <LocalOfferIcon fontSize="small" />
         </IconButton>
-        {"All Topics"}
+        {"Story Topics"}
       </Box>
     }
   >
-    <Seo title={"All Topics"} />
+    <Seo title={"Story Topics"} />
     <Container
       maxWidth="string"
       disableGutters
