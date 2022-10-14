@@ -10,6 +10,7 @@ import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
 import IconButton from "@mui/material/IconButton"
 import BackpackIcon from "@mui/icons-material/Backpack"
+import Alert from "@mui/material/Alert"
 
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
@@ -103,11 +104,19 @@ const GearPage = ({ data, location }) => {
           },
         }}
       >
-        <Typography variant="body1" color="text.secondary">
+        <Alert
+          severity="info"
+          sx={{
+            backgroundColor: "primary.light",
+            color: "primary.dark",
+            "& .MuiSvgIcon-root": { color: "primary.dark" },
+          }}
+          icon={"🧐"}
+        >
           This is a list of the gear I actually own and would recommend. The
           product links are affiliate links, using them comes at no extra cost
-          to you, but helps support my content creation <span style={{color: "initial"}}>🙌</span>. 
-        </Typography>
+          to you. It does however help support my content creation!
+        </Alert>
         <Box
           sx={{
             display: "flex",
@@ -120,7 +129,9 @@ const GearPage = ({ data, location }) => {
           }}
         >
           <Typography variant="body1">
-            { Object.keys(gear).length > 1 ? `${Object.keys(gear).length} items` : `(${Object.keys(gear).length}) item` }
+            {Object.keys(gear).length > 1
+              ? `${Object.keys(gear).length} items`
+              : `(${Object.keys(gear).length}) item`}
           </Typography>
           <MuiLink href="/" color="inherit" component={Link} to="/">
             Back home
@@ -131,14 +142,15 @@ const GearPage = ({ data, location }) => {
             const item = gear[key]
             return (
               <Grid item xs={12} sm={6} md={4} key={key}>
-                <Card variant="outlined"
+                <Card
+                  variant="outlined"
                   sx={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     "@media (max-width: 600px)": {
                       flexDirection: "row",
-                    }
+                    },
                   }}
                 >
                   <CardMedia
@@ -155,7 +167,7 @@ const GearPage = ({ data, location }) => {
                       "@media (max-width: 600px)": {
                         height: "120px !important",
                         width: "120px !important",
-                      }
+                      },
                     }}
                   />
                   <CardContent>
