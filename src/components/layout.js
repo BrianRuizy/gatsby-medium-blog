@@ -16,8 +16,8 @@ import Typography from "@mui/material/Typography"
 import MuiLink from "@mui/material/Link"
 
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined"
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined"
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz"
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ForkRightIcon from '@mui/icons-material/ForkRight';
 
