@@ -48,8 +48,7 @@ const gear = {
   },
   "Nikon Z6 Full Frame Mirrorless": {
     category: "Camera Gear",
-    image:
-      "https://m.media-amazon.com/images/I/61h9UPZ40TL._AC_SL1000_.jpg",
+    image: "https://m.media-amazon.com/images/I/61h9UPZ40TL._AC_SL1000_.jpg",
     desc: "Love the Z6 because it's great for photos and videos.",
     stores: {
       amazon: {
@@ -108,8 +107,7 @@ const gear = {
   },
   "NIKON NIKKOR Z 50mm f/1.8 S": {
     category: "Camera Gear",
-    image:
-      "https://m.media-amazon.com/images/I/61u8mYpACQL._AC_SL1500_.jpg",
+    image: "https://m.media-amazon.com/images/I/61u8mYpACQL._AC_SL1500_.jpg",
     desc: "One of my main sit down lenses, with awesome bokeh.",
 
     stores: {
@@ -121,8 +119,7 @@ const gear = {
   },
   "GoPro HERO10 Black action camera": {
     category: "Camera Gear",
-    image:
-      "https://m.media-amazon.com/images/I/61p2fYdYP+L._AC_SX679_.jpg",
+    image: "https://m.media-amazon.com/images/I/61p2fYdYP+L._AC_SX679_.jpg",
     desc: "Awesome for action video, I use it for my POV shots.",
     stores: {
       amazon: {
@@ -131,11 +128,21 @@ const gear = {
       },
     },
   },
- 
+  "Brevite laptop and camera bag": {
+    category: "Camera Gear",
+    image: "https://m.media-amazon.com/images/I/61kuICMElAL._AC_SL1500_.jpg",
+    desc: "Compact Camera Backpack - A Minimalist & Travel-friendly",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3U5PTJo",
+
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
 }
 
 const GearPage = ({ data, location }) => {
-
   const categories = Object.keys(gear).reduce((acc, key) => {
     const category = gear[key].category
     if (!acc.includes(category)) {
