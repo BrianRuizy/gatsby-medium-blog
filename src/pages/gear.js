@@ -46,17 +46,7 @@ const gear = {
       },
     },
   },
-  "Nikon Z6 Full Frame Mirrorless": {
-    category: "Camera Gear",
-    image: "https://m.media-amazon.com/images/I/61h9UPZ40TL._AC_SL1000_.jpg",
-    desc: "Love the Z6 because it's great for photos and videos.",
-    stores: {
-      amazon: {
-        affiliateLink: "https://amzn.to/3T1CvGa",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
-      },
-    },
-  },
+ 
   "Orbitkey Desk Mat": {
     category: "My Desk setup",
     image: "https://m.media-amazon.com/images/I/61Du63bfnlL._AC_SL1500_.jpg",
@@ -89,6 +79,29 @@ const gear = {
       amazon: {
         affiliateLink: "https://amzn.to/3DJd86G",
 
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "Brevite laptop and camera bag": {
+    category: "Camera Gear",
+    image: "https://m.media-amazon.com/images/I/61kuICMElAL._AC_SL1500_.jpg",
+    desc: "Compact Camera Backpack - A Minimalist & Travel-friendly",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3U5PTJo",
+
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "Nikon Z6 Full Frame Mirrorless": {
+    category: "Camera Gear",
+    image: "https://m.media-amazon.com/images/I/61h9UPZ40TL._AC_SL1000_.jpg",
+    desc: "Love the Z6 because it's great for photos and videos.",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3T1CvGa",
         icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
       },
     },
@@ -128,14 +141,14 @@ const gear = {
       },
     },
   },
-  "Brevite laptop and camera bag": {
+ 
+  "Suptig Chest Mount for GoPro": {
     category: "Camera Gear",
-    image: "https://m.media-amazon.com/images/I/61kuICMElAL._AC_SL1500_.jpg",
-    desc: "Compact Camera Backpack - A Minimalist & Travel-friendly",
+    image: "https://m.media-amazon.com/images/I/81y-UqVnYAL._AC_SL1500_.jpg",
+    desc: "This is how I record my bike rides :)",
     stores: {
       amazon: {
-        affiliateLink: "https://amzn.to/3U5PTJo",
-
+        affiliateLink: "https://amzn.to/3DonSG9",
         icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
       },
     },
