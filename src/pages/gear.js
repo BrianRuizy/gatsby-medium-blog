@@ -12,6 +12,7 @@ import IconButton from "@mui/material/IconButton"
 import BackpackIcon from "@mui/icons-material/Backpack"
 import Alert from "@mui/material/Alert"
 import Chip from "@mui/material/Chip"
+import MuiLink from "@mui/material/Link"
 
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
@@ -199,8 +200,7 @@ const GearPage = ({ data, location }) => {
               },
             }}
           >
-           
-          <Tab
+            <Tab
               label="Home"
               active
               component="a"
@@ -246,14 +246,15 @@ const GearPage = ({ data, location }) => {
           }}
           icon={"🧐"}
         >
-          This is a list of the gear I actually own and recommend. The
-          affiliate links come at no extra cost but it does 
-          however help support my content creation!
+          This is a list of the gear I actually own and recommend. The affiliate
+          links come at no extra cost but it does however help support my
+          content creation!
         </Alert>
 
         {categories.map(category => (
           <>
             <Box
+              id={category}
               sx={{
                 display: "flex",
                 // borderBottom: 1,
@@ -264,9 +265,21 @@ const GearPage = ({ data, location }) => {
                 gap: 2,
               }}
             >
-              <Typography variant="h6" sx={{ fontWeight: "500" }}>
+              <MuiLink
+                variant="h6"
+                underline="none"
+                sx={{
+                  color: "text.primary",
+                  fontWeight: "500",
+                  "&:hover": {
+                    color: "primary.main",
+                  },
+                }}
+                component="a"
+                href={"#" + category}
+              >
                 {category}
-              </Typography>
+              </MuiLink>
               <Chip
                 disabled
                 size="small"
