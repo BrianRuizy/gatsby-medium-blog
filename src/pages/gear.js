@@ -18,7 +18,8 @@ import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
 import CardMedia from "@mui/material/CardMedia"
 import Button from "@mui/material/Button"
-import MuiLink from "@mui/material/Link"
+import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
 
 const gear = {
   "Glorious GMMK Pro Mechanical keyboard": {
@@ -157,7 +158,7 @@ const GearPage = ({ data, location }) => {
           >
             <BackpackIcon fontSize="small" />
           </IconButton>
-          {"Brian's Gear"}
+          {"Brian's Gear List"}
         </Box>
       }
     >
@@ -176,6 +177,66 @@ const GearPage = ({ data, location }) => {
           },
         }}
       >
+        <Box
+          sx={{
+            width: "100%",
+            borderBottom: 1,
+            borderColor: "divider",
+          }}
+        >
+          <Tabs
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="nav tabs example"
+            value={1}
+            sx={{
+              "& .MuiTabs-flexContainer": {
+                gap: "1rem",
+              },
+              "& .MuiTabs-indicator": {
+                backgroundColor: "text.primary",
+                height: "1px",
+              },
+            }}
+          >
+           
+          <Tab
+              label="Home"
+              active
+              component="a"
+              href="/"
+              sx={{
+                textTransform: "capitalize",
+                fontWeight: 400,
+                minWidth: "60px",
+                "&.Mui-selected": { color: "text.primary" },
+              }}
+            />
+            <Tab
+              label="My Gear"
+              active
+              component="a"
+              href="/gear"
+              sx={{
+                textTransform: "capitalize",
+                fontWeight: 400,
+                minWidth: "60px",
+                "&.Mui-selected": { color: "text.primary" },
+              }}
+            />
+            <Tab
+              label="My Links"
+              component="a"
+              href="/links"
+              sx={{
+                textTransform: "capitalize",
+                fontWeight: 400,
+                minWidth: "60px",
+                "&.Mui-selected": { color: "text.primary" },
+              }}
+            />
+          </Tabs>
+        </Box>
         <Alert
           severity="info"
           sx={{
@@ -185,9 +246,9 @@ const GearPage = ({ data, location }) => {
           }}
           icon={"🧐"}
         >
-          This is a list of the gear I actually own and would recommend. The
-          product links are affiliate links, using them comes at no extra cost
-          to you. It does however help support my content creation!
+          This is a list of the gear I actually own and recommend. The
+          affiliate links come at no extra cost but it does 
+          however help support my content creation!
         </Alert>
 
         {categories.map(category => (
@@ -195,15 +256,17 @@ const GearPage = ({ data, location }) => {
             <Box
               sx={{
                 display: "flex",
-                borderBottom: 1,
+                // borderBottom: 1,
                 borderColor: "divider",
-                py: "12px",
+                pt: "1rem",
                 justifyContent: "space-between",
                 alignItems: "center",
                 gap: 2,
               }}
             >
-              <Typography sx={{ fontWeight: "500" }}>{category}</Typography>
+              <Typography variant="h6" sx={{ fontWeight: "500" }}>
+                {category}
+              </Typography>
               <Chip
                 disabled
                 size="small"

@@ -11,6 +11,8 @@ import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
 import Link from "@mui/material/Link"
+import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
 
 const profiles = {
   github: {
@@ -83,7 +85,7 @@ const NotFoundPage = ({ data, location }) => {
               },
             }}
           >
-            <Link to="/">Brian's links</Link>
+            <Link to="/">Brian's Links</Link>
           </Typography>
         </Box>
       }
@@ -93,12 +95,74 @@ const NotFoundPage = ({ data, location }) => {
         maxWidth="string"
         disableGutters
         sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "2rem",
           maxWidth: "692px",
           "@media (max-width: 600px)": {
             px: "1.5rem",
           },
         }}
       >
+        <Box
+          sx={{
+            width: "100%",
+            borderBottom: 1,
+            borderColor: "divider",
+          }}
+        >
+          <Tabs
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="nav tabs example"
+            value={2}
+            sx={{
+              "& .MuiTabs-flexContainer": {
+                gap: "1rem",
+              },
+              "& .MuiTabs-indicator": {
+                backgroundColor: "text.primary",
+                height: "1px",
+              },
+            }}
+          >
+            <Tab
+              label="Home"
+              active
+              component="a"
+              href="/"
+              sx={{
+                textTransform: "capitalize",
+                fontWeight: 400,
+                minWidth: "60px",
+                "&.Mui-selected": { color: "text.primary" },
+              }}
+            />
+            <Tab
+              label="My Gear"
+              active
+              component="a"
+              href="/gear"
+              sx={{
+                textTransform: "capitalize",
+                fontWeight: 400,
+                minWidth: "60px",
+                "&.Mui-selected": { color: "text.primary" },
+              }}
+            />
+            <Tab
+              label="My Links"
+              component="a"
+              href="/links"
+              sx={{
+                textTransform: "capitalize",
+                fontWeight: 400,
+                minWidth: "60px",
+                "&.Mui-selected": { color: "text.primary" },
+              }}
+            />
+          </Tabs>
+        </Box>
         <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           {Object.keys(profiles).map(key => {
             const profile = profiles[key]
