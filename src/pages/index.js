@@ -151,7 +151,7 @@ const Index = ({ data, location }) => {
               }}
             />
             <Tab
-              label="Link tree"
+              label="Links"
               component="a"
               href="/links"
               sx={{

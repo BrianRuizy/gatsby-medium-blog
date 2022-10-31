@@ -83,7 +83,7 @@ const NotFoundPage = ({ data, location }) => {
               },
             }}
           >
-            <Link to="/">Brian's Link tree</Link>
+            <Link to="/">Brian's links</Link>
           </Typography>
         </Box>
       }
