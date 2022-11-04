@@ -14,31 +14,35 @@ import Link from "@mui/material/Link"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 
+import { FaInstagram } from "react-icons/fa"
+import { FaGithub } from "react-icons/fa"
+import { FaLinkedin } from "react-icons/fa"
+import { FaYoutube } from "react-icons/fa"
+
+import { MdNorthEast } from "react-icons/md"
+
+
+
 const profiles = {
   github: {
     name: "GitHub",
     url: "https://github.com/BrianRuizy",
-    icon: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
+    icon: <FaGithub />,
   },
   linkedin: {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/brianruizy/",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png",
-  },
-  instagram: {
-    name: "Instagram",
-    url: "https://www.instagram.com/brianruizy/",
-    icon: "https://johnhoward.on.ca/peterborough/wp-content/uploads/sites/12/2021/03/instagram-logo-svg-vector-for-print.svg",
+    icon: <FaLinkedin />,
   },
   youtube: {
     name: "YouTube",
     url: "https://www.youtube.com/channel/UCCIFp-Se_xjfYc94H04oK7Q",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/768px-YouTube_full-color_icon_%282017%29.svg.png",
+    icon: <FaYoutube />,
   },
-  medium: {
-    name: "Medium",
-    url: "https://medium.com/@brianruizy",
-    icon: "https://miro.medium.com/max/1400/1*psYl0y9DUzZWtHzFJLIvTw.png",
+  instagram: {
+    name: "Instagram",
+    url: "https://www.instagram.com/brianruizy/",
+    icon: <FaInstagram />,
   },
 }
 
@@ -174,6 +178,11 @@ const NotFoundPage = ({ data, location }) => {
                 variant="outlined"
                 fullWidth
                 size="large"
+                endIcon={profile.icon}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
               >
                 {profile.name}
               </Button>
