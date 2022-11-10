@@ -188,7 +188,7 @@ const Index = ({ data, location }) => {
                     }}
                   >
                     <Post data={post} />
-                    <Divider
+                  <Divider
                       sx={{
                         pt: 4,
                         "@media (max-width: 600px)": { pt: "1.5rem" },
@@ -234,7 +234,7 @@ export const pageQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              gatsbyImageData(aspectRatio: 1.5)
+              gatsbyImageData(aspectRatio: 1)
             }
             name
           }
