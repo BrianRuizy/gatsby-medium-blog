@@ -58,7 +58,7 @@ function PostTags(props) {
           lineHeight: "20px",
         }}
       >
-        Topics mentioned
+        Topics
       </Typography>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
         {tags.map(tag => (

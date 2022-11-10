@@ -91,7 +91,6 @@ const Index = ({ data, location }) => {
           },
         }}
       >
-        <Tags />
         {/* category tabs selector */}
         <Box
           sx={{
@@ -117,7 +116,7 @@ const Index = ({ data, location }) => {
             }}
           >
             <Tab
-              label="All Stories"
+              label="Blog"
               {...a11yProps(0)}
               sx={{
                 textTransform: "capitalize",
@@ -126,21 +125,9 @@ const Index = ({ data, location }) => {
                 "&.Mui-selected": { color: "text.primary" },
               }}
             />
-            {data.allMdx.group.map((category, index) => (
-              <Tab
-                key={category.fieldValue}
-                label={category.fieldValue}
-                {...a11yProps(index + 1)}
-                sx={{
-                  textTransform: "capitalize",
-                  fontWeight: 400,
-                  minWidth: "60px",
-                  "&.Mui-selected": { color: "text.primary" },
-                }}
-              />
-            ))}
+            
             <Tab
-              label="My Gear"
+              label="Gear List"
               component="a"
               href="/gear"
               sx={{
@@ -163,7 +150,8 @@ const Index = ({ data, location }) => {
             />
           </Tabs>
         </Box>
-
+        
+        <Tags />
         {/* all posts panel  */}
         <TabPanel value={value} index={0} key={"all"}>
           {posts.map(post => {

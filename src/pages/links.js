@@ -14,36 +14,50 @@ import Link from "@mui/material/Link"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 
+import IconButton from "@mui/material/IconButton"
+import LinkIcon from '@mui/icons-material/Link';
+import { HiLink } from "react-icons/hi"
+
 import { FaInstagram } from "react-icons/fa"
 import { FaGithub } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
 import { FaYoutube } from "react-icons/fa"
 
-import { MdNorthEast } from "react-icons/md"
+import { GiWeightLiftingUp } from "react-icons/gi"
 
 
 
 const profiles = {
+  youtube: {
+    name: "YouTube",
+    desc: "My videos",
+    url: "https://www.youtube.com/channel/UCCIFp-Se_xjfYc94H04oK7Q",
+    icon: <FaYoutube />,
+  },
   github: {
     name: "GitHub",
+    desc: "My open-source projects",
     url: "https://github.com/BrianRuizy",
     icon: <FaGithub />,
   },
   linkedin: {
     name: "LinkedIn",
+    desc: "My professional profile",
     url: "https://www.linkedin.com/in/brianruizy/",
     icon: <FaLinkedin />,
   },
-  youtube: {
-    name: "YouTube",
-    url: "https://www.youtube.com/channel/UCCIFp-Se_xjfYc94H04oK7Q",
-    icon: <FaYoutube />,
-  },
   instagram: {
     name: "Instagram",
+    desc: "@brianruizy",
     url: "https://www.instagram.com/brianruizy/",
     icon: <FaInstagram />,
   },
+  hevyapp: {
+    name: "Hevy",
+    desc: "Code 'BRIANRUIZ' for 20% off",
+    url: "https://hevyapp.com?ref=brianruiz",
+    icon: <GiWeightLiftingUp />,
+  }
 }
 
 const NotFoundPage = ({ data, location }) => {
@@ -53,45 +67,19 @@ const NotFoundPage = ({ data, location }) => {
     <Layout
       location={location}
       title={
-        <Box
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <IconButton
+          size="small"
           sx={{
-            display: "flex",
-            gap: "1rem",
-            alignItems: "center",
+            mr: 1,
+            backgroundColor: "action.selected",
+            color: "text.primary",
           }}
         >
-          <Avatar
-            alt="Brian Ruiz"
-            src="https://www.b-r.io/avatar.png"
-            sx={{
-              width: 48,
-              height: 48,
-              backgroundColor: "divider",
-              "@media (min-width: 1080px)": {
-                display: "none !important",
-              },
-            }}
-          >
-            BR
-          </Avatar>
-
-          <Typography
-            variant="h4"
-            sx={{
-              lineHeight: "52px",
-              fontWeight: "700",
-              "& > a": {
-                color: "text.primary",
-                textDecoration: "none",
-              },
-              "@media (max-width: 600px)": {
-                fontSize: "22px",
-              },
-            }}
-          >
-            <Link to="/">Brian's Links</Link>
-          </Typography>
-        </Box>
+          <HiLink  fontSize={20}/>
+        </IconButton>
+        {"Brian's Links"}
+      </Box>
       }
     >
       <Seo title={"Links"} />
@@ -131,7 +119,7 @@ const NotFoundPage = ({ data, location }) => {
             }}
           >
             <Tab
-              label="Home"
+              label="Blog"
               active
               component="a"
               href="/"
@@ -143,7 +131,7 @@ const NotFoundPage = ({ data, location }) => {
               }}
             />
             <Tab
-              label="My Gear"
+              label="Gear List"
               active
               component="a"
               href="/gear"
@@ -182,9 +170,20 @@ const NotFoundPage = ({ data, location }) => {
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
+                  borderColor: "text.disabled",
+                  borderRadius: 6,
+                  color: "text.primary",
                 }}
               >
                 {profile.name}
+                {profile.desc && (
+                  <Typography
+                    variant="caption"
+                    sx={{ textTransform: "none", color: "text.disabled" }}
+                  >
+                    {profile.desc}
+                  </Typography>
+                )}
               </Button>
             )
           })}

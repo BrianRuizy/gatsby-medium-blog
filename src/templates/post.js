@@ -109,14 +109,11 @@ const PostItem = ({ data }) => {
               </Typography>
             </Box>
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-              {data.frontmatter.tags && (
-                // only show first tag
+              {data.frontmatter.category && (
                 <Chip
-                label={data.frontmatter.tags[0]}
-                size="small"
-                clickable
-                component={Link}
-                to={`/tag/${kebabCase(data.frontmatter.tags[0])}`}
+                  label={data.frontmatter.category}
+                  size="small"
+                  disabled
                 />
               )}
               <Typography sx={{ color: "text.secondary" }} variant="body2">
