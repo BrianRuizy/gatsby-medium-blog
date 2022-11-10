@@ -10,6 +10,7 @@ import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
 import IconButton from "@mui/material/IconButton"
 import BackpackIcon from "@mui/icons-material/Backpack"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import Alert from "@mui/material/Alert"
 import Chip from "@mui/material/Chip"
 import MuiLink from "@mui/material/Link"
@@ -22,32 +23,13 @@ import Button from "@mui/material/Button"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 
+import Accordion from "@mui/material/Accordion"
+import AccordionSummary from "@mui/material/AccordionSummary"
+import AccordionDetails from "@mui/material/AccordionDetails"
+
 const gear = {
-  "Glorious GMMK Pro Mechanical keyboard": {
-    category: "My Desk setup",
-    image: "https://m.media-amazon.com/images/I/71Nk1Qb3PhS._AC_SL1500_.jpg",
-    desc: "A 75% with rotary knob and hot swappable switches.",
-    stores: {
-      amazon: {
-        affiliateLink: "https://amzn.to/3U9tcE9",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
-      },
-    },
-  },
-  "Logitech MX Master 3S Mouse": {
-    category: "My Desk setup",
-    image: "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SL1500_.jpg",
-    desc: "Ergonomic and perfect for all day use, love the scrolling!",
-    stores: {
-      amazon: {
-        affiliateLink: "https://amzn.to/3U5syHG",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
-      },
-    },
-  },
- 
   "Orbitkey Desk Mat": {
-    category: "My Desk setup",
+    category: "Desk Setup",
     image: "https://m.media-amazon.com/images/I/61Du63bfnlL._AC_SL1500_.jpg",
     desc: "Leather and Recycled PET Felt | Document Hideaway | Magnetic Cable Holder",
     stores: {
@@ -58,8 +40,52 @@ const gear = {
       },
     },
   },
+  "Glorious GMMK Pro Mechanical keyboard": {
+    category: "Desk Setup",
+    image: "https://m.media-amazon.com/images/I/71Nk1Qb3PhS._AC_SL1500_.jpg",
+    desc: "A 75% with rotary knob and hot swappable switches.",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3U9tcE9",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "Glorious Coiled Keyboard Cables": {
+    category: "Desk Setup",
+    image: "https://m.media-amazon.com/images/I/71lpNM41jVS._AC_SL1500_.jpg",
+    desc: "USB-C Artisan Braided, Mechanical Keyboards",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3NSznKR",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "Logitech MX Master 3S Mouse": {
+    category: "Desk Setup",
+    image: "https://m.media-amazon.com/images/I/61ni3t1ryQL._AC_SL1500_.jpg",
+    desc: "Ergonomic and comfortable to be used for all day use, love the scrolling!",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3U5syHG",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "BenQ ScreenBar Monitor Light": {
+    category: "Desk Setup",
+    image: "https://m.media-amazon.com/images/I/71FpP6myfPL._AC_SL1500_.jpg",
+    desc: "Enhances immersion and focus, creates a comfortable environment",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3fUAfCi",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
   "Anker USB C Hub, 341 USB-C Hub (7-in-1) with 4K HDMI": {
-    category: "My Desk setup",
+    category: "Desk Setup",
     image: "https://m.media-amazon.com/images/I/61thMtrP5rL._AC_SL1500_.jpg",
     desc: "The one cable solution for my MacBook Pro.",
     stores: {
@@ -71,13 +97,24 @@ const gear = {
     },
   },
   "LG 34WN780-B UltraWide Monitor 34in 21:9 QHD": {
-    category: "My Desk setup",
+    category: "Desk Setup",
     image: "https://m.media-amazon.com/images/I/81ewD+orLSL._AC_SL1500_.jpg",
     desc: "A 3440 x 1440 IPS Display, great for multitasking.",
     stores: {
       amazon: {
         affiliateLink: "https://amzn.to/3DJd86G",
 
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "Cable adhesive management clips": {
+    category: "Desk Setup",
+    image: "https://m.media-amazon.com/images/I/51SUkNq0zDL._AC_SL1000_.jpg",
+    desc: "50pcs Cable Clips, Organizer Cord Holder, these are a must for a clean setup!",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3hjEiIy",
         icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
       },
     },
@@ -140,7 +177,7 @@ const gear = {
       },
     },
   },
- 
+
   "Suptig Chest Mount for GoPro": {
     category: "Camera Gear",
     image: "https://m.media-amazon.com/images/I/81y-UqVnYAL._AC_SL1500_.jpg",
@@ -148,6 +185,39 @@ const gear = {
     stores: {
       amazon: {
         affiliateLink: "https://amzn.to/3DonSG9",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "Movo VXR10-PRO": {
+    category: "Camera Gear",
+    image: "https://m.media-amazon.com/images/I/71CUGiUL2dL._AC_SL1500_.jpg",
+    desc: "Compact Shotgun Mic Compatible with Cameras and phones.",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3EjYzH7",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "Movo LV1-USB Lavalier Microphone": {
+    category: "Camera Gear",
+    image: "https://m.media-amazon.com/images/I/61eFtjXUWkL._AC_SL1500_.jpg",
+    desc: "Lapel Microphone, Lav Mic, Clip on Microphone",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3WQ1nDe",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+      },
+    },
+  },
+  "ULANZI Camera Tripod": {
+    category: "Camera Gear",
+    image: "https://m.media-amazon.com/images/I/61FTKuvhBeL._AC_SL1500_.jpg",
+    desc: "Mini Flexible Tripod Stand, Universal use",
+    stores: {
+      amazon: {
+        affiliateLink: "https://amzn.to/3Elzw6G",
         icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
       },
     },
@@ -178,7 +248,7 @@ const GearPage = ({ data, location }) => {
           >
             <BackpackIcon fontSize="small" />
           </IconButton>
-          {"Brian's Gear List"}
+          {"Brian's Gear"}
         </Box>
       }
     >
@@ -220,7 +290,7 @@ const GearPage = ({ data, location }) => {
             }}
           >
             <Tab
-              label="Home"
+              label="Blog"
               active
               component="a"
               href="/"
@@ -232,7 +302,7 @@ const GearPage = ({ data, location }) => {
               }}
             />
             <Tab
-              label="My Gear"
+              label="Gear List"
               active
               component="a"
               href="/gear"
@@ -270,159 +340,174 @@ const GearPage = ({ data, location }) => {
           content creation!
         </Alert>
 
-        {categories.map(category => (
-          <>
-            <Box
-              id={category}
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          {categories.map(category => (
+            <Accordion
+            defaultExpanded
+              elevation={0}
               sx={{
-                display: "flex",
-                // borderBottom: 1,
-                borderColor: "divider",
-                pt: "1rem",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: 2,
+                "& .MuiButtonBase-root.MuiAccordionSummary-root, .MuiAccordionDetails-root":
+                  { padding: 0 }
               }}
             >
-              <MuiLink
-                variant="h6"
-                underline="none"
+              <AccordionSummary
+                id={category + "-header"}
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
                 sx={{
-                  color: "text.primary",
-                  fontWeight: "500",
-                  "&:hover": {
-                    color: "primary.main",
+                  "& .MuiAccordionSummary-content": {
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "1rem",
                   },
                 }}
-                component="a"
-                href={"#" + category}
               >
-                {category}
-              </MuiLink>
-              <Chip
-                disabled
-                size="small"
-                label={
-                  Object.keys(gear).filter(
-                    key => gear[key].category === category
-                  ).length > 1
-                    ? `${
-                        Object.keys(gear).filter(
-                          key => gear[key].category === category
-                        ).length
-                      } items`
-                    : `${
-                        Object.keys(gear).filter(
-                          key => gear[key].category === category
-                        ).length
-                      } item`
-                }
-              />
-            </Box>
-            <Grid container spacing={2}>
-              {Object.keys(gear).map(key => {
-                const item = gear[key]
-                if (item.category === category) {
-                  return (
-                    <Grid item xs={12} sm={6} md={4} key={key}>
-                      <Card
-                        variant="outlined"
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          "@media (max-width: 600px)": {
-                            flexDirection: "row",
-                          },
-                        }}
-                      >
-                        <CardMedia
-                          component="img"
-                          image={item.image}
-                          alt="green iguana"
-                          height={160}
-                          width={160}
-                          sx={{
-                            objectFit: "contain",
-                            padding: 1,
-                            height: "160px !important",
-                            width: "160px !important",
-                            "@media (max-width: 600px)": {
-                              height: "120px !important",
-                              width: "120px !important",
-                            },
-                          }}
-                        />
-                        <CardContent>
-                          <Typography
-                            gutterBottom
+                <MuiLink
+                  variant="h6"
+                  underline="none"
+                  sx={{
+                    color: "text.primary",
+                    fontWeight: "500",
+                  }}
+                  component="a"
+                  href={"#" + category}
+                >
+                  {category}
+                </MuiLink>
+                <Chip
+                  disabled
+                  size="small"
+                  label={
+                    Object.keys(gear).filter(
+                      key => gear[key].category === category
+                    ).length > 1
+                      ? `${
+                          Object.keys(gear).filter(
+                            key => gear[key].category === category
+                          ).length
+                        } items`
+                      : `${
+                          Object.keys(gear).filter(
+                            key => gear[key].category === category
+                          ).length
+                        } item`
+                  }
+                />
+              </AccordionSummary>
+              <AccordionDetails>
+                <Grid container spacing={2}>
+                  {Object.keys(gear).map(key => {
+                    const item = gear[key]
+                    if (item.category === category) {
+                      return (
+                        <Grid item xs={12} sm={6} md={4} key={key}>
+                          <Card
+                            variant="outlined"
                             sx={{
-                              fontWeight: "700",
-                              lineHeight: "22px",
-                              fontSize: "18px !important",
-                              letterSpacing: "0",
-                              color: "text.primary",
-                              transition: "color 0.2s ease-in-out",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
                               "@media (max-width: 600px)": {
-                                fontSize: "16px !important",
+                                flexDirection: "row",
                               },
                             }}
                           >
-                            {key}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {item.desc}
-                          </Typography>
-                          <Box sx={{ textAlign: "center", mt: 2 }}>
-                            <Typography variant="caption" color="text.disabled">
-                              Buy it on
-                            </Typography>
-                          </Box>
-                          <CardActions
-                            sx={{
-                              p: 0,
-                              justifyContent: "center",
-                              flexWrap: "wrap",
-                              rowGap: "6px",
-                            }}
-                          >
-                            {Object.keys(item.stores).map(key => {
-                              const store = item.stores[key]
-                              return (
-                                <Button
-                                  key={key}
-                                  variant="outlined"
-                                  sx={{
-                                    height: "28px",
-                                    borderColor: "divider",
-                                  }}
-                                  href={store.affiliateLink}
-                                  target="_blank"
+                            <CardMedia
+                              component="img"
+                              image={item.image}
+                              alt="green iguana"
+                              height={160}
+                              width={160}
+                              sx={{
+                                objectFit: "contain",
+                                padding: 1,
+                                height: "160px !important",
+                                width: "160px !important",
+                                "@media (max-width: 600px)": {
+                                  height: "120px !important",
+                                  width: "120px !important",
+                                },
+                              }}
+                            />
+                            <CardContent>
+                              <Typography
+                                gutterBottom
+                                sx={{
+                                  fontWeight: "700",
+                                  lineHeight: "22px",
+                                  fontSize: "18px !important",
+                                  letterSpacing: "0",
+                                  color: "text.primary",
+                                  transition: "color 0.2s ease-in-out",
+                                  "@media (max-width: 600px)": {
+                                    fontSize: "16px !important",
+                                  },
+                                }}
+                              >
+                                {key}
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                color="text.secondary"
+                              >
+                                {item.desc}
+                              </Typography>
+                              <Box sx={{ textAlign: "center", mt: 2 }}>
+                                <Typography
+                                  variant="caption"
+                                  color="text.disabled"
                                 >
-                                  <img
-                                    src={store.icon}
-                                    alt={key}
-                                    style={{
-                                      objectFit: "contain",
-                                      backgroundPosition: "center center",
-                                      backgroundSize: "contain",
-                                      backgroundRepeat: "no-repeat",
-                                      height: "100%",
-                                    }}
-                                  />
-                                </Button>
-                              )
-                            })}
-                          </CardActions>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  )
-                }
-              })}
-            </Grid>
-          </>
-        ))}
+                                  Buy it on
+                                </Typography>
+                              </Box>
+                              <CardActions
+                                sx={{
+                                  p: 0,
+                                  justifyContent: "center",
+                                  flexWrap: "wrap",
+                                  rowGap: "6px",
+                                }}
+                              >
+                                {Object.keys(item.stores).map(key => {
+                                  const store = item.stores[key]
+                                  return (
+                                    <Button
+                                      key={key}
+                                      variant="outlined"
+                                      fullWidth
+                                      sx={{
+                                        height: "28px",
+                                        borderColor: "divider",
+                                      }}
+                                      href={store.affiliateLink}
+                                      target="_blank"
+                                    >
+                                      <img
+                                        src={store.icon}
+                                        alt={key}
+                                        style={{
+                                          objectFit: "contain",
+                                          backgroundPosition: "center center",
+                                          backgroundSize: "contain",
+                                          backgroundRepeat: "no-repeat",
+                                          height: "100%",
+                                        }}
+                                      />
+                                    </Button>
+                                  )
+                                })}
+                              </CardActions>
+                            </CardContent>
+                          </Card>
+                        </Grid>
+                      )
+                    }
+                  })}
+                </Grid>
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </Box>
       </Container>
     </Layout>
   )
